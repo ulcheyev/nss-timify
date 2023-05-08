@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "/api/statistic")
+@RequestMapping(path = "api/v1/statistics")
 public class StatisticController {
     private final StatisticService statisticService;
     @GetMapping("/{id}")
