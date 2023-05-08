@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dd2fa7-9237-48c0-94e3-477f3436e578" name="Changes" comment="Successful integration user and task microservices.">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/JwtAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +92,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserMicroserviceApplication">
+  <component name="RunManager" selected="Spring Boot.TaskMicroserviceApplication">
     <configuration name="TaskMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="task-microservice" />
       <extension name="coverage">
@@ -139,7 +132,7 @@
       <workItem from="1683406474826" duration="1417000" />
       <workItem from="1683449923230" duration="15590000" />
       <workItem from="1683471214776" duration="8361000" />
-      <workItem from="1683538004482" duration="1365000" />
+      <workItem from="1683538004482" duration="2906000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>

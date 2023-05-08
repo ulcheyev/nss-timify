@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "api/project")
+@RequestMapping(path = "/api/project")
 public class ProjectController {
     private final ProjectService projectService;
     @GetMapping("/{id}")
