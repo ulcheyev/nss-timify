@@ -8,6 +8,7 @@ import com.kyki.usermicroservice.security.JwtUtils;
 import com.kyki.usermicroservice.utils.SecurityUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -34,12 +35,14 @@ public class AuthServiceImpl implements AuthService{
         if (!passwordEncoder.matches(request.getPassword(), userDetails.getPassword())) {
             throw new ValidationException("Invalid password or username");
         }
+        log.info("AuthService-authenticate: match pass");
 
         Authentication authentication = authenticationManager
                 .authenticate(SecurityUtils.generateUserPassToken(request, userDetails));
 
         SecurityUtils.setCurrentUser(authentication);
         var jwtToken = jwtUtils.generateToken(userDetails);
+        log.info("AuthService-authenticate: token generated");
 
         userDetails.erasePass();
 

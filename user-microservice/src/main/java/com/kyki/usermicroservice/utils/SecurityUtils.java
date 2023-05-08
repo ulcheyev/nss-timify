@@ -18,7 +18,7 @@ public class SecurityUtils {
     }
 
     public static UsernamePasswordAuthenticationToken generateUserPassToken(AuthRequest request, UserDetails userDetails) {
-        UsernamePasswordAuthenticationToken authenticationToken = null;
+        UsernamePasswordAuthenticationToken authenticationToken;
         authenticationToken = new UsernamePasswordAuthenticationToken(
                 request.getUsername(), request.getPassword());
         authenticationToken.setDetails(userDetails);

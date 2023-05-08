@@ -31,5 +31,29 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="user-microservice/Hibernate" uuid="453d643a-c9d3-453d-b6f9-323fb0989f8d">
+      <database-info product="PostgreSQL" version="14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="14.7" exact-driver-version="42.5">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>gulineka</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="notification-microsevice/Hibernate" uuid="04198e13-d963-4a3a-ae20-266029f51339">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>heraskyr</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="task-microservice/Hibernate" uuid="3ea61e07-18cd-480b-9428-38d164e0ce23">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="POSTGRES" exact-version="0" />
+      <user-name>heraskyr</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

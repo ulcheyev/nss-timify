@@ -10,9 +10,11 @@ import com.kyki.usermicroservice.model.AppUser;
 import com.kyki.usermicroservice.repository.AppUserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,8 +30,10 @@ public class AppUserServiceImpl implements AppUserService{
 
     private final AppUserRepository appUserRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Override
-    public AppUser findById(@NonNull Long appUserId) {
+     public AppUser findById(@NonNull Long appUserId) {
         log.info("AppUserService-findById: " + appUserId);
         return appUserRepository
                 .findById(appUserId)
@@ -73,7 +77,10 @@ public class AppUserServiceImpl implements AppUserService{
         if(appUserByEmail.isPresent()) {
             throw new ValidationException("User with email " + request.getEmail() + " already exists.");
         }
-        appUserRepository.save(Mapper.toAppUser(request));
+
+        AppUser entity = Mapper.toAppUser(request);
+        entity.setPassword(passwordEncoder.encode(request.getPassword()));
+        appUserRepository.save(entity);
     }
 
     @Transactional

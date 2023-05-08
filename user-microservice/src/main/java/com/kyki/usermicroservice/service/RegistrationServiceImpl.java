@@ -6,6 +6,7 @@ import com.kyki.usermicroservice.dto.RegistrationRequest;
 import com.kyki.usermicroservice.security.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class RegistrationServiceImpl implements RegistrationService{
 
     private final AppUserService service;
+
     private final JwtUtils jwtUtils;
 
     public AuthResponse register(@RequestBody @NonNull RegistrationRequest request) {

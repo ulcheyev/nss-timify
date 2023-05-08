@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dd2fa7-9237-48c0-94e3-477f3436e578" name="Changes" comment="Successful integration user and task microservices.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/JwtAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/JwtAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,18 +76,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-microservice/src/main" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\user-microservice\src\main" />
+      <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\notification-microsevice\src\main" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.kyki.taskmicroservice.service" />
       <recent name="com.kyki.taskmicroservice.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskMicroserviceApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.UserMicroserviceApplication">
     <configuration name="TaskMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="task-microservice" />
       <extension name="coverage">
@@ -115,7 +138,8 @@
       <workItem from="1683406404931" duration="53000" />
       <workItem from="1683406474826" duration="1417000" />
       <workItem from="1683449923230" duration="15590000" />
-      <workItem from="1683471214776" duration="792000" />
+      <workItem from="1683471214776" duration="8361000" />
+      <workItem from="1683538004482" duration="1365000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -179,5 +203,16 @@
     <MESSAGE value="Exception payload added." />
     <MESSAGE value="Successful integration user and task microservices." />
     <option name="LAST_COMMIT_MESSAGE" value="Successful integration user and task microservices." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
