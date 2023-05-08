@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/ProjectRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ExternService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ExternService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/StatisticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/StatisticServiceImpl.java" afterDir="false" />
@@ -105,6 +106,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -164,6 +166,7 @@
       <workItem from="1683449923230" duration="15590000" />
       <workItem from="1683471214776" duration="8361000" />
       <workItem from="1683538004482" duration="7882000" />
+      <workItem from="1683546756180" duration="2059000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>

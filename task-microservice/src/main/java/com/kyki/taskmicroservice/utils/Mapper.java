@@ -34,7 +34,9 @@ public class Mapper {
 
         for(var cat: task.getCategories())
         {
-            categoryDtoList.add(new CategoryDto(cat.getCategoryId()));
+            CategoryDto e = new CategoryDto();
+            e.setId(cat.getCategoryId());
+            categoryDtoList.add(e);
         }
 
         return TaskDto
@@ -59,6 +61,7 @@ public class Mapper {
 
         return ProjectDto
                 .builder()
+                .id(project.getId())
                 .name(project.getName())
                 .description(project.getDescription())
                 .taskDtos(taskDtoList)

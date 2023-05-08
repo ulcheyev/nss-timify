@@ -12,7 +12,7 @@ public class ExternService {
 
     public  Boolean isUser(Long userId) {
         return restTemplate.getForObject(
-                "http://localhost:8080/api/system/users/isUser?userId={userId}",
+                "https://user-microservice-386100.uc.r.appspot.com/api/system/v1/users/isUser?userId={userId}",
                 Boolean.class,
                 userId
         );
@@ -20,15 +20,14 @@ public class ExternService {
 
     public  Boolean isAdmin(Long userId) {
         return restTemplate.getForObject(
-                "http://localhost:8080/api/system/users/isAdmin?userId={userId}",
+                "https://user-microservice-386100.uc.r.appspot.com/api/system/v1/users/isAdmin?userId={userId}",
                 Boolean.class,
                 userId
         );
     }
-
     public  Boolean isExists(Long userId) {
         return restTemplate.getForObject(
-                "http://localhost:8080/api/system/users/isExists?userId={userId}",
+                "https://user-microservice-386100.uc.r.appspot.com/api/system/v1/users/isExists?userId={userId}",
                 Boolean.class,
                 userId
         );

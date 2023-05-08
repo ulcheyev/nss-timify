@@ -22,14 +22,14 @@ public class TaskController
     private final ProjectService projectService;
     private final CategoryService categoryService;
 
-    @GetMapping("/{id}")
-    public Task getTask(@PathVariable Long id)
+    @GetMapping(value="/{id}")
+    public ResponseEntity<Task> getTask(@PathVariable("id") Long id)
     {
-        return taskService.findById(id);
+        return ResponseEntity.ok().body(taskService.findById(id));
     }
 
     @GetMapping
-    public List<TaskDto> getTask()
+    public List<TaskDto> getTasks()
     {
         return taskService.findAll();
     }
