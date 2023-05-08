@@ -1,5 +1,6 @@
 package com.kyki.taskmicroservice.controller;
 
+import com.kyki.taskmicroservice.dto.ProjectDto;
 import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.service.ProjectService;
 import lombok.RequiredArgsConstructor;
@@ -21,9 +22,9 @@ public class ProjectController {
     }
 
     @GetMapping
-    public List<Project> getCategories()
+    public List<ProjectDto> getCategories()
     {
-        return projectService.findAll();
+        return projectService.findAllProjectDto();
     }
 
     @GetMapping("/name/{name}")

@@ -1,11 +1,9 @@
 package com.kyki.taskmicroservice.controller;
 
-import com.kyki.taskmicroservice.dto.CategoryDto;
-import com.kyki.taskmicroservice.dto.TaskCreationRequest;
+import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Task;
 import com.kyki.taskmicroservice.service.CategoryService;
 import com.kyki.taskmicroservice.service.ProjectService;
-import com.kyki.taskmicroservice.service.StatisticService;
 import com.kyki.taskmicroservice.service.TaskService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.OffsetDateTime;
 import java.util.List;
 
 @RestController
@@ -32,13 +29,13 @@ public class TaskController
     }
 
     @GetMapping
-    public List<Task> getTask()
+    public List<TaskDto> getTask()
     {
         return taskService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<String> createTask(@RequestBody @NonNull TaskCreationRequest taskCreationRequest)
+    public ResponseEntity<String> createTask(@RequestBody @NonNull TaskDto taskCreationRequest)
     {
         taskService.save(taskCreationRequest);
         return new ResponseEntity<>("Task is created successfully", HttpStatus.CREATED);

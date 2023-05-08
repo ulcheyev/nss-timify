@@ -4,11 +4,9 @@ package com.kyki.notificationmicrosevice.controller;
 import com.kyki.notificationmicrosevice.dto.NotificationRequest;
 import com.kyki.notificationmicrosevice.model.Notification;
 import com.kyki.notificationmicrosevice.service.EmailNotificationService;
-import com.kyki.notificationmicrosevice.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

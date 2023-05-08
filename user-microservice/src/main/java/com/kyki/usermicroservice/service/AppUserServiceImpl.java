@@ -1,16 +1,15 @@
 package com.kyki.usermicroservice.service;
 
-import com.kyki.usermicroservice.model.Role;
-import com.kyki.usermicroservice.security.CustomUserDetails;
-import com.kyki.usermicroservice.utils.Mapper;
 import com.kyki.usermicroservice.dto.RegistrationRequest;
 import com.kyki.usermicroservice.exception.NotFoundException;
 import com.kyki.usermicroservice.exception.ValidationException;
 import com.kyki.usermicroservice.model.AppUser;
+import com.kyki.usermicroservice.model.Role;
 import com.kyki.usermicroservice.repository.AppUserRepository;
+import com.kyki.usermicroservice.security.CustomUserDetails;
+import com.kyki.usermicroservice.utils.Mapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

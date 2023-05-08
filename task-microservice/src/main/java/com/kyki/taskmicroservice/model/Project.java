@@ -1,5 +1,6 @@
 package com.kyki.taskmicroservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +18,11 @@ public class Project {
     @GeneratedValue
             (strategy = GenerationType.SEQUENCE)
     private Long id;
-    @OneToMany(mappedBy = "project")
+
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Task> tasks;
+
     @Column(name = "name", nullable = false)
     private String name;
 

@@ -1,7 +1,6 @@
 package com.kyki.notificationmicrosevice.dto;
 
 
-import jakarta.persistence.NamedStoredProcedureQueries;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

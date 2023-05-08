@@ -2,8 +2,6 @@ package com.kyki.usermicroservice.controller;
 
 import com.kyki.usermicroservice.dto.AuthResponse;
 import com.kyki.usermicroservice.dto.RegistrationRequest;
-import com.kyki.usermicroservice.service.AppUserService;
-import com.kyki.usermicroservice.service.AuthService;
 import com.kyki.usermicroservice.service.RegistrationService;
 import com.kyki.usermicroservice.utils.TimifyUtils;
 import lombok.RequiredArgsConstructor;

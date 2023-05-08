@@ -1,6 +1,5 @@
 package com.kyki.taskmicroservice.service;
 
-import com.kyki.taskmicroservice.controller.CategoryController;
 import com.kyki.taskmicroservice.dto.CategoryCreateRequest;
 import com.kyki.taskmicroservice.model.Category;
 import jakarta.transaction.Transactional;

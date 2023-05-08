@@ -1,16 +1,12 @@
 package com.kyki.usermicroservice.service;
 
-import com.kyki.usermicroservice.dto.AuthRequest;
 import com.kyki.usermicroservice.dto.AuthResponse;
 import com.kyki.usermicroservice.dto.RegistrationRequest;
 import com.kyki.usermicroservice.security.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.lang.NonNull;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 

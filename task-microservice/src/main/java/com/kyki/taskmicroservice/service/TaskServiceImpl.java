@@ -1,7 +1,7 @@
 package com.kyki.taskmicroservice.service;
 
 import com.kyki.taskmicroservice.dto.CategoryDto;
-import com.kyki.taskmicroservice.dto.TaskCreationRequest;
+import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
 import com.kyki.taskmicroservice.model.Category;
@@ -14,7 +14,6 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +29,13 @@ public class TaskServiceImpl implements TaskService{
     private final ExternService externService;
 
     @Override
-    public List<Task> findAll() {
-        return taskRepository.findAll();
+    public List<TaskDto> findAll() {
+        List<Task> all = taskRepository.findAll();
+        List<TaskDto> taskDtos = new ArrayList<>();
+        for(Task task: all) {
+            taskDtos.add(Mapper.toTaskDto(task));
+        }
+        return taskDtos;
     }
 
 
@@ -47,7 +51,17 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public Task save(@NonNull TaskCreationRequest task) {
+    public TaskDto findTaskDtoById(@NonNull Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task with id " + id + "does not exist."));
+        Long userId = task.getUserId();
+        if(!externService.isExists(userId)) {
+            throw new NotFoundException("User with id " + userId +" does not exists");
+        }
+        return Mapper.toTaskDto(task);
+    }
+
+    @Override
+    public Task save(@NonNull TaskDto task) {
         log.info("TaskService-save: " + task);
         projectService.findById(task.getProjectId());
         List<Category> categories = new ArrayList<>();

@@ -5,11 +5,8 @@ import com.kyki.taskmicroservice.model.Category;
 import com.kyki.taskmicroservice.service.CategoryService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
-import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

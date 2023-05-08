@@ -1,12 +1,14 @@
 package com.kyki.taskmicroservice.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class TaskCreationRequest {
-
+@Builder
+public class TaskDto {
+    private Long id;
     private String name;
     private String description;
     private Long userId;

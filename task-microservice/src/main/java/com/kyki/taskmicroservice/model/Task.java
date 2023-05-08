@@ -1,11 +1,13 @@
 package com.kyki.taskmicroservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.OffsetDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -18,26 +20,41 @@ public class Task
     @Id
     @GeneratedValue
             (strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long taskId;
+
     @Column
     private String description;
+
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false)
     private OffsetDateTime startTime = OffsetDateTime.now();
+
     @OneToMany
     private List<Task> subtasks;
+
     @ManyToOne
     private Project project;
+
+    @JsonIgnore
     @ManyToMany
+    @JoinTable(
+            name = "tasks_categories",
+            joinColumns =
+            @JoinColumn(name = "taskId"),
+            inverseJoinColumns =
+            @JoinColumn(name = "categoryId")
+    )
     private List<Category> categories;
+
+
     @Column(nullable = false)
     private Long userId;
     @Enumerated(EnumType.STRING)
     private Status status = Status.ACTIVE;
 
-    public void addSubtask(Task subtask)
-    {
+    public void addSubtask(Task subtask) {
         subtasks.add(subtask);
     }
 
