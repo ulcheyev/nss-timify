@@ -5,43 +5,126 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49dd2fa7-9237-48c0-94e3-477f3436e578" name="Changes" comment="Successful integration user and task microservices.">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35621261-395e-423f-beb2-accc46814c78.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35621261-395e-423f-beb2-accc46814c78.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/453d643a-c9d3-453d-b6f9-323fb0989f8d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/453d643a-c9d3-453d-b6f9-323fb0989f8d/storage_v2/_src_/database/gulineka.uLIYtw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/453d643a-c9d3-453d-b6f9-323fb0989f8d/storage_v2/_src_/database/gulineka.uLIYtw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/453d643a-c9d3-453d-b6f9-323fb0989f8d/storage_v2/_src_/database/gulineka.uLIYtw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/453d643a-c9d3-453d-b6f9-323fb0989f8d/storage_v2/_src_/database/gulineka.uLIYtw/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/453d643a-c9d3-453d-b6f9-323fb0989f8d/storage_v2/_src_/database/gulineka.uLIYtw/schema/public.abK9xQ.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8a9ad2d7-7358-4c10-94f2-ff2cbf5901e3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8a9ad2d7-7358-4c10-94f2-ff2cbf5901e3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8a9ad2d7-7358-4c10-94f2-ff2cbf5901e3/storage_v2/_src_/database/heraskyr.XeFk2g/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8a9ad2d7-7358-4c10-94f2-ff2cbf5901e3/storage_v2/_src_/database/heraskyr.XeFk2g/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/controller/NotificationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/controller/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/dto/NotificationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/dto/NotificationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/model/EmailNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/model/EmailNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/CategoryDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/CategoryDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/TaskCreationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/TaskDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/ProjectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ExternService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ExternService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/StatisticServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/StatisticServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/utils/Mapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task-microservice/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AppUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/AuthResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/AuthResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/RegistrationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/exception/APIExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/exception/APIExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/appengine/app.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/NotificationMicroserviceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/controller/EmailNotificationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/dto/NotificationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/exception/ArgumentException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/exception/NullException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/exception/UpdateCollision.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/model/EmailNotification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/model/Notification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/notificationmethod/EmailSend.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/repository/NotificationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/service/EmailNotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/java/com/kyki/notificationmicrosevice/service/NotificationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microsevice/src/test/java/com/kyki/notificationmicrosevice/NotificationMicroseviceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/appengine/app.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/TaskMicroserviceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/CategoryCreateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/CategoryDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/ProjectDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/TaskDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/exception/ArgumentException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/exception/NullException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/exception/UpdateCollision.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Statistic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Status.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/CategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/ProjectRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/StatisticRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/CategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/CategoryServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ExternService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/ProjectServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/StatisticService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/StatisticServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/java/com/kyki/taskmicroservice/utils/Mapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-microservice/src/test/java/com/kyki/taskmicroservice/TaskMicroserviceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/appengine/app.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/UserMicroserviceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AppUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/controller/RegistrationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/AppUserUpdateRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/AuthRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/AuthResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/dto/RegistrationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/exception/APIExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/exception/NotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/exception/StandardExceptionPayload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/exception/ValidationException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/model/AppUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/model/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/repository/AppUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/JwtAuthFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/security/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/RegistrationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/Mapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/utils/TimifyUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/src/test/java/com/kyki/usermicroservice/UserMicroserviceApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,23 +139,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
-      </map>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -92,26 +164,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user-microservice/src/main" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature/task-user-integration-v2",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "8a71f0c441273439116e44bc767b5e7d",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\user-microservice\src\main" />
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\notification-microsevice\src\main" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\frontend" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.kyki.taskmicroservice.service" />
@@ -125,16 +206,23 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TaskMicroserviceApplication">
+  <component name="RunManager" selected="Spring Boot.UserMicroserviceApplication">
+    <configuration name="NotificationMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="notification-microsevice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kyki.notificationmicrosevice.NotificationMicroserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TaskMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="task-microservice" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kyki.taskmicroservice.TaskMicroserviceApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.kyki.taskmicroservice.*" />
-          <option name="ENABLED" value="true" />
+          <option name="ENABLED" value="false" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kyki.taskmicroservice.TaskMicroserviceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,7 +254,18 @@
       <workItem from="1683449923230" duration="15590000" />
       <workItem from="1683471214776" duration="8361000" />
       <workItem from="1683538004482" duration="7882000" />
-      <workItem from="1683546756180" duration="2059000" />
+      <workItem from="1683546756180" duration="3471000" />
+      <workItem from="1683622548223" duration="557000" />
+      <workItem from="1683623258185" duration="32000" />
+      <workItem from="1683623311251" duration="44000" />
+      <workItem from="1683623370360" duration="304000" />
+      <workItem from="1683623862603" duration="263000" />
+      <workItem from="1683663565924" duration="1606000" />
+      <workItem from="1683766801942" duration="407000" />
+      <workItem from="1683834109174" duration="3504000" />
+      <workItem from="1683839220899" duration="1722000" />
+      <workItem from="1683875707082" duration="2262000" />
+      <workItem from="1683880144249" duration="2924000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -236,7 +335,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java</url>
-          <line>38</line>
+          <line>37</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

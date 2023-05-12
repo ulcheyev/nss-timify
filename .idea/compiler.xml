@@ -12,11 +12,6 @@
         <module name="notification-microsevice" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="notification-microsevice" target="17" />
-      <module name="task-microservice" target="17" />
-      <module name="user-microservice" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
