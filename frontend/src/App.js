@@ -1,37 +1,23 @@
-import React, {useState, useEffect} from "react";
 import logo from './logo.svg';
 import './App.css';
-import axios from "axios"
-
-
-const UserProfiles = () => {
-
-    const [userProfiles, setUserProfiles] = useState([])
-    const fetchUserProfiles = ()=> {
-    axios.get("http://localhost:8080/api/v1/system/users").then(
-        res => {
-          console.log(res);
-          setUserProfiles(res.data)
-        })
-    };
-    useEffect( () => {
-      fetchUserProfiles();
-    }, []);
-
-    return userProfiles.map((userProfile, index) => {
-        return (
-            <div key={index}>
-                <h1>{userProfile.username}</h1>
-                <p>{userProfile.id}</p>
-            </div>
-        )
-    });
-  };
 
 function App() {
   return (
     <div className="App">
-      <UserProfiles />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Project Portfolio Website
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
