@@ -7,7 +7,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Project Portfolio Website
+        В кабинете врача-стоматолога: - Любит - не любит, любит - не любит…
+      - Доктор, оставьте в покое мои зубы!
         </p>
         <a
           className="App-link"
