@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd task-microservice/
+mvn clean install
+
+cd user-microservice/
+mvn clean install
+
+cd notification-microservice/
+mvn clean install
+
+cd discovery-server/
+mvn clean install
+
+cd api-gateway/
+mvn clean install
+
