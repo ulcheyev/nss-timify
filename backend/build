@@ -1,17 +1,19 @@
 #!/bin/bash
 
-cd task-microservice/
+cd backend/task-microservice
 mvn clean install
 
-cd user-microservice/
+cd backend/user-microservice
 mvn clean install
 
-cd notification-microservice/
+cd backend/notification-microservice
 mvn clean install
 
-cd discovery-server/
+cd backend/discovery-server
 mvn clean install
 
-cd api-gateway/
+cd backend/api-gateway
 mvn clean install
+
+docker compose up --force-recreate --build -d
 
