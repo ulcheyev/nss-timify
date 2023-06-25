@@ -1,6 +1,6 @@
 import {useRef, useState, useEffect, Component} from "react";
 import axios from 'axios';
-import {UserService} from '../services/user.service'
+import UserService from '../services/user.service'
 import {User} from "../models/user";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
