@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Slf4j
-@RequestMapping(path = "api/v1/login")
+@RequestMapping(path = "api/v1/system/login")
 @RequiredArgsConstructor
 public class AuthController {
 

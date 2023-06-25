@@ -8,6 +8,7 @@ import com.kyki.taskmicroservice.model.Category;
 import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Task;
 import com.kyki.taskmicroservice.repository.TaskRepository;
+import com.kyki.taskmicroservice.utils.JwtUtils;
 import com.kyki.taskmicroservice.utils.Mapper;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
@@ -38,13 +39,25 @@ public class TaskServiceImpl implements TaskService{
         return taskDtos;
     }
 
+    @Override
+    public List<TaskDto> findAllByUsername(String token) {
+        String usernameFromToken = JwtUtils.getUsernameFromToken(token);
+        System.out.println(usernameFromToken);
+        List<Task> all = taskRepository.findTaskByOwner(usernameFromToken);
+        List<TaskDto> taskDtos = new ArrayList<>();
+        for(Task task: all) {
+            taskDtos.add(Mapper.toTaskDto(task));
+        }
+        return taskDtos;
+    }
+
 
     @Override
     public Task findById(@NonNull Long id) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task with id " + id + " does not exist."));
-        Long userId = task.getUserId();
-        if(!externService.isExists(userId)) {
-           throw new NotFoundException("User with id " + userId +" does not exists");
+        String user = task.getOwner();
+        if(!externService.isExists(user)) {
+           throw new NotFoundException("User with name " + user +" does not exists");
         }
         return task;
 
@@ -53,9 +66,9 @@ public class TaskServiceImpl implements TaskService{
     @Override
     public TaskDto findTaskDtoById(@NonNull Long id) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task with id " + id + " does not exist."));
-        Long userId = task.getUserId();
-        if(!externService.isExists(userId)) {
-            throw new NotFoundException("User with id " + userId +" does not exists");
+        String user = task.getOwner();
+        if(!externService.isExists(user)) {
+            throw new NotFoundException("User with name " + user +" does not exists");
         }
         return Mapper.toTaskDto(task);
     }
@@ -69,9 +82,9 @@ public class TaskServiceImpl implements TaskService{
             Category byId = categoryService.findById(cat.getId());
             categories.add(byId);
         }
-        Long userId = task.getUserId();
-        if(!externService.isExists(userId)) {
-            throw new NotFoundException("User with id " + userId + " does not exist.");
+        String user = task.getUser();
+        if(!externService.isExists(user)) {
+            throw new NotFoundException("User with name " + user +" does not exists");
         }
         Task task1 = Mapper.toTask(task, projectService.findById(task.getProjectId()), categories);
         return taskRepository.save(task1);

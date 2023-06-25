@@ -12,7 +12,7 @@ public class TaskDto {
     private Long id;
     private String name;
     private String description;
-    private Long userId;
+    private String user;
     private Long projectId;
     private List<CategoryDto> categoryDtoList;
 

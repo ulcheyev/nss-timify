@@ -29,21 +29,16 @@ public class AppUserController {
         return ResponseEntity.ok().body(all);
     }
 
-    @GetMapping(value = "/{userId}")
-//    @PreAuthorize("hasAnyRole('USER')")
-    public ResponseEntity<AppUser> findById(@NonNull @PathVariable("userId") Long userId) {
-        log.info("AppUserController-findById: {}" , userId);
-        AppUser byId = appUserService.findById(userId);
-        return ResponseEntity.ok().body(byId);
-    }
 
-    @GetMapping(value = "/{userName}")
+    @GetMapping(value = "/filter")
 //    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<AppUser> findByUsername(@NonNull @RequestParam(value="userName")  String userName) {
         log.info("AppUserController-findByUsername: " + userName);
         AppUser byUsername = appUserService.findByUsername(userName);
         return ResponseEntity.ok().body(byUsername);
     }
+
+
 
     @DeleteMapping(value = "/{userId}")
 //    @PreAuthorize("hasAnyRole('ADMIN')")
@@ -63,19 +58,19 @@ public class AppUserController {
     }
 
     @GetMapping(value = "/is-user")
-    public Boolean isUser(@NonNull @RequestParam(value="userId") Long userId) {
-        return appUserService.isUser(userId);
+    public Boolean isUser(@NonNull @RequestParam(value="userName") String name) {
+        return appUserService.isUser(appUserService.findByUsername(name).getId());
     }
 
     @GetMapping(value = "/is-admin")
-    public Boolean isAdmin(@NonNull @RequestParam(value="userId") Long userId) {
-        return appUserService.isAdmin(userId);
+    public Boolean isAdmin(@NonNull @RequestParam(value="userName") String name) {
+        return appUserService.isAdmin(appUserService.findByUsername(name).getId());
 
     }
 
     @GetMapping(value = "/is-exists")
-    public Boolean isExists(@NonNull @RequestParam(value="userId") Long userId) {
-        return appUserService.isExists(userId);
+    public Boolean isExists(@NonNull @RequestParam(value="userName") String name) {
+        return appUserService.isExists(appUserService.findByUsername(name).getId());
     }
 
 

@@ -33,4 +33,12 @@ public class AppUserAPI {
         );
     }
 
+    public Boolean isExists(String name) {
+        return restTemplate.getForObject(
+                "http://user-service/api/v1/system/users/is-exists?userName={name}",
+                Boolean.class,
+                name
+        );
+    }
+
 }

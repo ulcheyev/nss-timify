@@ -18,7 +18,7 @@ public class Mapper {
         return Task
                 .builder()
                 .name(task.getName())
-                .userId(task.getUserId())
+                .owner(task.getUser())
                 .project(proj)
                 .description(task.getDescription())
                 .categories(categories)
@@ -43,7 +43,7 @@ public class Mapper {
                 .builder()
                 .id(task.getTaskId())
                 .name(task.getName())
-                .userId(task.getUserId())
+                .user(task.getOwner())
                 .projectId(task.getProject().getId())
                 .description(task.getDescription())
                 .categoryDtoList(categoryDtoList)

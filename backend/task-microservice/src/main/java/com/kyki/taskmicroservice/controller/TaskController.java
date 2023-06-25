@@ -9,6 +9,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreFilter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
 @RequestMapping(path = "api/v1/core/tasks")
 public class TaskController
 {
+
     private final TaskService taskService;
 
     @GetMapping(value="/{id}")
@@ -26,10 +28,16 @@ public class TaskController
         return ResponseEntity.ok().body(taskService.findById(id));
     }
 
-    @GetMapping
-    public List<TaskDto> getTasks()
+    @GetMapping("/all")
+    public List<TaskDto> getTasksAll()
     {
         return taskService.findAll();
+    }
+
+    @GetMapping
+    public List<TaskDto> getTasks(@RequestHeader("Authorization") String token)
+    {
+        return taskService.findAllByUsername(token);
     }
 
     @PostMapping

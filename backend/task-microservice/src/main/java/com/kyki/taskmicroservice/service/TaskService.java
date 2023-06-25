@@ -1,17 +1,17 @@
 package com.kyki.taskmicroservice.service;
-
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Task;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
 public interface TaskService
 {
     List<TaskDto> findAll();
+
+    public List<TaskDto> findAllByUsername(@NonNull String username);
 
     TaskDto findTaskDtoById(@NonNull Long id);
 

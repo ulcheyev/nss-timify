@@ -50,7 +50,7 @@ public class Task
 
 
     @Column(nullable = false)
-    private Long userId;
+    private String owner;
     @Enumerated(EnumType.STRING)
     private Status status = Status.ACTIVE;
 
