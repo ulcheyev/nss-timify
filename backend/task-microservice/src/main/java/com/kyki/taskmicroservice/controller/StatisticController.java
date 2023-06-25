@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "api/v1/core/statistics")
+@CrossOrigin("*")
 public class StatisticController {
     private final StatisticService statisticService;
     @GetMapping("/{id}")

@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "api/v1/core/projects")
+@CrossOrigin("*")
 public class ProjectController {
     private final ProjectService projectService;
     @GetMapping("/{id}")
