@@ -8,7 +8,7 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const response = await fetch('http://34.125.160.101:8080/api/v1/system/users');
+    const response = await fetch('http://localhost:8080/api/v1/system/users');
     const body = await response.json();
     this.setState({clients: body});
   }
