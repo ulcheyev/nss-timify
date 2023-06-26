@@ -32,7 +32,7 @@ public class UserMicroserviceApplication {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000", "http://localhost:8080",
                                 "http://34.125.160.101:3000", "http://34.125.160.101:8080")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             };
