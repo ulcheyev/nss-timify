@@ -12,22 +12,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @Slf4j
 @RequestMapping(path = "api/v1/system/login")
 @RequiredArgsConstructor
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class AuthController {
 
     private final AuthService authenticationService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AuthResponse> authenticate(@RequestBody @NonNull AuthRequest request) {
-        final HttpHeaders headers = TimifyUtils.createLocationHeaderFromCurrentUri("/api/home");
         log.info("AuthController-authenticate: " + request);
-        return ResponseEntity.ok().headers(headers).body(authenticationService.authenticate(request));
+        return ResponseEntity.ok().body(authenticationService.authenticate(request));
     }
-
-
 }

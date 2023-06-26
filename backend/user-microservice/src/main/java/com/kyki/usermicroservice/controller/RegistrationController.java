@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "api/v1/system/register")
 @RequiredArgsConstructor
 @Slf4j
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
 public class RegistrationController
 {
     private final RegistrationService registrationService;
