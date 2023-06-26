@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequestMapping(path = "api/v1/system/login")
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080",
+        "http://34.125.160.101:3000", "http://34.125.160.101:8080"})
 public class AuthController {
 
     private final AuthService authenticationService;
