@@ -2,6 +2,7 @@ package com.kyki.usermicroservice.config;
 
 
 import com.kyki.usermicroservice.service.AppUserService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import java.util.List;
 
@@ -32,7 +36,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.
-                 cors().and()
+                 cors().configurationSource(
+                        request -> {
+                            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+                            CorsConfiguration config = new CorsConfiguration();
+                            config.addAllowedOrigin("http://localhost:3000");
+                            config.addAllowedOrigin("http://34.125.160.101:3000");
+                            config.setAllowCredentials(true);
+                            config.addAllowedMethod("*");
+                            config.addAllowedHeader("*");
+                            source.registerCorsConfiguration("/**", config);
+                            return config;
+                        }
+                ).and()
                  .csrf().disable()
                  .authorizeHttpRequests()
                  .anyRequest()
