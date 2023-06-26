@@ -17,7 +17,7 @@ import java.util.List;
 @Slf4j
 @RequestMapping("api/v1/system/users")
 @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:8080",
-                        "http://34.125.160.101:3000", "http://34.125.160.101:8080"})
+                        "http://34.125.160.101"})
 public class AppUserController {
 
     private final AppUserService appUserService;
