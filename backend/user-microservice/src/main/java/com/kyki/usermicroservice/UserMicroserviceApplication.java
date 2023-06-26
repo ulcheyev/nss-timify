@@ -30,8 +30,7 @@ public class UserMicroserviceApplication {
         return new WebMvcConfigurer() {
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "http://localhost:8080",
-                                "http://34.125.160.101:3000", "http://34.125.160.101:8080")
+                        .allowedOrigins("http://localhost:3000", "http://34.125.160.101:3000")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
@@ -44,10 +43,7 @@ public class UserMicroserviceApplication {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:3000");
-        config.addAllowedOrigin("http://localhost:8080");
         config.addAllowedOrigin("http://34.125.160.101:3000");
-        config.addAllowedOrigin("http://34.125.160.101:8080");
-
         config.setAllowCredentials(true);
         config.addAllowedMethod("*");
         config.addAllowedHeader("*");
