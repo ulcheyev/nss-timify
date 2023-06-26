@@ -35,24 +35,11 @@ public class SecurityConfig {
     private final AppUserService appUserService;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.
-                 cors().configurationSource(
-                        request -> {
-                            UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-                            CorsConfiguration config = new CorsConfiguration();
-                            config.addAllowedOrigin("http://localhost:3000");
-                            config.addAllowedOrigin("http://34.125.160.101:3000");
-                            config.setAllowCredentials(true);
-                            config.addAllowedMethod("*");
-                            config.addAllowedHeader("*");
-                            source.registerCorsConfiguration("/**", config);
-                            return config;
-                        }
-                ).and()
+        httpSecurity
                  .csrf().disable()
                  .authorizeHttpRequests()
                  .anyRequest()
-                 .permitAll();
+                 .permitAll().and().cors();
         return httpSecurity.build();
     }
 
