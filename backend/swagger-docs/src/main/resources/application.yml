@@ -1,0 +1,22 @@
+server:
+  port: 8085
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://slon.felk.cvut.cz:5432/gulineka
+    username: gulineka
+    password: gulineka_DBS212
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    urls:
+      - name: api-system
+        url: http://localhost:8081/v3/api-docs
+      - name: api-core
+        url: http://localhost:8089/v3/api-docs
+      - name: api-notifications
+        url: http://localhost:8082/v3/api-docs
