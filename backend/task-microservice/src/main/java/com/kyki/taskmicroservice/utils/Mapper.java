@@ -9,6 +9,7 @@ import com.kyki.taskmicroservice.model.Status;
 import com.kyki.taskmicroservice.model.Task;
 
 import java.time.OffsetDateTime;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class Mapper {
                 .subtasks(new ArrayList<>())
                 .startTime(OffsetDateTime.now())
                 .status(Status.ACTIVE)
+                .deadline(OffsetDateTime.parse(task.getDeadline()))
+                .timeSpent(Period.ZERO)
                 .build();
     }
 
@@ -47,6 +50,8 @@ public class Mapper {
                 .projectId(task.getProject().getId())
                 .description(task.getDescription())
                 .categoryDtoList(categoryDtoList)
+                .deadline(task.getDeadline().toString())
+                .timeSpent(task.getTimeSpent().toString())
                 .build();
     }
 

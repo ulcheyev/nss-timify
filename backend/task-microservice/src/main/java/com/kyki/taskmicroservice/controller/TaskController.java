@@ -48,6 +48,8 @@ public class TaskController
         return new ResponseEntity<>("Task is created successfully", HttpStatus.CREATED);
     }
 
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTask(Long id)
     {
@@ -81,6 +83,21 @@ public class TaskController
     {
         taskService.removeSubtask(taskId, categoryId);
         return new ResponseEntity<>("Category added successfully", HttpStatus.OK);
+    }
+
+    @PutMapping("/start-task")
+    public ResponseEntity<String> startTask(Long taskId)
+    {
+        taskService.startTask(taskId);
+        return new ResponseEntity<String>("Task started successfully", HttpStatus.OK);
+
+    }
+    @PutMapping("/stop-task")
+    public ResponseEntity<String> stopTask(Long taskId)
+    {
+        taskService.stopTask(taskId);
+        return new ResponseEntity<String>("Task stopped successfully", HttpStatus.OK);
+
     }
 }
 

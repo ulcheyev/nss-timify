@@ -6,7 +6,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.time.Period;
 import java.util.List;
 
 @Getter
@@ -15,8 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Task
-{
+public class Task {
     @Id
     @GeneratedValue
             (strategy = GenerationType.SEQUENCE)
@@ -30,6 +31,11 @@ public class Task
 
     @Column(nullable = false)
     private OffsetDateTime startTime = OffsetDateTime.now();
+
+    @Column
+    private OffsetDateTime deadline;
+    @Column
+    private Period timeSpent;
 
     @OneToMany
     private List<Task> subtasks;
@@ -53,6 +59,18 @@ public class Task
     private String owner;
     @Enumerated(EnumType.STRING)
     private Status status = Status.ACTIVE;
+
+    public void startTask() {
+        status = Status.ACTIVE;
+        startTime = OffsetDateTime.now();
+    }
+
+    public void stopTask()
+    {
+        status = Status.STOPPED;
+        timeSpent.plus(Period.between(startTime.toLocalDate(),OffsetDateTime.now().toLocalDate()));
+    }
+
 
     public void addSubtask(Task subtask) {
         subtasks.add(subtask);

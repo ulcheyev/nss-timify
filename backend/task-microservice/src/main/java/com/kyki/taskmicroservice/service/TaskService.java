@@ -29,6 +29,8 @@ public interface TaskService
 
     void removeCategory(@NonNull Long taskId, @NonNull Long categoryId);
 
+    void startTask(@NonNull Long taskId);
+    void stopTask(@NonNull Long taskId);
 
     @Transactional
     Task update(@NonNull Long id, String name, String description, Long projectId);
