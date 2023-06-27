@@ -125,11 +125,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.pepperize</groupId>
-            <artifactId>cdk-apigateway-swagger-ui</artifactId>
-            <version>0.0.621</version>
-        </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>

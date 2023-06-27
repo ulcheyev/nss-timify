@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="swagger aggregator :)">
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update docker compsoe">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/notification-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-microservice/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +103,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.swagger-docs: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="api-gateway" />
       <method v="2">
@@ -267,8 +270,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml.swagger-docs: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.swagger-docs: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.react-client: Compose Deployment" />
         <item itemvalue="Docker.frontend/Dockerfile" />
         <item itemvalue="Docker.backend.frontend: Compose Deployment" />
@@ -309,7 +312,7 @@
       <workItem from="1687856550793" duration="204000" />
       <workItem from="1687856784976" duration="3164000" />
       <workItem from="1687862180341" duration="3065000" />
-      <workItem from="1687865751052" duration="7398000" />
+      <workItem from="1687865751052" duration="9325000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -339,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687873184819</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update docker compsoe">
+      <created>1687873723144</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687873723144</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,7 +383,8 @@
     <MESSAGE value="Exception payload added." />
     <MESSAGE value="Successful integration user and task microservices." />
     <MESSAGE value="swagger aggregator :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="swagger aggregator :)" />
+    <MESSAGE value="update docker compsoe" />
+    <option name="LAST_COMMIT_MESSAGE" value="update docker compsoe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -50,6 +50,10 @@ services:
     image: dockerspringgcp-swagger-docs:0.0.1-SNAPSHOT
     ports:
       - 8085:8085
+    depends_on:
+      - task-service
+      - user-service
+      - notification-service
 
   react-client:
     build: frontend/
