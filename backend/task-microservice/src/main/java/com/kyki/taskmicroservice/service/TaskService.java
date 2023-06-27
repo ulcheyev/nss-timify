@@ -29,6 +29,7 @@ public interface TaskService
 
     void removeCategory(@NonNull Long taskId, @NonNull Long categoryId);
 
+
     @Transactional
     Task update(@NonNull Long id, String name, String description, Long projectId);
 }

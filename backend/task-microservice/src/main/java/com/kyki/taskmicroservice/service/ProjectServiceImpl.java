@@ -1,6 +1,7 @@
 package com.kyki.taskmicroservice.service;
 
 import com.kyki.taskmicroservice.dto.ProjectDto;
+import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
 import com.kyki.taskmicroservice.model.Project;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -36,6 +37,12 @@ public class ProjectServiceImpl implements ProjectService {
         }
         return projectDtos;
     }
+    @Override
+    public List<TaskDto> findTasksDTOByProjectId(@NonNull Long id)
+    {
+        return findById(id).getTasks().stream().map(task -> Mapper.toTaskDto(task)).collect(Collectors.toList());
+    }
+
 
     @Override
     public Project findById(@NonNull Long id) {
