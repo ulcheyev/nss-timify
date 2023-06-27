@@ -16,6 +16,8 @@ springdoc:
     urls:
       - name: api-system-cloud
         url: http://34.125.160.101:8081/v3/api-docs
+      - name: api-system-local
+        url: http://localhost:8081/v3/api-docs
       - name: api-core-cloud
         url: http://34.125.160.101:8089/v3/api-docs
       - name: api-notifications-cloud

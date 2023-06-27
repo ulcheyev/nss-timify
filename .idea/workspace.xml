@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update docker compose" />
+    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update prop">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/WebConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +101,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.SwaggerDocsApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="api-gateway" />
       <method v="2">
@@ -307,7 +310,7 @@
       <workItem from="1687856550793" duration="204000" />
       <workItem from="1687856784976" duration="3164000" />
       <workItem from="1687862180341" duration="3065000" />
-      <workItem from="1687865751052" duration="9703000" />
+      <workItem from="1687865751052" duration="10887000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -351,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687876189798</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update prop">
+      <created>1687876380045</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687876380045</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,7 +397,8 @@
     <MESSAGE value="swagger aggregator :)" />
     <MESSAGE value="update docker compsoe" />
     <MESSAGE value="update docker compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docker compose" />
+    <MESSAGE value="update prop" />
+    <option name="LAST_COMMIT_MESSAGE" value="update prop" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

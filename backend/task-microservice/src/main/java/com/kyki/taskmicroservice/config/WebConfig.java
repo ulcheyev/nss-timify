@@ -24,7 +24,9 @@ public class WebConfig implements WebMvcConfigurer {
                         "http://localhost:3000",
                         "http://localhost:8080",
                         "http://34.125.160.101:3000",
-                        "http://34.125.160.101:8080"
+                        "http://34.125.160.101:8080",
+                        "http://localhost:8085",
+                        "http://34.125.160.101:8085"
                 )
                 .allowedMethods("*")
                 .allowedHeaders("*")
