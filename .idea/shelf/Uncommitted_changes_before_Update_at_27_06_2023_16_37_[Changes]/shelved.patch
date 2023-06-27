@@ -1,0 +1,825 @@
+Index: frontend/src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import logo from './logo.svg';\r\nimport './App.css';\r\nimport {Component} from \"react\";\r\nimport Auth from \"./pages/auth\";\r\nclass App extends Component {\r\n\r\n  render() {\r\n    return (\r\n        <Auth/>\r\n    );\r\n  }\r\n}\r\nexport default App;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/App.js b/frontend/src/App.js
+--- a/frontend/src/App.js	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/src/App.js	(date 1687876087189)
+@@ -1,13 +1,21 @@
+ import logo from './logo.svg';
+ import './App.css';
+-import {Component} from "react";
+-import Auth from "./pages/auth";
+-class App extends Component {
++import {useContext, useState} from "react";
++import Auth from "./pages/Auth";
++import {BrowserRouter} from "react-router-dom";
++import NavBar from "./components/NavBar";
++import {observer} from "mobx-react-lite";
++import {Context} from "./index";
++import AppRouter from "./components/AppRouter";
+ 
+-  render() {
++const App = observer(() => {
++
++    const {user} = useContext(Context)
+     return (
+-        <Auth/>
++        <BrowserRouter>
++            <NavBar/>
++            <AppRouter/>
++        </BrowserRouter>
+     );
+-  }
+-}
++});
+ export default App;
+Index: frontend/public/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"utf-8\" />\r\n    <link rel=\"icon\" href=\"%PUBLIC_URL%/favicon.ico\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    <meta name=\"theme-color\" content=\"#000000\" />\r\n    <meta\r\n      name=\"description\"\r\n      content=\"Web site created using create-react-app\"\r\n    />\r\n    <link rel=\"apple-touch-icon\" href=\"%PUBLIC_URL%/logo192.png\" />\r\n    <!--\r\n      manifest.json provides metadata used when your web app is installed on a\r\n      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/\r\n    -->\r\n    <link rel=\"manifest\" href=\"%PUBLIC_URL%/manifest.json\" />\r\n    <!--\r\n      Notice the use of %PUBLIC_URL% in the tags above.\r\n      It will be replaced with the URL of the `public` folder during the build.\r\n      Only files inside the `public` folder can be referenced from the HTML.\r\n\r\n      Unlike \"/favicon.ico\" or \"favicon.ico\", \"%PUBLIC_URL%/favicon.ico\" will\r\n      work correctly both with client-side routing and a non-root public URL.\r\n      Learn how to configure a non-root public URL by running `npm run build`.\r\n    -->\r\n    <title>React App</title>\r\n  </head>\r\n  <body>\r\n    <noscript>You need to enable JavaScript to run this app.</noscript>\r\n    <div id=\"root\"></div>\r\n    <!--\r\n      This HTML file is a template.\r\n      If you open it directly in the browser, you will see an empty page.\r\n\r\n      You can add webfonts, meta tags, or analytics to this file.\r\n      The build step will place the bundled scripts into the <body> tag.\r\n\r\n      To begin the development, run `npm start` or `yarn start`.\r\n      To create a production bundle, use `npm run build` or `yarn build`.\r\n    -->\r\n  </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/public/index.html b/frontend/public/index.html
+--- a/frontend/public/index.html	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/public/index.html	(date 1687876087206)
+@@ -14,6 +14,12 @@
+       manifest.json provides metadata used when your web app is installed on a
+       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+     -->
++    <link
++            rel="stylesheet"
++            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
++            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
++            crossorigin="anonymous"
++    />
+     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+     <!--
+       Notice the use of %PUBLIC_URL% in the tags above.
+Index: frontend/src/App.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@import url(\r\n\"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap\");\r\n\r\n* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n  font-family: \"Poppins\", sans-serif;\r\n}\r\n\r\nbody {\r\n  height: 100vh;\r\n  width: 100vw;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  gap: 30px;\r\n  background-color: rgb(231, 231, 231);\r\n}\r\n\r\nheader {\r\n  width: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  gap: 8px;\r\n}\r\n\r\n.heading {\r\n  color: green;\r\n}\r\n\r\n.title {\r\n  font-weight: 400;\r\n  letter-spacing: 1.5px;\r\n}\r\n\r\n.container {\r\n  height: 600px;\r\n  width: 500px;\r\n  background-color: white;\r\n  box-shadow: 8px 8px 20px rgb(128, 128, 128);\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n\r\n.btn {\r\n  height: 60px;\r\n  width: 300px;\r\n  margin: 20px auto;\r\n  box-shadow: 10px 10px 30px rgb(254, 215, 188);\r\n  border-radius: 50px;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  align-items: center;\r\n}\r\n\r\n.login,\r\n.signup {\r\n  font-size: 22px;\r\n  border: none;\r\n  outline: none;\r\n  background-color: transparent;\r\n  position: relative;\r\n  cursor: pointer;\r\n}\r\n\r\n.slider {\r\n  height: 60px;\r\n  width: 150px;\r\n  border-radius: 50px;\r\n  background-image: linear-gradient(to right,\r\n  rgb(255, 195, 110),\r\n  rgb(255, 146, 91));\r\n  position: absolute;\r\n  top: 20px;\r\n  left: 100px;\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n\r\n.moveslider {\r\n  left: 250px;\r\n}\r\n\r\n.form-section {\r\n  height: 500px;\r\n  width: 1000px;\r\n  padding: 20px 0;\r\n  display: flex;\r\n  position: relative;\r\n  transition: all 0.5s ease-in-out;\r\n  left: 0px;\r\n}\r\n\r\n.form-section-move {\r\n  left: -500px;\r\n}\r\n\r\n.login-box,\r\n.signup-box {\r\n  height: 100%;\r\n  width: 500px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 0px 40px;\r\n}\r\n\r\n.login-box {\r\n  gap: 50px;\r\n}\r\n\r\n.signup-box {\r\n  gap: 30px;\r\n}\r\n\r\n.ele {\r\n  height: 60px;\r\n  width: 400px;\r\n  outline: none;\r\n  border: none;\r\n  color: rgb(77, 77, 77);\r\n  background-color: rgb(240, 240, 240);\r\n  border-radius: 50px;\r\n  padding-left: 30px;\r\n  font-size: 18px;\r\n}\r\n\r\n.clkbtn {\r\n  height: 60px;\r\n  width: 150px;\r\n  border-radius: 50px;\r\n  background-image: linear-gradient(to right,\r\n  rgb(255, 195, 110),\r\n  rgb(255, 146, 91));\r\n  font-size: 22px;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n\r\n/* For Responsiveness of the page */\r\n\r\n@media screen and (max-width: 650px) {\r\n  .container {\r\n    height: 600px;\r\n    width: 300px;\r\n  }\r\n\r\n  .title {\r\n    font-size: 15px;\r\n  }\r\n\r\n  .btn {\r\n    height: 50px;\r\n    width: 200px;\r\n    margin: 20px auto;\r\n  }\r\n\r\n  .login,\r\n  .signup {\r\n    font-size: 19px;\r\n  }\r\n\r\n  .slider {\r\n    height: 50px;\r\n    width: 100px;\r\n    left: 50px;\r\n  }\r\n\r\n  .moveslider {\r\n    left: 150px;\r\n  }\r\n\r\n  .form-section {\r\n    height: 500px;\r\n    width: 600px;\r\n  }\r\n\r\n  .form-section-move {\r\n    left: -300px;\r\n  }\r\n\r\n  .login-box,\r\n  .signup-box {\r\n    height: 100%;\r\n    width: 300px;\r\n  }\r\n\r\n  .ele {\r\n    height: 50px;\r\n    width: 250px;\r\n    font-size: 15px;\r\n  }\r\n\r\n  .clkbtn {\r\n    height: 50px;\r\n    width: 130px;\r\n    font-size: 19px;\r\n  }\r\n}\r\n\r\n@media screen and (max-width: 320px) {\r\n  .container {\r\n    height: 600px;\r\n    width: 250px;\r\n  }\r\n\r\n  .heading {\r\n    font-size: 30px;\r\n  }\r\n\r\n  .title {\r\n    font-size: 10px;\r\n  }\r\n\r\n  .btn {\r\n    height: 50px;\r\n    width: 200px;\r\n    margin: 20px auto;\r\n  }\r\n\r\n  .login,\r\n  .signup {\r\n    font-size: 19px;\r\n  }\r\n\r\n  .slider {\r\n    height: 50px;\r\n    width: 100px;\r\n    left: 27px;\r\n  }\r\n\r\n  .moveslider {\r\n    left: 127px;\r\n  }\r\n\r\n  .form-section {\r\n    height: 500px;\r\n    width: 500px;\r\n  }\r\n\r\n  .form-section-move {\r\n    left: -250px;\r\n  }\r\n\r\n  .login-box,\r\n  .signup-box {\r\n    height: 100%;\r\n    width: 250px;\r\n  }\r\n\r\n  .ele {\r\n    height: 50px;\r\n    width: 220px;\r\n    font-size: 15px;\r\n  }\r\n\r\n  .clkbtn {\r\n    height: 50px;\r\n    width: 130px;\r\n    font-size: 19px;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/App.css b/frontend/src/App.css
+--- a/frontend/src/App.css	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/src/App.css	(date 1687876087227)
+@@ -19,6 +19,11 @@
+   background-color: rgb(231, 231, 231);
+ }
+ 
++#root{
++  height: 100vh;
++  width: 100vw;
++}
++
+ header {
+   width: 100%;
+   display: flex;
+@@ -34,10 +39,10 @@
+ 
+ .title {
+   font-weight: 400;
+-  letter-spacing: 1.5px;
++  letter-spacing: 2px;
+ }
+ 
+-.container {
++.login-container {
+   height: 600px;
+   width: 500px;
+   background-color: white;
+@@ -46,7 +51,7 @@
+   overflow: hidden;
+ }
+ 
+-.btn {
++.slider-btn {
+   height: 60px;
+   width: 300px;
+   margin: 20px auto;
+@@ -91,7 +96,7 @@
+   display: flex;
+   position: relative;
+   transition: all 0.5s ease-in-out;
+-  left: 0px;
++  left: 0;
+ }
+ 
+ .form-section-move {
+@@ -106,7 +111,7 @@
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+-  padding: 0px 40px;
++  padding: 0 40px;
+ }
+ 
+ .login-box {
+@@ -141,6 +146,51 @@
+   cursor: pointer;
+ }
+ 
++
++.TaskContainer {
++  display: flex;
++  flex-direction: column;
++  justify-content: center;
++  align-items: center;
++  background-color: #FFFFFF;
++  color: black;
++  width: 800px;
++}
++
++.Task {
++  background-color: #FEA82F;
++  border-radius: 8px;
++  width: 80%;
++
++}
++
++.TaskHead{
++
++
++}
++
++.UpperLine{
++  display: flex;
++  justify-content: space-between;
++  padding: 0 5px;
++  font-weight: bold;
++}
++
++.LowerLine{
++  display: flex;
++  justify-content: space-between;
++  padding: 0 5px;
++}
++
++.Description{
++
++}
++
++.Categories{
++  min-width: 30%;
++}
++
++
+ /* For Responsiveness of the page */
+ 
+ @media screen and (max-width: 650px) {
+@@ -263,4 +313,5 @@
+     width: 130px;
+     font-size: 19px;
+   }
++
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0708eb02-ea94-4a81-8b2b-2c29d0c8972d\" name=\"Changes\" comment=\"swagger aggregator :)\">\r\n      <change beforePath=\"$PROJECT_DIR$/docker-compose.yml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/docker-compose.yml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"package.json\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2PR3tr0kpARKcZg30qjBw90XlKU\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"jdk.selected.JAVA_MODULE\": \"17\",\r\n    \"last_opened_file_path\": \"C:/Users/OMEN/Desktop/nss-git/nss-timify/backend/swagger-docs\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"reference.settings.project.maven.repository.indices\",\r\n    \"spring.configuration.checksum\": \"7a3af4a17fd5dd65ed6fcba954608a83\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\backend\\swagger-docs\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\4-sem\\nss\\nss-sem\\backend\\discovery-server\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\4-sem\\nss\\nss-sem\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\4-sem\\nss\\nss-sem\\backend\\api-gateway\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\4-sem\\nss\\nss-sem\\user-microservice\\src\\main\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\backend\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\nss-sem\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\4-sem\\nss\\nss-sem\\backend\" />\r\n      <recent name=\"C:\\Users\\OMEN\\Desktop\\4-sem\\nss\\nss-sem\\frontend\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.kyki.swaggercentral\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.kyki.notificationmicrosevice.config\" />\r\n      <recent name=\"com.kyki.taskmicroservice.config\" />\r\n      <recent name=\"com.kyki.taskmicroservice.service\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunDashboard\">\r\n    <option name=\"configurationTypes\">\r\n      <set>\r\n        <option value=\"SpringBootApplicationConfigurationType\" />\r\n      </set>\r\n    </option>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Docker.docker-compose.yml.swagger-docs: Compose Deployment\">\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"api-gateway\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"api-gateway\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"api-gateway [install]\" type=\"MavenRunConfiguration\" factoryName=\"Maven\">\r\n      <MavenSettings>\r\n        <option name=\"myGeneralSettings\" />\r\n        <option name=\"myRunnerSettings\" />\r\n        <option name=\"myRunnerParameters\">\r\n          <MavenRunnerParameters>\r\n            <option name=\"profiles\">\r\n              <set />\r\n            </option>\r\n            <option name=\"goals\">\r\n              <list>\r\n                <option value=\"install\" />\r\n                <option value=\"-DskipTests\" />\r\n              </list>\r\n            </option>\r\n            <option name=\"pomFileName\" value=\"pom.xml\" />\r\n            <option name=\"profilesMap\">\r\n              <map />\r\n            </option>\r\n            <option name=\"resolveToWorkspace\" value=\"false\" />\r\n            <option name=\"workingDirPath\" value=\"$PROJECT_DIR$/backend/api-gateway\" />\r\n          </MavenRunnerParameters>\r\n        </option>\r\n      </MavenSettings>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"ApiGatewayApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"api-gateway\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.kyki.apigateway.ApiGatewayApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"DiscoveryServerApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"discovery-server\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.kyki.discoveryserver.DiscoveryServerApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"NotificationMicroserviceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"notification-microservice\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.kyki.notificationmicrosevice.NotificationMicroserviceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SwaggerCentralApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"swagger-central\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.kyki.swaggercentral.SwaggerCentralApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SwaggerDocsApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"swagger-docs\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"kykitimify.swaggerdocs.SwaggerDocsApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TaskMicroserviceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"task-microservice\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.kyki.taskmicroservice.TaskMicroserviceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"UserMicroserviceApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <module name=\"user-microservice\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.kyki.usermicroservice.UserMicroserviceApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings />\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"backend.frontend: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"services\">\r\n            <list>\r\n              <option value=\"frontend\" />\r\n            </list>\r\n          </option>\r\n          <option name=\"sourceFilePath\" value=\"backend/docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"docker-compose.yml: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"sourceFilePath\" value=\"docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"docker-compose.yml.react-client: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"services\">\r\n            <list>\r\n              <option value=\"react-client\" />\r\n            </list>\r\n          </option>\r\n          <option name=\"sourceFilePath\" value=\"docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"docker-compose.yml.swagger-docs: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"services\">\r\n            <list>\r\n              <option value=\"swagger-docs\" />\r\n            </list>\r\n          </option>\r\n          <option name=\"sourceFilePath\" value=\"docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"frontend/Dockerfile\" type=\"docker-deploy\" factoryName=\"dockerfile\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"dockerfile\">\r\n        <settings>\r\n          <option name=\"sourceFilePath\" value=\"frontend/Dockerfile\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Docker.docker-compose.yml.swagger-docs: Compose Deployment\" />\r\n      <item itemvalue=\"Docker.docker-compose.yml.react-client: Compose Deployment\" />\r\n      <item itemvalue=\"Docker.docker-compose.yml: Compose Deployment\" />\r\n      <item itemvalue=\"Docker.backend.frontend: Compose Deployment\" />\r\n      <item itemvalue=\"Docker.frontend/Dockerfile\" />\r\n      <item itemvalue=\"Maven.api-gateway [install]\" />\r\n      <item itemvalue=\"Spring Boot.SwaggerDocsApplication\" />\r\n      <item itemvalue=\"Spring Boot.SwaggerCentralApplication\" />\r\n      <item itemvalue=\"Spring Boot.DiscoveryServerApplication\" />\r\n      <item itemvalue=\"Spring Boot.TaskMicroserviceApplication\" />\r\n      <item itemvalue=\"Spring Boot.ApiGatewayApplication\" />\r\n      <item itemvalue=\"Spring Boot.NotificationMicroserviceApplication\" />\r\n      <item itemvalue=\"Spring Boot.UserMicroserviceApplication\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Docker.docker-compose.yml.swagger-docs: Compose Deployment\" />\r\n        <item itemvalue=\"Docker.docker-compose.yml: Compose Deployment\" />\r\n        <item itemvalue=\"Docker.docker-compose.yml.react-client: Compose Deployment\" />\r\n        <item itemvalue=\"Docker.frontend/Dockerfile\" />\r\n        <item itemvalue=\"Docker.backend.frontend: Compose Deployment\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0708eb02-ea94-4a81-8b2b-2c29d0c8972d\" name=\"Changes\" comment=\"\" />\r\n      <created>1683406291215</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1683406291215</updated>\r\n      <workItem from=\"1683406293637\" duration=\"51000\" />\r\n      <workItem from=\"1683406404931\" duration=\"53000\" />\r\n      <workItem from=\"1683406474826\" duration=\"1417000\" />\r\n      <workItem from=\"1683449923230\" duration=\"15590000\" />\r\n      <workItem from=\"1683471214776\" duration=\"8361000\" />\r\n      <workItem from=\"1683538004482\" duration=\"7882000\" />\r\n      <workItem from=\"1683546756180\" duration=\"3471000\" />\r\n      <workItem from=\"1683622548223\" duration=\"557000\" />\r\n      <workItem from=\"1683623258185\" duration=\"32000\" />\r\n      <workItem from=\"1683623311251\" duration=\"44000\" />\r\n      <workItem from=\"1683623370360\" duration=\"304000\" />\r\n      <workItem from=\"1683623862603\" duration=\"263000\" />\r\n      <workItem from=\"1683663565924\" duration=\"1606000\" />\r\n      <workItem from=\"1683766801942\" duration=\"407000\" />\r\n      <workItem from=\"1683834109174\" duration=\"3504000\" />\r\n      <workItem from=\"1683839220899\" duration=\"1722000\" />\r\n      <workItem from=\"1683875707082\" duration=\"2262000\" />\r\n      <workItem from=\"1683880144249\" duration=\"4325000\" />\r\n      <workItem from=\"1683970740943\" duration=\"2320000\" />\r\n      <workItem from=\"1683973156422\" duration=\"3406000\" />\r\n      <workItem from=\"1683976634555\" duration=\"11686000\" />\r\n      <workItem from=\"1684866522581\" duration=\"67000\" />\r\n      <workItem from=\"1687352676294\" duration=\"4468000\" />\r\n      <workItem from=\"1687856550793\" duration=\"204000\" />\r\n      <workItem from=\"1687856784976\" duration=\"3164000\" />\r\n      <workItem from=\"1687862180341\" duration=\"3065000\" />\r\n      <workItem from=\"1687865751052\" duration=\"7398000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Contollers configuration. Exception handling added.\">\r\n      <created>1683453607584</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1683453607584</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Exception payload added.\">\r\n      <created>1683453667172</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1683453667172</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"swagger aggregator :)\">\r\n      <created>1687873170306</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687873170306</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"swagger aggregator :)\">\r\n      <created>1687873184819</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1687873184819</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/task-model\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Contollers configuration. Exception handling added.\" />\r\n    <MESSAGE value=\"Exception payload added.\" />\r\n    <MESSAGE value=\"Successful integration user and task microservices.\" />\r\n    <MESSAGE value=\"swagger aggregator :)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"swagger aggregator :)\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java</url>\r\n          <line>37</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/.idea/workspace.xml	(date 1687876218597)
+@@ -46,30 +46,30 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RequestMappingsPanelOrder0": "0",
+-    "RequestMappingsPanelOrder1": "1",
+-    "RequestMappingsPanelWidth0": "75",
+-    "RequestMappingsPanelWidth1": "75",
+-    "WebServerToolWindowFactoryState": "false",
+-    "git-widget-placeholder": "main",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "jdk.selected.JAVA_MODULE": "17",
+-    "last_opened_file_path": "C:/Users/OMEN/Desktop/nss-git/nss-timify/backend/swagger-docs",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Modules",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+-    "spring.configuration.checksum": "7a3af4a17fd5dd65ed6fcba954608a83",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
++    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
++    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
++    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/OMEN/Desktop/nss-git/nss-timify/backend/swagger-docs&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
++    &quot;spring.configuration.checksum&quot;: &quot;7a3af4a17fd5dd65ed6fcba954608a83&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\OMEN\Desktop\nss-git\nss-timify\backend\swagger-docs" />
+Index: frontend/src/pages/Auth.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/pages/Auth.js b/frontend/src/pages/Auth.js
+new file mode 100644
+--- /dev/null	(date 1687876080608)
++++ b/frontend/src/pages/Auth.js	(date 1687876080608)
+@@ -0,0 +1,134 @@
++import {useRef, useState, useEffect, Component} from "react";
++import axios from 'axios';
++import UserService from '../services/user.service'
++import {LogUser} from "../models/logUser";
++import {RegUser} from "../models/regUser";
++
++const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
++const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
++
++
++const Auth = () => {
++
++    const [user, setUser] = useState('');
++    const [pwd, setPwd] = useState('');
++    const [email, setEmail] = useState('');
++    const [success, setSuccess] = useState(false);
++
++    const register = (e) => {
++        e.preventDefault();
++        UserService.register(new RegUser(user, pwd, email)).then(res=>{
++            try {
++                console.log(res.data.token)
++                setSuccess(true)
++            }catch (err){
++                console.log(res.response.data.message)
++                setSuccess(false)
++            }
++        })
++    }
++
++    const login = (e) => {
++        e.preventDefault();
++
++        // validation input
++
++        UserService.login(new LogUser(user, pwd)).then(res=>{
++            try {
++                console.log(res.data.token)
++                setSuccess(true)
++            }catch (err){
++                console.log(res.response.data.message)
++                setSuccess(false)
++            }
++        })
++    }
++
++    useEffect(() => {
++        let signup = document.querySelector(".signup");
++        let login = document.querySelector(".login");
++        let slider = document.querySelector(".slider");
++        let formSection = document.querySelector(".form-section");
++
++        signup.addEventListener("click", () => {
++            slider.classList.add("moveslider");
++            formSection.classList.add("form-section-move");
++        });
++
++        login.addEventListener("click", () => {
++            slider.classList.remove("moveslider");
++            formSection.classList.remove("form-section-move");
++        });
++    }, [])
++
++
++    return (
++        <>
++            {(success ? (
++                <section>
++                    <h1>Стоматолог: - Не бойся Серёга, все бывает в первый раз!
++                        Пациент: - Я не Серёга.
++                        Стоматолог: - Я знаю. Серёга это я... </h1>
++                </section>):(
++                <div className="container">
++
++                    <div className="slider"></div>
++                    <div className="btn">
++                        <button className="login">Login</button>
++                        <button className="signup">Signup</button>
++                    </div>
++
++                    <div className="form-section">
++                        <form className="login-box" onSubmit={login}>
++                            <input type="username"
++                                   className="username ele"
++                                   placeholder="Username"
++                                   onChange={(e) => setUser(e.target.value)}
++                                   required/>
++                            <p></p>
++                            <input type="password"
++                                   className="password ele"
++                                   placeholder="Password"
++                                   onChange={(e) => setPwd(e.target.value)}
++                                   required/>
++                            <p></p>
++                            <button className="clkbtn">Login</button>
++                        </form>
++
++                        <form className="signup-box" onSubmit={register}>
++                            <input type="text"
++                                   className="name ele"
++                                   placeholder="Username"
++                                   onChange={(e) => setUser(e.target.value)}
++                                   required/>
++                            <p></p>
++                            <input type="email"
++                                   className="email ele"
++                                   placeholder="youremail@email.com"
++                                   onChange={(e) => setEmail(e.target.value)}
++                                   required/>
++                            <p></p>
++                            <input type="password"
++                                   className="password ele"
++                                   placeholder="Password"
++                                   onChange={(e) => setPwd(e.target.value)}
++                                   required/>
++                            <p></p>
++                            <input type="password"
++                                   className="password ele"
++                                   placeholder="Confirm password"
++                                   required/>
++                            <p></p>
++                            <button className="clkbtn">Signup</button>
++                        </form>
++                    </div>
++                </div>
++
++            ))}
++        </>
++        )
++
++}
++
++
++export default Auth
+\ No newline at end of file
+Index: frontend/.eslintcache
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[{\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\index.js\":\"1\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\reportWebVitals.js\":\"2\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\App.js\":\"3\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\pages\\\\auth.js\":\"4\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\services\\\\user.service.js\":\"5\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\models\\\\logUser.js\":\"6\"},{\"size\":500,\"mtime\":1611173305000,\"results\":\"7\",\"hashOfConfig\":\"8\"},{\"size\":362,\"mtime\":1611173305000,\"results\":\"9\",\"hashOfConfig\":\"8\"},{\"size\":223,\"mtime\":1687691198826,\"results\":\"10\",\"hashOfConfig\":\"8\"},{\"size\":3093,\"mtime\":1687691461798,\"results\":\"11\",\"hashOfConfig\":\"8\"},{\"size\":274,\"mtime\":1687707201774,\"results\":\"12\",\"hashOfConfig\":\"8\"},{\"size\":174,\"mtime\":1687690752474,\"results\":\"13\",\"hashOfConfig\":\"8\"},{\"filePath\":\"14\",\"messages\":\"15\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"usedDeprecatedRules\":\"16\"},\"1sy74op\",{\"filePath\":\"17\",\"messages\":\"18\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"usedDeprecatedRules\":\"16\"},{\"filePath\":\"19\",\"messages\":\"20\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":1,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"21\"},{\"filePath\":\"22\",\"messages\":\"23\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":5,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":\"24\"},{\"filePath\":\"25\",\"messages\":\"26\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":3,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"source\":null},{\"filePath\":\"27\",\"messages\":\"28\",\"errorCount\":0,\"fatalErrorCount\":0,\"warningCount\":0,\"fixableErrorCount\":0,\"fixableWarningCount\":0,\"usedDeprecatedRules\":\"16\"},\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\index.js\",[],[\"29\",\"30\"],\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\reportWebVitals.js\",[],\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\App.js\",[\"31\"],\"import logo from './logo.svg';\\nimport './App.css';\\nimport {Component} from \\\"react\\\";\\nimport Auth from \\\"./pages/auth\\\";\\nclass App extends Component {\\n\\n  render() {\\n    return (\\n        <Auth/>\\n    );\\n  }\\n}\\nexport default App;\\n\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\pages\\\\auth.js\",[\"32\",\"33\",\"34\",\"35\",\"36\"],\"import {useRef, useState, useEffect, Component} from \\\"react\\\";\\r\\nimport axios from 'axios';\\r\\nimport {UserService} from '../services/user.service'\\r\\nimport {LogUser} from \\\"../models/user\\\";\\r\\n\\r\\nconst USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;\\r\\nconst PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;\\r\\n\\r\\n\\r\\nconst Auth = () => {\\r\\n\\r\\n    const [user, setUser] = useState('');\\r\\n    const [pwd, setPwd] = useState('');\\r\\n\\r\\n    const register = (e) => {\\r\\n        e.preventDefault();\\r\\n    }\\r\\n\\r\\n    const login = (e) => {\\r\\n        e.preventDefault();\\r\\n        UserService.login(new LogUser(user, pwd))\\r\\n    }\\r\\n\\r\\n    useEffect(() => {\\r\\n        let signup = document.querySelector(\\\".signup\\\");\\r\\n        let login = document.querySelector(\\\".login\\\");\\r\\n        let slider = document.querySelector(\\\".slider\\\");\\r\\n        let formSection = document.querySelector(\\\".form-section\\\");\\r\\n\\r\\n        signup.addEventListener(\\\"click\\\", () => {\\r\\n            slider.classList.add(\\\"moveslider\\\");\\r\\n            formSection.classList.add(\\\"form-section-move\\\");\\r\\n        });\\r\\n\\r\\n        login.addEventListener(\\\"click\\\", () => {\\r\\n            slider.classList.remove(\\\"moveslider\\\");\\r\\n            formSection.classList.remove(\\\"form-section-move\\\");\\r\\n        });\\r\\n    }, [])\\r\\n\\r\\n\\r\\n    return (\\r\\n        <div className=\\\"container\\\">\\r\\n\\r\\n            <div className=\\\"slider\\\"></div>\\r\\n            <div className=\\\"btn\\\">\\r\\n                <button className=\\\"login\\\">Login</button>\\r\\n                <button className=\\\"signup\\\">Signup</button>\\r\\n            </div>\\r\\n\\r\\n            <div className=\\\"form-section\\\">\\r\\n\\r\\n                <form className=\\\"login-box\\\" onSubmit={login}>\\r\\n                    <input type=\\\"username\\\"\\r\\n                           className=\\\"username ele\\\"\\r\\n                           placeholder=\\\"username\\\"\\r\\n                           onChange={(e) => setUser(e.target.value)}/>\\r\\n                        <input type=\\\"password\\\"\\r\\n                               className=\\\"password ele\\\"\\r\\n                               placeholder=\\\"password\\\"\\r\\n                               onChange={(e) => setPwd(e.target.value)}/>\\r\\n                            <button className=\\\"clkbtn\\\">Login</button>\\r\\n                </form>\\r\\n\\r\\n                <form className=\\\"signup-box\\\" onSubmit={register}>\\r\\n                    <input type=\\\"text\\\"\\r\\n                           className=\\\"name ele\\\"\\r\\n                           placeholder=\\\"Enter your name\\\"/>\\r\\n                        <input type=\\\"email\\\"\\r\\n                               className=\\\"email ele\\\"\\r\\n                               placeholder=\\\"youremail@email.com\\\"/>\\r\\n                            <input type=\\\"password\\\"\\r\\n                                   className=\\\"password ele\\\"\\r\\n                                   placeholder=\\\"password\\\"/>\\r\\n                                <input type=\\\"password\\\"\\r\\n                                       className=\\\"password ele\\\"\\r\\n                                       placeholder=\\\"Confirm password\\\"/>\\r\\n                                    <button className=\\\"clkbtn\\\">Signup</button>\\r\\n                </form>\\r\\n            </div>\\r\\n        </div>\\r\\n)\\r\\n}\\r\\n\\r\\n\\r\\nexport default Auth\",\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\services\\\\user.service.js\",[\"37\",\"38\",\"39\"],\"C:\\\\Users\\\\OMEN\\\\Desktop\\\\nss-git\\\\nss-timify\\\\frontend\\\\src\\\\models\\\\logUser.js\",[],{\"ruleId\":\"40\",\"replacedBy\":\"41\"},{\"ruleId\":\"42\",\"replacedBy\":\"43\"},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"45\",\"line\":1,\"column\":8,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":1,\"endColumn\":12},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"48\",\"line\":1,\"column\":9,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":1,\"endColumn\":15},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"49\",\"line\":1,\"column\":38,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":1,\"endColumn\":47},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"50\",\"line\":2,\"column\":8,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":2,\"endColumn\":13},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"51\",\"line\":6,\"column\":7,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":6,\"endColumn\":17},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"52\",\"line\":7,\"column\":7,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":7,\"endColumn\":16},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"50\",\"line\":1,\"column\":8,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":1,\"endColumn\":13},{\"ruleId\":\"44\",\"severity\":1,\"message\":\"53\",\"line\":3,\"column\":7,\"nodeType\":\"46\",\"messageId\":\"47\",\"endLine\":3,\"endColumn\":14},{\"ruleId\":\"54\",\"severity\":1,\"message\":\"55\",\"line\":19,\"column\":1,\"nodeType\":\"56\",\"endLine\":19,\"endColumn\":34},\"no-native-reassign\",[\"57\"],\"no-negated-in-lhs\",[\"58\"],\"no-unused-vars\",\"'logo' is defined but never used.\",\"Identifier\",\"unusedVar\",\"'useRef' is defined but never used.\",\"'Component' is defined but never used.\",\"'axios' is defined but never used.\",\"'USER_REGEX' is assigned a value but never used.\",\"'PWD_REGEX' is assigned a value but never used.\",\"'API_URL' is assigned a value but never used.\",\"import/no-anonymous-default-export\",\"Assign instance to a variable before exporting as module default\",\"ExportDefaultDeclaration\",\"no-global-assign\",\"no-unsafe-negation\"]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/.eslintcache b/frontend/.eslintcache
+--- a/frontend/.eslintcache	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/.eslintcache	(date 1687876117004)
+@@ -1,1 +1,1 @@
+-[{"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\index.js":"1","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\reportWebVitals.js":"2","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\App.js":"3","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\pages\\auth.js":"4","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\services\\user.service.js":"5","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\models\\logUser.js":"6"},{"size":500,"mtime":1611173305000,"results":"7","hashOfConfig":"8"},{"size":362,"mtime":1611173305000,"results":"9","hashOfConfig":"8"},{"size":223,"mtime":1687691198826,"results":"10","hashOfConfig":"8"},{"size":3093,"mtime":1687691461798,"results":"11","hashOfConfig":"8"},{"size":274,"mtime":1687707201774,"results":"12","hashOfConfig":"8"},{"size":174,"mtime":1687690752474,"results":"13","hashOfConfig":"8"},{"filePath":"14","messages":"15","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"16"},"1sy74op",{"filePath":"17","messages":"18","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"16"},{"filePath":"19","messages":"20","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":"21"},{"filePath":"22","messages":"23","errorCount":0,"fatalErrorCount":0,"warningCount":5,"fixableErrorCount":0,"fixableWarningCount":0,"source":"24"},{"filePath":"25","messages":"26","errorCount":0,"fatalErrorCount":0,"warningCount":3,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"27","messages":"28","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"16"},"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\index.js",[],["29","30"],"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\reportWebVitals.js",[],"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\App.js",["31"],"import logo from './logo.svg';\nimport './App.css';\nimport {Component} from \"react\";\nimport Auth from \"./pages/auth\";\nclass App extends Component {\n\n  render() {\n    return (\n        <Auth/>\n    );\n  }\n}\nexport default App;\n","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\pages\\auth.js",["32","33","34","35","36"],"import {useRef, useState, useEffect, Component} from \"react\";\r\nimport axios from 'axios';\r\nimport {UserService} from '../services/user.service'\r\nimport {LogUser} from \"../models/user\";\r\n\r\nconst USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;\r\nconst PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;\r\n\r\n\r\nconst Auth = () => {\r\n\r\n    const [user, setUser] = useState('');\r\n    const [pwd, setPwd] = useState('');\r\n\r\n    const register = (e) => {\r\n        e.preventDefault();\r\n    }\r\n\r\n    const login = (e) => {\r\n        e.preventDefault();\r\n        UserService.login(new LogUser(user, pwd))\r\n    }\r\n\r\n    useEffect(() => {\r\n        let signup = document.querySelector(\".signup\");\r\n        let login = document.querySelector(\".login\");\r\n        let slider = document.querySelector(\".slider\");\r\n        let formSection = document.querySelector(\".form-section\");\r\n\r\n        signup.addEventListener(\"click\", () => {\r\n            slider.classList.add(\"moveslider\");\r\n            formSection.classList.add(\"form-section-move\");\r\n        });\r\n\r\n        login.addEventListener(\"click\", () => {\r\n            slider.classList.remove(\"moveslider\");\r\n            formSection.classList.remove(\"form-section-move\");\r\n        });\r\n    }, [])\r\n\r\n\r\n    return (\r\n        <div className=\"container\">\r\n\r\n            <div className=\"slider\"></div>\r\n            <div className=\"btn\">\r\n                <button className=\"login\">Login</button>\r\n                <button className=\"signup\">Signup</button>\r\n            </div>\r\n\r\n            <div className=\"form-section\">\r\n\r\n                <form className=\"login-box\" onSubmit={login}>\r\n                    <input type=\"username\"\r\n                           className=\"username ele\"\r\n                           placeholder=\"username\"\r\n                           onChange={(e) => setUser(e.target.value)}/>\r\n                        <input type=\"password\"\r\n                               className=\"password ele\"\r\n                               placeholder=\"password\"\r\n                               onChange={(e) => setPwd(e.target.value)}/>\r\n                            <button className=\"clkbtn\">Login</button>\r\n                </form>\r\n\r\n                <form className=\"signup-box\" onSubmit={register}>\r\n                    <input type=\"text\"\r\n                           className=\"name ele\"\r\n                           placeholder=\"Enter your name\"/>\r\n                        <input type=\"email\"\r\n                               className=\"email ele\"\r\n                               placeholder=\"youremail@email.com\"/>\r\n                            <input type=\"password\"\r\n                                   className=\"password ele\"\r\n                                   placeholder=\"password\"/>\r\n                                <input type=\"password\"\r\n                                       className=\"password ele\"\r\n                                       placeholder=\"Confirm password\"/>\r\n                                    <button className=\"clkbtn\">Signup</button>\r\n                </form>\r\n            </div>\r\n        </div>\r\n)\r\n}\r\n\r\n\r\nexport default Auth","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\services\\user.service.js",["37","38","39"],"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\models\\logUser.js",[],{"ruleId":"40","replacedBy":"41"},{"ruleId":"42","replacedBy":"43"},{"ruleId":"44","severity":1,"message":"45","line":1,"column":8,"nodeType":"46","messageId":"47","endLine":1,"endColumn":12},{"ruleId":"44","severity":1,"message":"48","line":1,"column":9,"nodeType":"46","messageId":"47","endLine":1,"endColumn":15},{"ruleId":"44","severity":1,"message":"49","line":1,"column":38,"nodeType":"46","messageId":"47","endLine":1,"endColumn":47},{"ruleId":"44","severity":1,"message":"50","line":2,"column":8,"nodeType":"46","messageId":"47","endLine":2,"endColumn":13},{"ruleId":"44","severity":1,"message":"51","line":6,"column":7,"nodeType":"46","messageId":"47","endLine":6,"endColumn":17},{"ruleId":"44","severity":1,"message":"52","line":7,"column":7,"nodeType":"46","messageId":"47","endLine":7,"endColumn":16},{"ruleId":"44","severity":1,"message":"50","line":1,"column":8,"nodeType":"46","messageId":"47","endLine":1,"endColumn":13},{"ruleId":"44","severity":1,"message":"53","line":3,"column":7,"nodeType":"46","messageId":"47","endLine":3,"endColumn":14},{"ruleId":"54","severity":1,"message":"55","line":19,"column":1,"nodeType":"56","endLine":19,"endColumn":34},"no-native-reassign",["57"],"no-negated-in-lhs",["58"],"no-unused-vars","'logo' is defined but never used.","Identifier","unusedVar","'useRef' is defined but never used.","'Component' is defined but never used.","'axios' is defined but never used.","'USER_REGEX' is assigned a value but never used.","'PWD_REGEX' is assigned a value but never used.","'API_URL' is assigned a value but never used.","import/no-anonymous-default-export","Assign instance to a variable before exporting as module default","ExportDefaultDeclaration","no-global-assign","no-unsafe-negation"]
+\ No newline at end of file
++[{"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\index.js":"1","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\reportWebVitals.js":"2","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\App.js":"3","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\pages\\Auth.js":"4","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\services\\user.service.js":"5","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\models\\logUser.js":"6"},{"size":500,"mtime":1611173305000,"results":"7","hashOfConfig":"8"},{"size":362,"mtime":1611173305000,"results":"9","hashOfConfig":"8"},{"size":223,"mtime":1687691198826,"results":"10","hashOfConfig":"8"},{"size":3093,"mtime":1687691461798,"results":"11","hashOfConfig":"8"},{"size":274,"mtime":1687707201774,"results":"12","hashOfConfig":"8"},{"size":174,"mtime":1687690752474,"results":"13","hashOfConfig":"8"},{"filePath":"14","messages":"15","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"16"},"1sy74op",{"filePath":"17","messages":"18","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"16"},{"filePath":"19","messages":"20","errorCount":0,"fatalErrorCount":0,"warningCount":1,"fixableErrorCount":0,"fixableWarningCount":0,"source":"21"},{"filePath":"22","messages":"23","errorCount":0,"fatalErrorCount":0,"warningCount":5,"fixableErrorCount":0,"fixableWarningCount":0,"source":"24"},{"filePath":"25","messages":"26","errorCount":0,"fatalErrorCount":0,"warningCount":3,"fixableErrorCount":0,"fixableWarningCount":0,"source":null},{"filePath":"27","messages":"28","errorCount":0,"fatalErrorCount":0,"warningCount":0,"fixableErrorCount":0,"fixableWarningCount":0,"usedDeprecatedRules":"16"},"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\index.js",[],["29","30"],"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\reportWebVitals.js",[],"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\App.js",["31"],"import logo from './logo.svg';\nimport './App.css';\nimport {Component} from \"react\";\nimport Auth from \"./pages/auth\";\nclass App extends Component {\n\n  render() {\n    return (\n        <Auth/>\n    );\n  }\n}\nexport default App;\n","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\pages\\Auth.js",["32","33","34","35","36"],"import {useRef, useState, useEffect, Component} from \"react\";\r\nimport axios from 'axios';\r\nimport {UserService} from '../services/user.service'\r\nimport {LogUser} from \"../models/user\";\r\n\r\nconst USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;\r\nconst PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;\r\n\r\n\r\nconst Auth = () => {\r\n\r\n    const [user, setUser] = useState('');\r\n    const [pwd, setPwd] = useState('');\r\n\r\n    const register = (e) => {\r\n        e.preventDefault();\r\n    }\r\n\r\n    const login = (e) => {\r\n        e.preventDefault();\r\n        UserService.login(new LogUser(user, pwd))\r\n    }\r\n\r\n    useEffect(() => {\r\n        let signup = document.querySelector(\".signup\");\r\n        let login = document.querySelector(\".login\");\r\n        let slider = document.querySelector(\".slider\");\r\n        let formSection = document.querySelector(\".form-section\");\r\n\r\n        signup.addEventListener(\"click\", () => {\r\n            slider.classList.add(\"moveslider\");\r\n            formSection.classList.add(\"form-section-move\");\r\n        });\r\n\r\n        login.addEventListener(\"click\", () => {\r\n            slider.classList.remove(\"moveslider\");\r\n            formSection.classList.remove(\"form-section-move\");\r\n        });\r\n    }, [])\r\n\r\n\r\n    return (\r\n        <div className=\"container\">\r\n\r\n            <div className=\"slider\"></div>\r\n            <div className=\"btn\">\r\n                <button className=\"login\">Login</button>\r\n                <button className=\"signup\">Signup</button>\r\n            </div>\r\n\r\n            <div className=\"form-section\">\r\n\r\n                <form className=\"login-box\" onSubmit={login}>\r\n                    <input type=\"username\"\r\n                           className=\"username ele\"\r\n                           placeholder=\"username\"\r\n                           onChange={(e) => setUser(e.target.value)}/>\r\n                        <input type=\"password\"\r\n                               className=\"password ele\"\r\n                               placeholder=\"password\"\r\n                               onChange={(e) => setPwd(e.target.value)}/>\r\n                            <button className=\"clkbtn\">Login</button>\r\n                </form>\r\n\r\n                <form className=\"signup-box\" onSubmit={register}>\r\n                    <input type=\"text\"\r\n                           className=\"name ele\"\r\n                           placeholder=\"Enter your name\"/>\r\n                        <input type=\"email\"\r\n                               className=\"email ele\"\r\n                               placeholder=\"youremail@email.com\"/>\r\n                            <input type=\"password\"\r\n                                   className=\"password ele\"\r\n                                   placeholder=\"password\"/>\r\n                                <input type=\"password\"\r\n                                       className=\"password ele\"\r\n                                       placeholder=\"Confirm password\"/>\r\n                                    <button className=\"clkbtn\">Signup</button>\r\n                </form>\r\n            </div>\r\n        </div>\r\n)\r\n}\r\n\r\n\r\nexport default Auth","C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\services\\user.service.js",["37","38","39"],"C:\\Users\\OMEN\\Desktop\\nss-git\\nss-timify\\frontend\\src\\models\\logUser.js",[],{"ruleId":"40","replacedBy":"41"},{"ruleId":"42","replacedBy":"43"},{"ruleId":"44","severity":1,"message":"45","line":1,"column":8,"nodeType":"46","messageId":"47","endLine":1,"endColumn":12},{"ruleId":"44","severity":1,"message":"48","line":1,"column":9,"nodeType":"46","messageId":"47","endLine":1,"endColumn":15},{"ruleId":"44","severity":1,"message":"49","line":1,"column":38,"nodeType":"46","messageId":"47","endLine":1,"endColumn":47},{"ruleId":"44","severity":1,"message":"50","line":2,"column":8,"nodeType":"46","messageId":"47","endLine":2,"endColumn":13},{"ruleId":"44","severity":1,"message":"51","line":6,"column":7,"nodeType":"46","messageId":"47","endLine":6,"endColumn":17},{"ruleId":"44","severity":1,"message":"52","line":7,"column":7,"nodeType":"46","messageId":"47","endLine":7,"endColumn":16},{"ruleId":"44","severity":1,"message":"50","line":1,"column":8,"nodeType":"46","messageId":"47","endLine":1,"endColumn":13},{"ruleId":"44","severity":1,"message":"53","line":3,"column":7,"nodeType":"46","messageId":"47","endLine":3,"endColumn":14},{"ruleId":"54","severity":1,"message":"55","line":19,"column":1,"nodeType":"56","endLine":19,"endColumn":34},"no-native-reassign",["57"],"no-negated-in-lhs",["58"],"no-unused-vars","'logo' is defined but never used.","Identifier","unusedVar","'useRef' is defined but never used.","'Component' is defined but never used.","'axios' is defined but never used.","'USER_REGEX' is assigned a value but never used.","'PWD_REGEX' is assigned a value but never used.","'API_URL' is assigned a value but never used.","import/no-anonymous-default-export","Assign instance to a variable before exporting as module default","ExportDefaultDeclaration","no-global-assign","no-unsafe-negation"]
+\ No newline at end of file
+Index: frontend/src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\r\nimport ReactDOM from 'react-dom';\r\nimport './index.css';\r\nimport App from './App';\r\nimport reportWebVitals from './reportWebVitals';\r\n\r\nReactDOM.render(\r\n  <React.StrictMode>\r\n    <App />\r\n  </React.StrictMode>,\r\n  document.getElementById('root')\r\n);\r\n\r\n// If you want to start measuring performance in your app, pass a function\r\n// to log results (for example: reportWebVitals(console.log))\r\n// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals\r\nreportWebVitals();\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/index.js b/frontend/src/index.js
+--- a/frontend/src/index.js	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/src/index.js	(date 1687876117015)
+@@ -1,13 +1,20 @@
+-import React from 'react';
++import React, {createContext} from 'react';
+ import ReactDOM from 'react-dom';
+ import './index.css';
+ import App from './App';
+ import reportWebVitals from './reportWebVitals';
++import UserStore from "./store/UserStore";
++
++export const Context = createContext(null)
+ 
+ ReactDOM.render(
+-  <React.StrictMode>
+-    <App />
+-  </React.StrictMode>,
++    <Context.Provider value ={{
++        user: new UserStore(),
++        // task: new TaskStore(),
++        task: null,
++    }}>
++        <App />
++    </Context.Provider>,
+   document.getElementById('root')
+ );
+ 
+Index: frontend/package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/package-lock.json b/frontend/package-lock.json
+--- a/frontend/package-lock.json	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/package-lock.json	(date 1687876117173)
+@@ -13,7 +13,10 @@
+         "@testing-library/user-event": "^12.6.0",
+         "axios": "^1.4.0",
+         "bootstrap": "5.1",
++        "mobx": "^6.9.0",
++        "mobx-react-lite": "^3.4.3",
+         "react": "^17.0.1",
++        "react-bootstrap": "^2.8.0",
+         "react-cookie": "^4.1.1",
+         "react-dom": "^17.0.1",
+         "react-router-dom": "^5.3.0",
+@@ -3368,12 +3371,70 @@
+       "version": "2.11.8",
+       "resolved": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz",
+       "integrity": "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==",
+-      "peer": true,
+       "funding": {
+         "type": "opencollective",
+         "url": "https://opencollective.com/popperjs"
+       }
+     },
++    "node_modules/@react-aria/ssr": {
++      "version": "3.6.0",
++      "resolved": "https://registry.npmjs.org/@react-aria/ssr/-/ssr-3.6.0.tgz",
++      "integrity": "sha512-OFiYQdv+Yk7AO7IsQu/fAEPijbeTwrrEYvdNoJ3sblBBedD5j5fBTNWrUPNVlwC4XWWnWTCMaRIVsJujsFiWXg==",
++      "dependencies": {
++        "@swc/helpers": "^0.4.14"
++      },
++      "peerDependencies": {
++        "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0"
++      }
++    },
++    "node_modules/@restart/hooks": {
++      "version": "0.4.9",
++      "resolved": "https://registry.npmjs.org/@restart/hooks/-/hooks-0.4.9.tgz",
++      "integrity": "sha512-3BekqcwB6Umeya+16XPooARn4qEPW6vNvwYnlofIYe6h9qG1/VeD7UvShCWx11eFz5ELYmwIEshz+MkPX3wjcQ==",
++      "dependencies": {
++        "dequal": "^2.0.2"
++      },
++      "peerDependencies": {
++        "react": ">=16.8.0"
++      }
++    },
++    "node_modules/@restart/ui": {
++      "version": "1.6.6",
++      "resolved": "https://registry.npmjs.org/@restart/ui/-/ui-1.6.6.tgz",
++      "integrity": "sha512-eC3puKuWE1SRYbojWHXnvCNHGgf3uzHCb6JOhnF4OXPibOIPEkR1sqDSkL643ydigxwh+ruCa1CmYHlzk7ikKA==",
++      "dependencies": {
++        "@babel/runtime": "^7.21.0",
++        "@popperjs/core": "^2.11.6",
++        "@react-aria/ssr": "^3.5.0",
++        "@restart/hooks": "^0.4.9",
++        "@types/warning": "^3.0.0",
++        "dequal": "^2.0.3",
++        "dom-helpers": "^5.2.0",
++        "uncontrollable": "^8.0.1",
++        "warning": "^4.0.3"
++      },
++      "peerDependencies": {
++        "react": ">=16.14.0",
++        "react-dom": ">=16.14.0"
++      }
++    },
++    "node_modules/@restart/ui/node_modules/dom-helpers": {
++      "version": "5.2.1",
++      "resolved": "https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz",
++      "integrity": "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==",
++      "dependencies": {
++        "@babel/runtime": "^7.8.7",
++        "csstype": "^3.0.2"
++      }
++    },
++    "node_modules/@restart/ui/node_modules/uncontrollable": {
++      "version": "8.0.2",
++      "resolved": "https://registry.npmjs.org/uncontrollable/-/uncontrollable-8.0.2.tgz",
++      "integrity": "sha512-/GDx+K1STGtpgTsj5Dj3J51YaKxZDblbCQHTH1zHLuoBEWodj6MjtRVv3TUijj1JYLRLSFsFzN8NV4M3QV4d9w==",
++      "peerDependencies": {
++        "react": ">=16.14.0"
++      }
++    },
+     "node_modules/@rollup/plugin-babel": {
+       "version": "5.3.1",
+       "resolved": "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz",
+@@ -3692,6 +3753,14 @@
+         "url": "https://github.com/sponsors/gregberge"
+       }
+     },
++    "node_modules/@swc/helpers": {
++      "version": "0.4.14",
++      "resolved": "https://registry.npmjs.org/@swc/helpers/-/helpers-0.4.14.tgz",
++      "integrity": "sha512-4C7nX/dvpzB7za4Ql9K81xK3HPxCpHMgwTZVyf+9JQ6VUbn9jjZVN7/Nkdz/Ugzs2CSjqnL/UPXroiVBVHUWUw==",
++      "dependencies": {
++        "tslib": "^2.4.0"
++      }
++    },
+     "node_modules/@testing-library/dom": {
+       "version": "9.3.1",
+       "resolved": "https://registry.npmjs.org/@testing-library/dom/-/dom-9.3.1.tgz",
+@@ -4144,6 +4213,14 @@
+         "csstype": "^3.0.2"
+       }
+     },
++    "node_modules/@types/react-transition-group": {
++      "version": "4.4.6",
++      "resolved": "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.6.tgz",
++      "integrity": "sha512-VnCdSxfcm08KjsJVQcfBmhEQAPnLB8G08hAxn39azX1qYBQ/5RVQuoHuKIcfKOdncuaUvEpFKFzEvbtIMsfVew==",
++      "dependencies": {
++        "@types/react": "*"
++      }
++    },
+     "node_modules/@types/resolve": {
+       "version": "1.17.1",
+       "resolved": "https://registry.npmjs.org/@types/resolve/-/resolve-1.17.1.tgz",
+@@ -4220,6 +4297,11 @@
+       "resolved": "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.3.tgz",
+       "integrity": "sha512-NfQ4gyz38SL8sDNrSixxU2Os1a5xcdFxipAFxYEuLUlvU2uDwS4NUpsImcf1//SlWItCVMMLiylsxbmNMToV/g=="
+     },
++    "node_modules/@types/warning": {
++      "version": "3.0.0",
++      "resolved": "https://registry.npmjs.org/@types/warning/-/warning-3.0.0.tgz",
++      "integrity": "sha512-t/Tvs5qR47OLOr+4E9ckN8AmP2Tf16gWq+/qA4iUGS/OOyHVO8wv2vjJuX8SNOUTJyWb+2t7wJm6cXILFnOROA=="
++    },
+     "node_modules/@types/ws": {
+       "version": "8.5.5",
+       "resolved": "https://registry.npmjs.org/@types/ws/-/ws-8.5.5.tgz",
+@@ -6685,6 +6767,14 @@
+         "node": ">= 0.8"
+       }
+     },
++    "node_modules/dequal": {
++      "version": "2.0.3",
++      "resolved": "https://registry.npmjs.org/dequal/-/dequal-2.0.3.tgz",
++      "integrity": "sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==",
++      "engines": {
++        "node": ">=6"
++      }
++    },
+     "node_modules/destroy": {
+       "version": "1.2.0",
+       "resolved": "https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz",
+@@ -9124,6 +9214,14 @@
+         "node": ">= 0.4"
+       }
+     },
++    "node_modules/invariant": {
++      "version": "2.2.4",
++      "resolved": "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz",
++      "integrity": "sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==",
++      "dependencies": {
++        "loose-envify": "^1.0.0"
++      }
++    },
+     "node_modules/ipaddr.js": {
+       "version": "2.1.0",
+       "resolved": "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-2.1.0.tgz",
+@@ -12060,6 +12158,36 @@
+         "mkdirp": "bin/cmd.js"
+       }
+     },
++    "node_modules/mobx": {
++      "version": "6.9.0",
++      "resolved": "https://registry.npmjs.org/mobx/-/mobx-6.9.0.tgz",
++      "integrity": "sha512-HdKewQEREEJgsWnErClfbFoVebze6rGazxFLU/XUyrII8dORfVszN1V0BMRnQSzcgsNNtkX8DHj3nC6cdWE9YQ==",
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mobx"
++      }
++    },
++    "node_modules/mobx-react-lite": {
++      "version": "3.4.3",
++      "resolved": "https://registry.npmjs.org/mobx-react-lite/-/mobx-react-lite-3.4.3.tgz",
++      "integrity": "sha512-NkJREyFTSUXR772Qaai51BnE1voWx56LOL80xG7qkZr6vo8vEaLF3sz1JNUVh+rxmUzxYaqOhfuxTfqUh0FXUg==",
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mobx"
++      },
++      "peerDependencies": {
++        "mobx": "^6.1.0",
++        "react": "^16.8.0 || ^17 || ^18"
++      },
++      "peerDependenciesMeta": {
++        "react-dom": {
++          "optional": true
++        },
++        "react-native": {
++          "optional": true
++        }
++      }
++    },
+     "node_modules/ms": {
+       "version": "2.1.2",
+       "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz",
+@@ -14051,6 +14179,23 @@
+         "react-is": "^16.13.1"
+       }
+     },
++    "node_modules/prop-types-extra": {
++      "version": "1.1.1",
++      "resolved": "https://registry.npmjs.org/prop-types-extra/-/prop-types-extra-1.1.1.tgz",
++      "integrity": "sha512-59+AHNnHYCdiC+vMwY52WmvP5dM3QLeoumYuEyceQDi9aEhtwN9zIQ2ZNo25sMyXnbh32h+P1ezDsUpUH3JAew==",
++      "dependencies": {
++        "react-is": "^16.3.2",
++        "warning": "^4.0.0"
++      },
++      "peerDependencies": {
++        "react": ">=0.14.0"
++      }
++    },
++    "node_modules/prop-types-extra/node_modules/react-is": {
++      "version": "16.13.1",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
++      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
++    },
+     "node_modules/prop-types/node_modules/react-is": {
+       "version": "16.13.1",
+       "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
+@@ -14226,6 +14371,59 @@
+         "node": ">=14"
+       }
+     },
++    "node_modules/react-bootstrap": {
++      "version": "2.8.0",
++      "resolved": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-2.8.0.tgz",
++      "integrity": "sha512-e/aNtxl0Z2ozrIaR82jr6Zz7ss9GSoaXpQaxmvtDUsTZIq/XalkduR/ZXP6vbQHz2T4syvjA+4FbtwELxxmpww==",
++      "dependencies": {
++        "@babel/runtime": "^7.21.0",
++        "@restart/hooks": "^0.4.9",
++        "@restart/ui": "^1.6.3",
++        "@types/react-transition-group": "^4.4.5",
++        "classnames": "^2.3.2",
++        "dom-helpers": "^5.2.1",
++        "invariant": "^2.2.4",
++        "prop-types": "^15.8.1",
++        "prop-types-extra": "^1.1.0",
++        "react-transition-group": "^4.4.5",
++        "uncontrollable": "^7.2.1",
++        "warning": "^4.0.3"
++      },
++      "peerDependencies": {
++        "@types/react": ">=16.14.8",
++        "react": ">=16.14.0",
++        "react-dom": ">=16.14.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/react-bootstrap/node_modules/dom-helpers": {
++      "version": "5.2.1",
++      "resolved": "https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz",
++      "integrity": "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==",
++      "dependencies": {
++        "@babel/runtime": "^7.8.7",
++        "csstype": "^3.0.2"
++      }
++    },
++    "node_modules/react-bootstrap/node_modules/react-transition-group": {
++      "version": "4.4.5",
++      "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz",
++      "integrity": "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==",
++      "dependencies": {
++        "@babel/runtime": "^7.5.5",
++        "dom-helpers": "^5.0.1",
++        "loose-envify": "^1.4.0",
++        "prop-types": "^15.6.2"
++      },
++      "peerDependencies": {
++        "react": ">=16.6.0",
++        "react-dom": ">=16.6.0"
++      }
++    },
+     "node_modules/react-cookie": {
+       "version": "4.1.1",
+       "resolved": "https://registry.npmjs.org/react-cookie/-/react-cookie-4.1.1.tgz",
+@@ -16271,16 +16469,16 @@
+       }
+     },
+     "node_modules/typescript": {
+-      "version": "5.1.3",
+-      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.1.3.tgz",
+-      "integrity": "sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==",
++      "version": "4.9.5",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz",
++      "integrity": "sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==",
+       "peer": true,
+       "bin": {
+         "tsc": "bin/tsc",
+         "tsserver": "bin/tsserver"
+       },
+       "engines": {
+-        "node": ">=14.17"
++        "node": ">=4.2.0"
+       }
+     },
+     "node_modules/unbox-primitive": {
+@@ -16297,6 +16495,20 @@
+         "url": "https://github.com/sponsors/ljharb"
+       }
+     },
++    "node_modules/uncontrollable": {
++      "version": "7.2.1",
++      "resolved": "https://registry.npmjs.org/uncontrollable/-/uncontrollable-7.2.1.tgz",
++      "integrity": "sha512-svtcfoTADIB0nT9nltgjujTi7BzVmwjZClOmskKu/E8FW9BXzg9os8OLr4f8Dlnk0rYWJIWr4wv9eKUXiQvQwQ==",
++      "dependencies": {
++        "@babel/runtime": "^7.6.3",
++        "@types/react": ">=16.9.11",
++        "invariant": "^2.2.4",
++        "react-lifecycles-compat": "^3.0.4"
++      },
++      "peerDependencies": {
++        "react": ">=15.0.0"
++      }
++    },
+     "node_modules/unicode-canonical-property-names-ecmascript": {
+       "version": "2.0.0",
+       "resolved": "https://registry.npmjs.org/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.0.tgz",
+Index: backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.kyki.usermicroservice.security;\r\n\r\nimport org.springframework.security.core.GrantedAuthority;\r\nimport org.springframework.security.core.userdetails.User;\r\nimport org.springframework.security.core.userdetails.UserDetails;\r\n\r\nimport java.util.Collection;\r\n\r\n\r\npublic class CustomUserDetails implements UserDetails {\r\n\r\n    //TODO user accout expired, etc..\r\n\r\n    private User user;\r\n\r\n    public User getUser() {\r\n        return user;\r\n    }\r\n\r\n    public void setUser(User user) {\r\n        this.user = user;\r\n    }\r\n\r\n    @Override\r\n    public Collection<? extends GrantedAuthority> getAuthorities() {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public String getPassword() {\r\n        return user.getPassword();\r\n    }\r\n\r\n    @Override\r\n    public String getUsername() {\r\n        return user.getUsername();\r\n    }\r\n\r\n    @Override\r\n    public boolean isAccountNonExpired() {\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean isAccountNonLocked() {\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean isCredentialsNonExpired() {\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public boolean isEnabled() {\r\n        return true;\r\n    }\r\n\r\n    public void erasePass() {\r\n        user.eraseCredentials();\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java b/backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java
+--- a/backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java	(date 1687876117196)
+@@ -9,7 +9,7 @@
+ 
+ public class CustomUserDetails implements UserDetails {
+ 
+-    //TODO user accout expired, etc..
++    //TODO user account expired, etc..
+ 
+     private User user;
+ 
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-231.8770.65\">\r\n    <data-source name=\"heraskyr@slon.felk.cvut.cz\" uuid=\"8a9ad2d7-7358-4c10-94f2-ff2cbf5901e3\">\r\n      <database-info product=\"PostgreSQL\" version=\"14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)\" jdbc-version=\"4.2\" driver-name=\"PostgreSQL JDBC Driver\" driver-version=\"42.5.0\" dbms=\"POSTGRES\" exact-version=\"14.7\" exact-driver-version=\"42.5\">\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"lower\" quoted-identifiers=\"exact\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <user-name>heraskyr</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"database\" qname=\"@\">\r\n            <node kind=\"schema\" qname=\"@\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n    <data-source name=\"gulineka@slon.felk.cvut.cz\" uuid=\"35621261-395e-423f-beb2-accc46814c78\">\r\n      <database-info product=\"PostgreSQL\" version=\"14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)\" jdbc-version=\"4.2\" driver-name=\"PostgreSQL JDBC Driver\" driver-version=\"42.5.0\" dbms=\"POSTGRES\" exact-version=\"14.7\" exact-driver-version=\"42.5\">\r\n        <identifier-quote-string>&quot;</identifier-quote-string>\r\n      </database-info>\r\n      <case-sensitivity plain-identifiers=\"lower\" quoted-identifiers=\"exact\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <user-name>gulineka</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"database\" qname=\"@\">\r\n            <node kind=\"schema\" qname=\"@\" />\r\n          </node>\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/.idea/dataSources.local.xml	(date 1687876117222)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="dataSourceStorageLocal" created-in="IU-231.8770.65">
++  <component name="dataSourceStorageLocal" created-in="IU-223.8836.41">
+     <data-source name="heraskyr@slon.felk.cvut.cz" uuid="8a9ad2d7-7358-4c10-94f2-ff2cbf5901e3">
+       <database-info product="PostgreSQL" version="14.7 (Ubuntu 14.7-0ubuntu0.22.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="14.7" exact-driver-version="42.5">
+         <identifier-quote-string>&quot;</identifier-quote-string>
+Index: frontend/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"react-docker-gcp\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@testing-library/jest-dom\": \"^5.11.9\",\r\n    \"@testing-library/react\": \"^11.2.3\",\r\n    \"@testing-library/user-event\": \"^12.6.0\",\r\n    \"axios\": \"^1.4.0\",\r\n    \"bootstrap\": \"5.1\",\r\n    \"react\": \"^17.0.1\",\r\n    \"react-cookie\": \"^4.1.1\",\r\n    \"react-dom\": \"^17.0.1\",\r\n    \"react-router-dom\": \"^5.3.0\",\r\n    \"react-scripts\": \"^5.0.1\",\r\n    \"reactstrap\": \"^8.10.0\",\r\n    \"web-vitals\": \"^0.2.4\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/package.json b/frontend/package.json
+--- a/frontend/package.json	(revision 57a10787af5eda2c9baa59cab054cacb6db5a545)
++++ b/frontend/package.json	(date 1687876117232)
+@@ -8,7 +8,10 @@
+     "@testing-library/user-event": "^12.6.0",
+     "axios": "^1.4.0",
+     "bootstrap": "5.1",
++    "mobx": "^6.9.0",
++    "mobx-react-lite": "^3.4.3",
+     "react": "^17.0.1",
++    "react-bootstrap": "^2.8.0",
+     "react-cookie": "^4.1.1",
+     "react-dom": "^17.0.1",
+     "react-router-dom": "^5.3.0",
