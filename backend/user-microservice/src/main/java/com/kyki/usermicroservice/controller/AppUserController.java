@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("api/v1/system/users")
-@CrossOrigin("*")
 public class AppUserController {
 
     private final AppUserService appUserService;
@@ -72,6 +71,5 @@ public class AppUserController {
     public Boolean isExists(@NonNull @RequestParam(value="userName") String name) {
         return appUserService.isExists(appUserService.findByUsername(name).getId());
     }
-
 
 }

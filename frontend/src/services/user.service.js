@@ -1,20 +1,39 @@
 import axios from 'axios';
 
-const API_URL = 'http://34.125.160.101:8080/api/v1/system/';
+const API_URL = 'http://localhost:8080/api/v1/system/'; //TODO change to 34.125.160.101
 
 class UserService {
     async login(user) {
-        let us = JSON.stringify(user)
-        const response = await axios.post(API_URL + 'login', us,
-            {
-                headers: {'Content-Type': 'application/json'},
-                withCredentials: true
-            })
-        console.log(response?.data)
+        try {
+            let jsonToSend = JSON.stringify(user)
+
+            return  await axios.post(API_URL + 'login',
+                jsonToSend,
+                {
+                    headers: {'Content-Type': 'application/json'},
+                    withCredentials:true
+                }
+            );
+        }catch (err) {
+            return err;
+        }
     }
 
-    register(user){
 
+    async register(user){
+        try {
+            let jsonToSend = JSON.stringify(user)
+
+            return  await axios.post(API_URL + 'register',
+                jsonToSend,
+                {
+                    headers: {'Content-Type': 'application/json'},
+                    withCredentials:true
+                }
+            );
+        }catch (err) {
+            return err;
+        }
     }
 
     logout(user){

@@ -1,4 +1,4 @@
-package com.kyki.taskmicroservice.config;
+package com.kyki.notificationmicrosevice.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
