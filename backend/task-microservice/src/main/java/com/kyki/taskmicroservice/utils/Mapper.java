@@ -50,8 +50,9 @@ public class Mapper {
                 .projectId(task.getProject().getId())
                 .description(task.getDescription())
                 .categoryDtoList(categoryDtoList)
-                .deadline(task.getDeadline().toString())
-                .timeSpent(task.getTimeSpent().toString())
+                .deadline(task.getDeadline() == null?"":task.getDeadline().toString())
+                .timeSpent(task.getTimeSpent()==null?"": task.getTimeSpent().toString())
+                .status(task.getStatus().toString())
                 .build();
     }
 

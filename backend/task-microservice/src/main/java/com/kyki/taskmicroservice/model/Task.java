@@ -35,7 +35,8 @@ public class Task {
     @Column
     private OffsetDateTime deadline;
     @Column
-    private Period timeSpent;
+    @NonNull
+    private Period timeSpent = Period.ZERO;
 
     @OneToMany
     private List<Task> subtasks;

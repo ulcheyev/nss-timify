@@ -18,5 +18,6 @@ public class TaskDto {
     private List<CategoryDto> categoryDtoList;
     private String deadline;
     private String timeSpent;
+    private String status;
 
 }

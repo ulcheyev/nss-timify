@@ -1,5 +1,5 @@
 import {useRef, useState, useEffect, Component} from "react";
-import axios from 'axios';
+import React from 'react'
 import UserService from '../services/user.service'
 import {LogUser} from "../models/logUser";
 import {RegUser} from "../models/regUser";
@@ -63,8 +63,8 @@ const Auth = () => {
 
 
     return (
-        <>
-            {(success ? (
+
+            (success ? (
                 <section>
                     <h1>Стоматолог: - Не бойся Серёга, все бывает в первый раз!
                         Пациент: - Я не Серёга.
@@ -124,8 +124,7 @@ const Auth = () => {
                     </div>
                 </div>
 
-            ))}
-        </>
+            ))
         )
 
 }
