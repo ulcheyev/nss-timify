@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update docker compsoe">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/notification-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/task-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update docker compose" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -312,7 +307,7 @@
       <workItem from="1687856550793" duration="204000" />
       <workItem from="1687856784976" duration="3164000" />
       <workItem from="1687862180341" duration="3065000" />
-      <workItem from="1687865751052" duration="9325000" />
+      <workItem from="1687865751052" duration="9703000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -349,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687873723144</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update docker compose">
+      <created>1687876189798</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687876189798</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +386,8 @@
     <MESSAGE value="Successful integration user and task microservices." />
     <MESSAGE value="swagger aggregator :)" />
     <MESSAGE value="update docker compsoe" />
-    <option name="LAST_COMMIT_MESSAGE" value="update docker compsoe" />
+    <MESSAGE value="update docker compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="update docker compose" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
