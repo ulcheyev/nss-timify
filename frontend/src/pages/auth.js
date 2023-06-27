@@ -30,6 +30,9 @@ const Auth = () => {
 
     const login = (e) => {
         e.preventDefault();
+
+        // validation input
+
         UserService.login(new LogUser(user, pwd)).then(res=>{
             try {
                 console.log(res.data.token)
@@ -76,18 +79,19 @@ const Auth = () => {
                     </div>
 
                     <div className="form-section">
-
                         <form className="login-box" onSubmit={login}>
                             <input type="username"
                                    className="username ele"
                                    placeholder="Username"
                                    onChange={(e) => setUser(e.target.value)}
                                    required/>
+                            <p></p>
                             <input type="password"
                                    className="password ele"
                                    placeholder="Password"
                                    onChange={(e) => setPwd(e.target.value)}
                                    required/>
+                            <p></p>
                             <button className="clkbtn">Login</button>
                         </form>
 
@@ -97,20 +101,24 @@ const Auth = () => {
                                    placeholder="Username"
                                    onChange={(e) => setUser(e.target.value)}
                                    required/>
+                            <p></p>
                             <input type="email"
                                    className="email ele"
                                    placeholder="youremail@email.com"
                                    onChange={(e) => setEmail(e.target.value)}
                                    required/>
+                            <p></p>
                             <input type="password"
                                    className="password ele"
                                    placeholder="Password"
                                    onChange={(e) => setPwd(e.target.value)}
                                    required/>
+                            <p></p>
                             <input type="password"
                                    className="password ele"
                                    placeholder="Confirm password"
                                    required/>
+                            <p></p>
                             <button className="clkbtn">Signup</button>
                         </form>
                     </div>

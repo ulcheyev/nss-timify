@@ -20,6 +20,7 @@
         <module>backend/notification-microservice</module>
         <module>backend/user-microservice</module>
         <module>backend/api-gateway</module>
+        <module>backend/swagger-docs</module>
         <module>backend/discovery-server</module>
     </modules>
 
@@ -28,6 +29,13 @@
         <maven.compiler.target>17</maven.compiler.target>
         <testcontainers.version>1.17.6</testcontainers.version>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.pepperize</groupId>
+            <artifactId>cdk-apigateway-swagger-ui</artifactId>
+            <version>0.0.621</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

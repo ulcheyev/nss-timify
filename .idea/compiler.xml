@@ -12,10 +12,12 @@
         <module name="notification-microservice" />
         <module name="discovery-server" />
         <module name="user-microservice" />
+        <module name="swagger-docs" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="notification-microsevice" target="17" />
+      <module name="swagger-central" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -24,6 +26,8 @@
       <module name="discovery-server" options="-parameters" />
       <module name="notification-microservice" options="-parameters" />
       <module name="notification-microsevice" options="-parameters" />
+      <module name="swagger-central" options="-parameters" />
+      <module name="swagger-docs" options="-parameters" />
       <module name="task-microservice" options="-parameters" />
       <module name="user-microservice" options="-parameters" />
     </option>

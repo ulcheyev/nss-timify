@@ -34,6 +34,7 @@ import java.util.List;
 public class SecurityConfig {
 
     private final AppUserService appUserService;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
