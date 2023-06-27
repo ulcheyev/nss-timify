@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://34.125.160.101:8081/api/v1/system/';
+const API_URL = 'http://34.125.160.101:8080/api/v1/system/';
 
 class UserService {
     async login(user) {
@@ -23,7 +23,6 @@ class UserService {
     async register(user){
         try {
             let jsonToSend = JSON.stringify(user)
-            console.log(jsonToSend)
 
             return  await axios.post(API_URL + 'register',
                 jsonToSend,

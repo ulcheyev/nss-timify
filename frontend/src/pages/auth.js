@@ -81,11 +81,13 @@ const Auth = () => {
                             <input type="username"
                                    className="username ele"
                                    placeholder="Username"
-                                   onChange={(e) => setUser(e.target.value)}/>
+                                   onChange={(e) => setUser(e.target.value)}
+                                   required/>
                             <input type="password"
                                    className="password ele"
                                    placeholder="Password"
-                                   onChange={(e) => setPwd(e.target.value)}/>
+                                   onChange={(e) => setPwd(e.target.value)}
+                                   required/>
                             <button className="clkbtn">Login</button>
                         </form>
 
@@ -93,18 +95,22 @@ const Auth = () => {
                             <input type="text"
                                    className="name ele"
                                    placeholder="Username"
-                                   onChange={(e) => setUser(e.target.value)}/>
+                                   onChange={(e) => setUser(e.target.value)}
+                                   required/>
                             <input type="email"
                                    className="email ele"
                                    placeholder="youremail@email.com"
-                                   onChange={(e) => setEmail(e.target.value)}/>
+                                   onChange={(e) => setEmail(e.target.value)}
+                                   required/>
                             <input type="password"
                                    className="password ele"
                                    placeholder="Password"
-                                   onChange={(e) => setPwd(e.target.value)}/>
+                                   onChange={(e) => setPwd(e.target.value)}
+                                   required/>
                             <input type="password"
                                    className="password ele"
-                                   placeholder="Confirm password"/>
+                                   placeholder="Confirm password"
+                                   required/>
                             <button className="clkbtn">Signup</button>
                         </form>
                     </div>
