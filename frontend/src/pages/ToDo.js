@@ -2,6 +2,9 @@ import React from 'react';
 import {observer} from "mobx-react-lite";
 
 const ToDo = observer(()=> {
+
+
+
     return (
         <section>
             <h1>Стоматолог: - Не бойся Серёга, все бывает в первый раз!
