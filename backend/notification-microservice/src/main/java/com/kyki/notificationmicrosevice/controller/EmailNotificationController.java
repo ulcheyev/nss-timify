@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "api/v1/notifications/email")
-@CrossOrigin("*")
 public class EmailNotificationController
 {
     private final EmailNotificationService emailNotificationService;

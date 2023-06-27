@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update prop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/swagger-docs/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/swagger-docs/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +104,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SwaggerDocsApplication">
+  <component name="RunManager" selected="Spring Boot.TaskMicroserviceApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="api-gateway" />
       <method v="2">
@@ -310,7 +313,7 @@
       <workItem from="1687856550793" duration="204000" />
       <workItem from="1687856784976" duration="3164000" />
       <workItem from="1687862180341" duration="3065000" />
-      <workItem from="1687865751052" duration="10887000" />
+      <workItem from="1687865751052" duration="12643000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -361,7 +364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687876380045</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update prop">
+      <created>1687877952515</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687877952515</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
