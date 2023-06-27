@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api-gateway/src/main/java/com/kyki/apigateway/CorsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api-gateway/src/main/java/com/kyki/apigateway/CorsConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/discovery-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/discovery-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/discovery-server/src/main/java/com/kyki/discoveryserver/DiscoveryServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/discovery-server/src/main/java/com/kyki/discoveryserver/DiscoveryServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/discovery-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/discovery-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/notification-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/task-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/UserMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/UserMicroserviceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="swagger aggregator :)">
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +56,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/OMEN/Desktop/nss-sem",
+    "last_opened_file_path": "C:/Users/OMEN/Desktop/nss-git/nss-timify/backend/swagger-docs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,11 +72,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\OMEN\Desktop\nss-git\nss-timify\backend\swagger-docs" />
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\backend\discovery-server\src\main\resources" />
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem" />
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\backend\api-gateway" />
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\user-microservice\src\main" />
-      <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\notification-microsevice\src\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\OMEN\Desktop\nss-git\nss-timify\backend" />
@@ -119,7 +100,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SwaggerDocsApplication">
+  <component name="RunManager" selected="Docker.docker-compose.yml.swagger-docs: Compose Deployment">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="api-gateway" />
       <method v="2">
@@ -214,19 +195,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="backend.api-gateway: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="api-gateway" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="backend/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="backend.frontend: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -261,6 +229,19 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="docker-compose.yml.swagger-docs: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="swagger-docs" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="frontend/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
@@ -270,9 +251,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.yml.swagger-docs: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.react-client: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.backend.api-gateway: Compose Deployment" />
       <item itemvalue="Docker.backend.frontend: Compose Deployment" />
       <item itemvalue="Docker.frontend/Dockerfile" />
       <item itemvalue="Maven.api-gateway [install]" />
@@ -286,11 +267,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml.swagger-docs: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.react-client: Compose Deployment" />
         <item itemvalue="Docker.frontend/Dockerfile" />
         <item itemvalue="Docker.backend.frontend: Compose Deployment" />
-        <item itemvalue="Docker.backend.api-gateway: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -328,7 +309,7 @@
       <workItem from="1687856550793" duration="204000" />
       <workItem from="1687856784976" duration="3164000" />
       <workItem from="1687862180341" duration="3065000" />
-      <workItem from="1687865751052" duration="6697000" />
+      <workItem from="1687865751052" duration="7398000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -344,7 +325,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683453667172</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="swagger aggregator :)">
+      <created>1687873170306</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687873170306</updated>
+    </task>
+    <task id="LOCAL-00004" summary="swagger aggregator :)">
+      <created>1687873184819</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687873184819</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +372,8 @@
     <MESSAGE value="Contollers configuration. Exception handling added." />
     <MESSAGE value="Exception payload added." />
     <MESSAGE value="Successful integration user and task microservices." />
-    <option name="LAST_COMMIT_MESSAGE" value="Successful integration user and task microservices." />
+    <MESSAGE value="swagger aggregator :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="swagger aggregator :)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
