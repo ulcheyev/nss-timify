@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequestMapping(path = "api/v1/system/login")
 @RequiredArgsConstructor
-@CrossOrigin("*")
 public class AuthController {
 
     private final AuthService authenticationService;

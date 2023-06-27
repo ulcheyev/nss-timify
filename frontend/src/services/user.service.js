@@ -6,7 +6,6 @@ class UserService {
     async login(user) {
         try {
             let jsonToSend = JSON.stringify(user)
-            console.log(jsonToSend)
 
             return  await axios.post(API_URL + 'login',
                 jsonToSend,
@@ -23,6 +22,8 @@ class UserService {
     async register(user){
         try {
             let jsonToSend = JSON.stringify(user)
+            console.log(jsonToSend)
+
             return  await axios.post(API_URL + 'register',
                 jsonToSend,
                 {

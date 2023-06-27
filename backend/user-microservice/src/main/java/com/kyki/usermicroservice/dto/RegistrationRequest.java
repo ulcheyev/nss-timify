@@ -1,9 +1,11 @@
 package com.kyki.usermicroservice.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class RegistrationRequest {
     private String  username;
