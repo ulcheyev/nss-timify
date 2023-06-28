@@ -1,0 +1,54 @@
+.TaskContainer
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    color: black;
+    width: 800px;
+}
+
+.Task
+{
+    background-color: #FEA82F;
+    border-radius: 8px;
+    width: 80%;
+
+}
+
+.TaskHead
+{
+
+
+}
+
+.UpperLine
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+    font-weight: bold;
+}
+
+.LowerLine
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.Description
+{
+
+}
+
+.Categories
+{
+    min-width: 30%;
+}
+
+.Hidden
+{
+    display: none;
+}

@@ -6,6 +6,5 @@ public enum Status {
     ARCHIVED,
     CANCELED,
     PLANNED,
-
     STOPPED
 }
