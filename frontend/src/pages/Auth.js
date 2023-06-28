@@ -77,7 +77,6 @@ const Auth = () => {
         })
     }
 
-
     const login = (e) => {
         e.preventDefault();
         UserService.login(new LogUser(username, pwd)).then(res=>{
@@ -114,7 +113,6 @@ const Auth = () => {
             formSection.classList.remove("form-section-move");
         });
     }, [])
-
 
     return (
         <>
@@ -212,11 +210,5 @@ const Auth = () => {
             </div>
         </>
     )
-
 }
-
-
-
-
-
 export default Auth
