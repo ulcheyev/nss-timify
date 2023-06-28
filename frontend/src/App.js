@@ -1,16 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import React from 'react'
-import {Component} from "react";
-import Auth from "./pages/auth";
-import ProjectTaskList from "./components/ProjectTaskList";
-import AddToProjectForm from "./components/AddForm";
-class App extends Component {
+import {useContext, useState} from "react";
+import Auth from "./pages/Auth";
+import {BrowserRouter} from "react-router-dom";
+import NavBar from "./components/NavBar";
+import {observer} from "mobx-react-lite";
+import {Context} from "./index";
+import AppRouter from "./components/AppRouter";
 
-  render() {
+const App = observer(() => {
+
+    const {user} = useContext(Context)
     return (
-        <AddToProjectForm/>
+        <BrowserRouter>
+            <NavBar/>
+            <AppRouter/>
+        </BrowserRouter>
     );
-  }
-}
+});
 export default App;

@@ -9,6 +9,7 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
+    //TODO user account expired, etc..
 
     private User user;
 
