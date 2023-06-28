@@ -49,39 +49,33 @@ const TaskCard = ({task}) => {
     }
 
     return(
-            <div className={"TaskContainer"}> {
-                this.state.tasks.map(task =>
-
-
-                    <div className={"Task"} key = {task.id} id={task.id}>
-
-                        {task.status}
-                        <div className={"UpperLine"}>
-                            <div className={"TaskHead"}>
-                                {task.name}
-                            </div>
-                            <div>Deadline: </div>
+                <div className={"Task"}>
+                    {task.status}
+                    <div className={"UpperLine"}>
+                        <div className={"TaskHead"}>
+                            {task.name}
                         </div>
-                        <div className={"LowerLine"}>
-                            <p className={"Descritpion"}>
-                                {task.description}
-                            </p>
-                            <div className = {"ButtonContainer"}>
+                        <div>Deadline: </div>
+                    </div>
+                    <div className={"LowerLine"}>
+                        <p className={"Descritpion"}>
+                            {task.description}
+                        </p>
+                        <div className = {"ButtonContainer"}>
 
-                                <button className={`StopButton${(task.status != "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendStop(task.id)}>Stop</button>
-                                <button className={`StartButton${(task.status == "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendPlay(task.id)}>Play</button>
+                            <button className={`StopButton${(task.status != "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendStop(task.id)}>Stop</button>
+                            <button className={`StartButton${(task.status == "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendPlay(task.id)}>Play</button>
 
-                            </div>
-                            <div className={"Categories"}>
-                                Categories:
-                                {task.categoryDtoList.map(element =>
-                                    <div>
-                                        {this.state.categories.has(element.id)?this.state.categories.get(element.id):"Unknown category"}
-                                    </div>)}
-                            </div>
                         </div>
-                    </div>)}
-            </div>
+                        <div className={"Categories"}>
+                            Categories:
+                            {task.categoryDtoList.map(element =>
+                                <div>
+                                    {this.state.categories.has(element.id)?this.state.categories.get(element.id):"Unknown category"}
+                                </div>)}
+                        </div>
+                    </div>
+                </div>
     );
 };
 
