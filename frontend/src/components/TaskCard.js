@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TaskCard = ({task}) => {
-
+const TaskCard = ({task} ,  {categories}) => {
+    console.log(categories)
     const sendPlay = (id) =>{
         console.log(id)
         const note  = document.getElementById(id);
@@ -71,7 +71,7 @@ const TaskCard = ({task}) => {
                             Categories:
                             {task.categoryDtoList.map(element =>
                                 <div>
-                                    {this.state.categories.has(element.id)?this.state.categories.get(element.id):"Unknown category"}
+                                    {categories.has(element.id)?this.state.categories.get(element.id):"Unknown category"}
                                 </div>)}
                         </div>
                     </div>

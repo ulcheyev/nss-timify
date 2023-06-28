@@ -82,6 +82,22 @@ public class AppUserServiceImpl implements AppUserService{
         appUserRepository.save(entity);
     }
 
+    @Override
+    public void save(AppUser appUser) {
+        log.info("AppUserService-save: " + appUser);
+        Optional<AppUser> appUserByUsername = appUserRepository.findAppUserByUsername(appUser.getUsername());
+        if(appUserByUsername.isPresent()) {
+            throw new ValidationException("User with username " + appUser.getUsername() + " already exists.");
+        }
+        Optional<AppUser> appUserByEmail = appUserRepository.findAppUserByEmail(appUser.getEmail());
+        if(appUserByEmail.isPresent()) {
+            throw new ValidationException("User with email " + appUser.getEmail() + " already exists.");
+        }
+
+        appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
+        appUserRepository.save(appUser);
+    }
+
     @Transactional
     @Override
     public void update(@NonNull Long appUserId, String username, String email) {

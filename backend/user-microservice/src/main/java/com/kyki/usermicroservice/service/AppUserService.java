@@ -18,6 +18,9 @@ public interface AppUserService {
 
     void save(RegistrationRequest request);
 
+    void save(AppUser appUser);
+
+
     void update(Long appUserId, String username, String email);
 
     void deleteById(Long appUserId);

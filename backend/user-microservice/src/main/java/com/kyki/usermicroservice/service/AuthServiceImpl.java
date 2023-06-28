@@ -38,10 +38,10 @@ public class AuthServiceImpl implements AuthService{
 
         Authentication authentication = authenticationManager
                 .authenticate(SecurityUtils.generateUserPassToken(request, userDetails));
-
         SecurityUtils.setCurrentUser(authentication);
+
         var jwtToken = jwtUtils.generateToken(userDetails);
-        log.info("AuthService-authenticate: token generated");
+        log.info("AuthService-authenticate: token generated" + authentication.toString());
 
         userDetails.erasePass();
 

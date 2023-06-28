@@ -7,11 +7,14 @@ import com.kyki.taskmicroservice.service.ProjectService;
 import com.kyki.taskmicroservice.service.TaskService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreFilter;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -29,9 +32,11 @@ public class TaskController
     }
 
     @GetMapping("/all")
-    public List<TaskDto> getTasksAll()
+    @CachePut(value = "tasks")
+    public List<TaskDto> getTasksAll(@RequestParam(defaultValue = "0") int page,
+                                     @RequestParam(defaultValue = "5") int size)
     {
-        return taskService.findAll();
+        return taskService.findAll(page, size);
     }
 
     @GetMapping
@@ -48,6 +53,7 @@ public class TaskController
     }
 
     @DeleteMapping("/{id}")
+    @CacheEvict("tasks")
     public ResponseEntity<String> deleteTask(Long id)
     {
         taskService.deleteById(id);

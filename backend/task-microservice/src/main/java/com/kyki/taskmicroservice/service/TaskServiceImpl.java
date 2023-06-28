@@ -14,6 +14,7 @@ import jakarta.transaction.Transactional;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -30,8 +31,8 @@ public class TaskServiceImpl implements TaskService{
     private final AppUserAPI externService;
 
     @Override
-    public List<TaskDto> findAll() {
-        List<Task> all = taskRepository.findAll();
+    public List<TaskDto> findAll(int page, int size) {
+        List<Task> all = taskRepository.findAll(PageRequest.of(page, size)).getContent();
         List<TaskDto> taskDtos = new ArrayList<>();
         for(Task task: all) {
             taskDtos.add(Mapper.toTaskDto(task));

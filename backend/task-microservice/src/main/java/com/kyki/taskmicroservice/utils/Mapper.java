@@ -8,14 +8,22 @@ import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Status;
 import com.kyki.taskmicroservice.model.Task;
 
-import java.time.OffsetDateTime;
-import java.time.Period;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Mapper {
 
     public static Task toTask(TaskDto task, Project proj, List<Category> categories) {
+        ZoneId zoneId = ZoneId.of("UTC");
+        ZoneId defaultZone = ZoneId.systemDefault();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(task.getDeadline(), formatter);
+        ZoneOffset offset = zoneId.getRules().getOffset(dateTime);
+        OffsetDateTime offsetDeadline = OffsetDateTime.of(dateTime, offset);
+
+
         return Task
                 .builder()
                 .name(task.getName())
@@ -26,7 +34,7 @@ public class Mapper {
                 .subtasks(new ArrayList<>())
                 .startTime(OffsetDateTime.now())
                 .status(Status.ACTIVE)
-                .deadline(OffsetDateTime.parse(task.getDeadline()))
+                .deadline(offsetDeadline)
                 .timeSpent(Period.ZERO)
                 .build();
     }

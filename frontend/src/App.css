@@ -7,6 +7,28 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.errorMsg {
+  text-align: center;
+  margin-top: 50px;
+  color: red;
+  margin-bottom: -60px;
+}
+.instructions {
+  width: 400px;
+  font-size: 0.78rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(to right,
+  rgb(255, 146, 91),
+  rgb(255, 195, 110));
+  color: #fff;
+  padding: 0.25rem;
+  position: relative;
+  margin-top: 0;
+}
+
+.hide {
+  display: none;
+}
 
 body {
   height: 100vh;
@@ -63,7 +85,7 @@ nav {
 }
 
 .auth-container {
-  height: 600px;
+  height: 660px;
   width: 500px;
   background-color: white;
   box-shadow: 8px 8px 20px rgb(128, 128, 128);
@@ -108,7 +130,7 @@ nav {
 }
 
 .form-section {
-  height: 500px;
+  height: 560px;
   width: 1000px;
   padding: 20px 0;
   display: flex;
@@ -133,23 +155,41 @@ nav {
 }
 
 .login-box {
-  gap: 50px;
+  gap: 45px;
 }
 
 .signup-box {
-  gap: 30px;
+  gap: 40px;
 }
 
 .ele {
-  height: 60px;
+  height: 50px;
   width: 400px;
   outline: none;
   border: none;
   color: rgb(77, 77, 77);
   background-color: rgb(240, 240, 240);
-  border-radius: 50px;
+  border-radius: 5px;
   padding-left: 30px;
   font-size: 18px;
+}
+
+.invalidEle {
+  height: 50px;
+  width: 400px;
+  outline: none;
+  border: 1px solid red;
+  color: rgb(77, 77, 77);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
+  padding-left: 30px;
+  font-size: 18px;
+}
+
+.inp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .clkbtn {
