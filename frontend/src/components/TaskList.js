@@ -36,7 +36,7 @@ class TaskList extends Component
             stopButton.classList.remove("Hidden")
             startButton.classList.add("Hidden")
         })
-            .catch(e => alert(e))
+            .catch(e => alert(e)) // TODO change localhost to IP
     }
 
     sendStop(id)
@@ -62,7 +62,7 @@ class TaskList extends Component
                 console.log(response)
             }
         })
-            .catch(e => alert(e))
+            .catch(e => alert(e)) // TODO change localhost to IP
     }
 
     render()

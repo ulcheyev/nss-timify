@@ -18,7 +18,7 @@ class ProjectTaskList extends TaskList
             .then(respJson => respJson.map(category => this.state.categories.set(category.id, category.name)))
         fetch(`http://localhost:8080/api/v1/core/projects/${id}/tasks`)
             .then(response => response.json())
-            .then(respJson => this.setState({tasks:respJson}))
+            .then(respJson => this.setState({tasks:respJson})) // TODO change localhost to IP
     }
 
 }
