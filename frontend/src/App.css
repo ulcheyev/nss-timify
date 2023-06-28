@@ -252,11 +252,6 @@ nav {
 /* For Responsiveness of the page */
 
 @media screen and (max-width: 650px) {
-  .container {
-    height: 600px;
-    width: 300px;
-  }
-
   .title {
     font-size: 15px;
   }
@@ -311,11 +306,6 @@ nav {
 }
 
 @media screen and (max-width: 320px) {
-  .container {
-    height: 600px;
-    width: 250px;
-  }
-
   .heading {
     font-size: 30px;
   }
