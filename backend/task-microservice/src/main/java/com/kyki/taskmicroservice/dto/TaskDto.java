@@ -1,11 +1,14 @@
 package com.kyki.taskmicroservice.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class TaskDto {
 
@@ -15,5 +18,8 @@ public class TaskDto {
     private String user;
     private Long projectId;
     private List<CategoryDto> categoryDtoList;
+    private String deadline;
+    private String timeSpent;
+    private String status;
 
 }

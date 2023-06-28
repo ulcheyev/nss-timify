@@ -81,5 +81,20 @@ public class TaskController
         taskService.removeSubtask(taskId, categoryId);
         return new ResponseEntity<>("Category added successfully", HttpStatus.OK);
     }
+
+    @PutMapping("/start-task")
+    public ResponseEntity<String> startTask(@RequestBody Long taskId)
+    {
+        taskService.startTask(taskId);
+        return new ResponseEntity<String>("Task started successfully", HttpStatus.OK);
+
+    }
+    @PutMapping("/stop-task")
+    public ResponseEntity<String> stopTask(@RequestBody Long taskId)
+    {
+        taskService.stopTask(taskId);
+        return new ResponseEntity<String>("Task stopped successfully", HttpStatus.OK);
+
+    }
 }
 

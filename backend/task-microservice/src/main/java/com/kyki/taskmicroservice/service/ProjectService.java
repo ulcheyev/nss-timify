@@ -1,7 +1,9 @@
 package com.kyki.taskmicroservice.service;
 
 import com.kyki.taskmicroservice.dto.ProjectDto;
+import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Project;
+import com.kyki.taskmicroservice.model.Task;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
 
@@ -10,6 +12,8 @@ import java.util.List;
 public interface ProjectService {
 
     List<Project> findAll();
+
+    public List<TaskDto> findTasksDTOByProjectId(@NonNull Long id);
 
     List<ProjectDto> findAllProjectDto();
 
