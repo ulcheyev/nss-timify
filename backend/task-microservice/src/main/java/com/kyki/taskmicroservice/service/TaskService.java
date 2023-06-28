@@ -34,4 +34,6 @@ public interface TaskService
 
     @Transactional
     Task update(@NonNull Long id, String name, String description, Long projectId);
+
+    List<TaskDto> findByName(String name);
 }

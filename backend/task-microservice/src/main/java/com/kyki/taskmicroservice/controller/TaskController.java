@@ -1,6 +1,7 @@
 package com.kyki.taskmicroservice.controller;
 
 import com.kyki.taskmicroservice.dto.TaskDto;
+import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Task;
 import com.kyki.taskmicroservice.service.CategoryService;
 import com.kyki.taskmicroservice.service.ProjectService;
@@ -29,6 +30,12 @@ public class TaskController
     public ResponseEntity<Task> getTask(@PathVariable("id") Long id)
     {
         return ResponseEntity.ok().body(taskService.findById(id));
+    }
+
+    @GetMapping("/name/{name}")
+    public List<TaskDto> getTaskByNameLike(@NonNull @PathVariable("name") String name)
+    {
+        return taskService.findByName(name);
     }
 
     @GetMapping("/all")

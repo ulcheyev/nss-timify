@@ -1,5 +1,6 @@
 package com.kyki.taskmicroservice.repository;
 
+import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Task;
 import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,5 +16,6 @@ public interface TaskRepository extends JpaRepository<Task, Long>
 
     List<Task> findTaskByOwner(@NonNull String owner);
 
+    List<Task> findAllByNameLike(String name);
 
 }

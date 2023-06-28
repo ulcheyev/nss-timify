@@ -170,6 +170,15 @@ public class TaskServiceImpl implements TaskService{
         return task;
     }
 
+    @Override
+    public List<TaskDto> findByName(String name) {
+        List<Task> allByNameLike = taskRepository.findAllByNameLike(name);
+        List<TaskDto> taskDtos = new ArrayList<>();
+        for(Task task: allByNameLike) {
+            taskDtos.add(Mapper.toTaskDto(task));
+        }
+        return taskDtos;
+    }
 
 
 }
