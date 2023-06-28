@@ -246,6 +246,10 @@ nav {
   min-width: 30%;
 }
 
+.Hidden
+{
+  display: none;
+}
 
 /* For Responsiveness of the page */
 
