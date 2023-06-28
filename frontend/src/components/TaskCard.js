@@ -7,7 +7,7 @@ const TaskCard = ({task}) => {
                 <div className={"TaskHead"}>
                     {task.name}
                 </div>
-                <div>Deadline:</div>
+                <div>Deadline: {task.deadline}</div>
             </div>
             <div className={"LowerLine"}>
                 <p className={"Descritpion"}>
