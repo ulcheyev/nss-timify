@@ -36,7 +36,7 @@ public class Task {
     private OffsetDateTime deadline;
     @Column
     @NonNull
-    private Period timeSpent = Period.ZERO;
+    private Period timeSpent;
 
     @OneToMany
     private List<Task> subtasks;
@@ -69,6 +69,9 @@ public class Task {
     public void stopTask()
     {
         status = Status.STOPPED;
+        System.out.println("Stopped task" + taskId.toString());
+        if (timeSpent == null) timeSpent=Period.ZERO;
+        System.out.println(timeSpent);
         timeSpent.plus(Period.between(startTime.toLocalDate(),OffsetDateTime.now().toLocalDate()));
     }
 

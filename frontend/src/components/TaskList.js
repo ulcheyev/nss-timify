@@ -26,10 +26,12 @@ class TaskList extends Component
         const startButton = document.getElementById(id).children[1].children[1].children[1];
         fetch(`http://localhost:8080/api/v1/core/tasks/start-task`, {
             method: "PUT",
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
-                {taskId: id}
+                `${id}`
             )
-        }).then(() => {
+        }).then((response) =>{
+            if(response.status/100<3)
             alert("Task started successfully");
             stopButton.classList.remove("Hidden")
             startButton.classList.add("Hidden")
@@ -49,15 +51,15 @@ class TaskList extends Component
             body: JSON.stringify(
                 `${id}`
             )
-        }).then(responce => {
-            if(responce.status/100<3) {
+        }).then(response => {
+            if(response.status/100<3) {
                 alert("Task stopped successfully");
                 startButton.classList.remove("Hidden")
                 stopButton.classList.add("Hidden")
             }
             else
             {
-                console.log(responce)
+                console.log(response)
             }
         })
             .catch(e => alert(e))
