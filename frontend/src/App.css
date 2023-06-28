@@ -41,6 +41,11 @@ body {
   background-color: rgb(231, 231, 231);
 }
 
+#root{
+  height: 100vh;
+  width: 100vw;
+}
+
 header {
   width: 100%;
   display: flex;
@@ -50,16 +55,36 @@ header {
   gap: 8px;
 }
 
+.appName{
+  font-size: xx-large;
+}
+
+nav {
+  min-width: 100vw;
+  padding: 2rem;
+  background-color: #fea82f;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .heading {
   color: green;
 }
 
 .title {
   font-weight: 400;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 }
 
-.container {
+.row{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin: 0 2rem;
+}
+
+.auth-container {
   height: 660px;
   width: 500px;
   background-color: white;
@@ -68,7 +93,7 @@ header {
   overflow: hidden;
 }
 
-.btn {
+.slider-btn {
   height: 60px;
   width: 300px;
   margin: 20px auto;
@@ -93,9 +118,7 @@ header {
   height: 60px;
   width: 150px;
   border-radius: 50px;
-  background-image: linear-gradient(to right,
-  rgb(255, 195, 110),
-  rgb(255, 146, 91));
+  background-color: #fea82f;
   position: absolute;
   top: 20px;
   left: 100px;
@@ -113,7 +136,7 @@ header {
   display: flex;
   position: relative;
   transition: all 0.5s ease-in-out;
-  left: 0px;
+  left: 0;
 }
 
 .form-section-move {
@@ -128,7 +151,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px 40px;
+  padding: 0 40px;
 }
 
 .login-box {
@@ -173,13 +196,56 @@ header {
   height: 60px;
   width: 150px;
   border-radius: 50px;
-  background-image: linear-gradient(to right,
-  rgb(255, 195, 110),
-  rgb(255, 146, 91));
+  background-color: #fea82f;
   font-size: 22px;
   border: none;
   cursor: pointer;
 }
+
+
+.TaskContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  color: black;
+  width: 800px;
+}
+
+.Task {
+  background-color: #FEA82F;
+  border-radius: 8px;
+  width: 80%;
+
+}
+
+.TaskHead{
+
+
+}
+
+.UpperLine{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.LowerLine{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.Description{
+
+}
+
+.Categories{
+  min-width: 30%;
+}
+
 
 /* For Responsiveness of the page */
 
@@ -303,4 +369,5 @@ header {
     width: 130px;
     font-size: 19px;
   }
+
 }
