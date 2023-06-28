@@ -3,6 +3,7 @@ package com.kyki.taskmicroservice.dto;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -15,5 +16,8 @@ public class TaskDto {
     private String user;
     private Long projectId;
     private List<CategoryDto> categoryDtoList;
+    private String deadline;
+    private String timeSpent;
+    private String status;
 
 }

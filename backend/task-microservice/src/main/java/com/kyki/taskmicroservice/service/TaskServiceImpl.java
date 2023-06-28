@@ -123,6 +123,20 @@ public class TaskServiceImpl implements TaskService{
         task.removeCategory(category);
     }
 
+    @Override
+    @Transactional
+    public void startTask(@NonNull Long taskId) {
+        Task task = findById(taskId);
+        task.startTask();
+    }
+
+    @Override
+    @Transactional
+    public void stopTask(@NonNull Long taskId) {
+        Task task = findById(taskId);
+        task.stopTask();
+    }
+
 
     @Override
     @Transactional
