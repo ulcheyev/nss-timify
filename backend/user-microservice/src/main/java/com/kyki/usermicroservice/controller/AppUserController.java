@@ -8,8 +8,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -21,16 +26,15 @@ public class AppUserController {
     private final AppUserService appUserService;
 
     @GetMapping
-    //    @PreAuthorize("hasAnyRole('ADMIN')"
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<AppUser>> findAll() {
         log.info("AppUserController-findAll");
         List<AppUser> all = appUserService.findAll();
         return ResponseEntity.ok().body(all);
     }
 
-
     @GetMapping(value = "/filter")
-//    @PreAuthorize("hasAnyRole('USER')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<AppUser> findByUsername(@NonNull @RequestParam(value="userName")  String userName) {
         log.info("AppUserController-findByUsername: " + userName);
         AppUser byUsername = appUserService.findByUsername(userName);
@@ -40,7 +44,7 @@ public class AppUserController {
 
 
     @DeleteMapping(value = "/{userId}")
-//    @PreAuthorize("hasAnyRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<String> deleteUserById(@NonNull @PathVariable("userId") Long userId) {
         log.info("AppUserController-deleteUserById: " + userId);
         appUserService.deleteById(userId);
@@ -48,7 +52,7 @@ public class AppUserController {
     }
 
     @PutMapping(value = "/{userName}", consumes = MediaType.APPLICATION_JSON_VALUE)
-//    @PreAuthorize("hasAnyRole('USER') and @appUserServiceImpl.findByUsername(#userName).username.equals(principal.username) or hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('USER') and @appUserServiceImpl.findByUsername(#userName).username.equals(principal.username) or hasRole('ADMIN')")
     public ResponseEntity<String> updateUser(@NonNull @PathVariable("userName") String userName,
                                              @RequestBody @NonNull AppUserUpdateRequest request) {
         log.info("AppUserController-updateUser: {}, {}" + userName, request);

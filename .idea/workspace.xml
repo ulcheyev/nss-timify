@@ -4,12 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update prop">
+    <list default="true" id="0708eb02-ea94-4a81-8b2b-2c29d0c8972d" name="Changes" comment="update controllers cors issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/swagger-docs/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/swagger-docs/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/ProjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/StatisticController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/notification-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/notification-microservice/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/TaskMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/TaskMicroserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/TaskDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/dto/TaskDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/repository/TaskRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/java/com/kyki/taskmicroservice/service/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/task-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/task-microservice/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AppUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/controller/AppUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/exception/APIExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/exception/APIExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/security/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/service/AppUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/service/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/utils/Mapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/java/com/kyki/usermicroservice/utils/SecurityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/user-microservice/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/user-microservice/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +50,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -57,7 +79,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "auth-page",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "C:/Users/OMEN/Desktop/nss-git/nss-timify/backend/swagger-docs",
@@ -70,11 +92,14 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "7a3af4a17fd5dd65ed6fcba954608a83",
+    "spring.configuration.checksum": "1197c364b52648a36bc5ce2124b12bf9",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kyki.usermicroservice.config" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OMEN\Desktop\nss-git\nss-timify\backend\swagger-docs" />
       <recent name="C:\Users\OMEN\Desktop\4-sem\nss\nss-sem\backend\discovery-server\src\main\resources" />
@@ -313,7 +338,8 @@
       <workItem from="1687856550793" duration="204000" />
       <workItem from="1687856784976" duration="3164000" />
       <workItem from="1687862180341" duration="3065000" />
-      <workItem from="1687865751052" duration="12643000" />
+      <workItem from="1687865751052" duration="14917000" />
+      <workItem from="1687888843022" duration="31255000" />
     </task>
     <task id="LOCAL-00001" summary="Contollers configuration. Exception handling added.">
       <created>1683453607584</created>
@@ -371,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687877952515</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update controllers cors issue">
+      <created>1687879742623</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687879742623</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +441,8 @@
     <MESSAGE value="update docker compsoe" />
     <MESSAGE value="update docker compose" />
     <MESSAGE value="update prop" />
-    <option name="LAST_COMMIT_MESSAGE" value="update prop" />
+    <MESSAGE value="update controllers cors issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="update controllers cors issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -418,6 +452,10 @@
           <line>37</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -2,6 +2,7 @@ package com.kyki.usermicroservice.utils;
 
 import com.kyki.usermicroservice.dto.AuthRequest;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,11 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class SecurityUtils {
     public static void setCurrentUser(Authentication authentication) {
-        if (contextIsNull()) {
-            final SecurityContext context = new SecurityContextImpl();
-            context.setAuthentication(authentication);
-            SecurityContextHolder.setContext(context);
-        }
+        final SecurityContext context = new SecurityContextImpl();
+        context.setAuthentication(authentication);
+        SecurityContextHolder.setContext(context);
     }
 
     public static UsernamePasswordAuthenticationToken generateUserPassToken(AuthRequest request, UserDetails userDetails) {

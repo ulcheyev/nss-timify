@@ -9,7 +9,6 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
-    //TODO user accout expired, etc..
 
     private User user;
 
@@ -23,7 +22,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return user.getAuthorities();
     }
 
     @Override
