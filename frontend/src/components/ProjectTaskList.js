@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import "./TaskList.css"
 import TaskList from "./TaskList";
 class ProjectTaskList extends TaskList
 {

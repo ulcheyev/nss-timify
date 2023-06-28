@@ -20,7 +20,7 @@ const TaskList = observer(() => {
 
     return (
         <div className={"taskContainer"}>
-            {this.state.tasks.map(task =><TaskCard key={task.id} device={task}/>)}
+            {state.tasks.map(task =><TaskCard key={task.id} device={task}/>)}
         </div>
     )
 });
