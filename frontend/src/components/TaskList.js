@@ -36,7 +36,7 @@ const TaskList = observer(() => {
             .then(respJson => setTasks(respJson))
         //console.log(state.tasks)
         //console.log(state.categories)
-    })
+    }, [currPage])
 
 
     return (
