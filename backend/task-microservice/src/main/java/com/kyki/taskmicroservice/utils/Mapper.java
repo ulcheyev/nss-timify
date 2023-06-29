@@ -35,7 +35,7 @@ public class Mapper {
                 .startTime(OffsetDateTime.now())
                 .status(Status.ACTIVE)
                 .deadline(offsetDeadline)
-                .timeSpent(Period.ZERO)
+                .timeSpent(Duration.ZERO)
                 .build();
     }
 
@@ -59,7 +59,7 @@ public class Mapper {
                 .description(task.getDescription())
                 .categoryDtoList(categoryDtoList)
                 .deadline(task.getDeadline() == null?"":task.getDeadline().toString())
-                .timeSpent(task.getTimeSpent()==null?"": task.getTimeSpent().toString())
+                .timeSpent(task.getTimeSpent()==null?"": Long.toString(task.getTimeSpent().getSeconds()))
                 .status(task.getStatus().toString())
                 .build();
     }
