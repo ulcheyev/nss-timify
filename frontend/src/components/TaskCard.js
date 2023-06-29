@@ -44,6 +44,27 @@ const TaskCard = observer(({task} ,  {categories}) => {
             .catch(e => alert(e))
     }
 
+    const sendArchive = (id) =>
+    {
+        console.log(id)
+        const note  = document.getElementById(id);
+        fetch(`http://localhost:8080/api/v1/core/tasks/archive-task`, {
+            method: "PUT",
+            headers: { 'Content-Type': 'application/json' },
+            body: `${id}`
+        }).then(response => {
+            if(response.status/100<3) {
+                alert("Task archived successfully");
+                note.parentNode.removeChild(note);
+            }
+            else
+            {
+                console.log(response.body)
+            }
+        })
+            .catch(e => alert(e))
+    }
+
     return(
                 <div className={"Task"} id={task.id}>
                     {task.status}
@@ -61,6 +82,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
 
                             <button className={`StopButton${(task.status !== "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendStop(task.id)}>Stop</button>
                             <button className={`StartButton${(task.status === "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendPlay(task.id)}>Play</button>
+                            <button className={`ArchiveButton`} onClick={() => sendArchive(task.id)}>Archive</button>
 
                         </div>
                         <div className={"Categories"}>
