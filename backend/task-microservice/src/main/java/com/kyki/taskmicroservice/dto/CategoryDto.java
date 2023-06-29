@@ -1,10 +1,11 @@
 package com.kyki.taskmicroservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryDto {
     private Long id;
 }

@@ -1,6 +1,7 @@
 package com.kyki.taskmicroservice.service;
 
 import com.kyki.taskmicroservice.dto.ProjectDto;
+import com.kyki.taskmicroservice.dto.ProjectTimeDto;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
@@ -13,6 +14,8 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,6 +44,22 @@ public class ProjectServiceImpl implements ProjectService {
     public List<TaskDto> findTasksDTOByProjectId(@NonNull Long id)
     {
         return findById(id).getTasks().stream().map(task -> Mapper.toTaskDto(task)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ProjectTimeDto> getProjectStats()
+    {
+        List<Project> projects = findAll();
+        List<ProjectTimeDto> dtos =  projects.stream().map(project ->
+        {
+            Duration allTime = Duration.ZERO;
+            project.getTasks().stream().map(task -> allTime.plus(task.getTimeSpent()));
+            return ProjectTimeDto
+                    .builder()
+                    .seconds(Long.toString(allTime.getSeconds()))
+                    .name(project.getName()).build();
+        }).collect(Collectors.toList());
+        return dtos;
     }
 
 

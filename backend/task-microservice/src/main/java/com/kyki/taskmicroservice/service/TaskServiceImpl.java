@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -41,6 +42,7 @@ public class TaskServiceImpl implements TaskService{
         return taskDtos;
     }
 
+
     @Override
     public List<TaskDto> findAllByUsername(int page, int size, String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
@@ -51,6 +53,11 @@ public class TaskServiceImpl implements TaskService{
             taskDtos.add(Mapper.toTaskDto(task));
         }
         return taskDtos;
+    }
+
+    @Override
+    public List<TaskDto> findAllByUsernameArchived(int page, int size, @NonNull String username) {
+        return findAllByUsername(page, size, username).stream().filter(task -> task.getStatus().equals("ARCHIVED")).collect(Collectors.toList());
     }
 
 
