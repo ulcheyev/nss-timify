@@ -1,12 +1,12 @@
 import Project from "./pages/Project";
-import {ADMIN_ROUTE, AUTH_ROUTE, PROJECT_ROUTE, REGISTRATION_ROUTE, TODO_ROUTE} from "./utils/consts";
+import {ADMIN_ROUTE, AUTH_ROUTE, PROJECT_ROUTE, REGISTRATION_ROUTE, TODO_ROUTE, USER_ROUTE} from "./utils/consts";
 import Auth from "./pages/Auth";
 import ToDo from "./pages/ToDo";
 import Admin from "./pages/Admin";
 
 export const authRoutes = [
     {
-        path: ADMIN_ROUTE,
+        path: USER_ROUTE,
         Component: Admin
     },
     {

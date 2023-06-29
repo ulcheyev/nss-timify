@@ -2,6 +2,7 @@ package com.kyki.usermicroservice.controller;
 
 import com.kyki.usermicroservice.dto.AppUserUpdateRequest;
 import com.kyki.usermicroservice.model.AppUser;
+import com.kyki.usermicroservice.security.JwtUtils;
 import com.kyki.usermicroservice.service.AppUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,7 @@ import java.util.List;
 public class AppUserController {
 
     private final AppUserService appUserService;
+    private final JwtUtils jwtUtils;
 
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -61,13 +63,15 @@ public class AppUserController {
     }
 
     @GetMapping(value = "/is-user")
-    public Boolean isUser(@NonNull @RequestParam(value="userName") String name) {
-        return appUserService.isUser(appUserService.findByUsername(name).getId());
+    public Boolean isUser(@NonNull @RequestParam(value="tok") String token) {
+
+        return appUserService.isUser(appUserService.findByUsername(jwtUtils.extractUsername(token)).getId());
     }
 
     @GetMapping(value = "/is-admin")
-    public Boolean isAdmin(@NonNull @RequestParam(value="userName") String name) {
-        return appUserService.isAdmin(appUserService.findByUsername(name).getId());
+    public Boolean isAdmin(@NonNull @RequestParam(value="tok") String token) {
+
+        return appUserService.isAdmin(appUserService.findByUsername(jwtUtils.extractUsername(token)).getId());
 
     }
 

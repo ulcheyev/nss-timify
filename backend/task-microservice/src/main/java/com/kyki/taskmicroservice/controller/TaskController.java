@@ -1,8 +1,10 @@
 package com.kyki.taskmicroservice.controller;
 
 import com.kyki.taskmicroservice.dto.TaskDto;
+import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Task;
+import com.kyki.taskmicroservice.service.AppUserAPI;
 import com.kyki.taskmicroservice.service.CategoryService;
 import com.kyki.taskmicroservice.service.ProjectService;
 import com.kyki.taskmicroservice.service.TaskService;
@@ -15,7 +17,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreFilter;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.ValidationException;
 import java.awt.print.Pageable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +29,7 @@ import java.util.Map;
 public class TaskController
 {
 
+    private final AppUserAPI appUserAPI;
     private final TaskService taskService;
 
     @GetMapping(value="/{id}")
@@ -41,10 +46,16 @@ public class TaskController
 
     @GetMapping("/all")
     @CachePut(value = "tasks")
-    public List<TaskDto> getTasksAll(@RequestParam(defaultValue = "0") int page,
-                                     @RequestParam(defaultValue = "5") int size)
+    public List<TaskDto> getTasksAll(
+            @RequestHeader("Authorization") String token,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size)
     {
-        return taskService.findAll(page, size);
+        if(appUserAPI.isAdmin(token)){
+            return taskService.findAll(page, size);
+        }
+        throw new ArgumentException("Not allowed");
+
     }
 
     @GetMapping
