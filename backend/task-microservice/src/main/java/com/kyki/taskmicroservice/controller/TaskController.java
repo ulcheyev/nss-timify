@@ -48,9 +48,11 @@ public class TaskController
     }
 
     @GetMapping
-    public List<TaskDto> getTasks(@RequestHeader("Authorization") String token)
+    public List<TaskDto> getTasks(@RequestHeader("Authorization") String token,
+    @RequestParam(defaultValue = "0") int page,
+    @RequestParam(defaultValue = "5") int size)
     {
-        return taskService.findAllByUsername(token);
+        return taskService.findAllByUsername(page, size, token);
     }
 
     @PostMapping
@@ -116,6 +118,12 @@ public class TaskController
     {
         taskService.archiveTask(taskId);
         return new ResponseEntity<String>("Task archived successfully", HttpStatus.OK);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Object> getTasksCount(@RequestHeader("Authorization") String token)
+    {
+        return ResponseEntity.ok(taskService.getTasksCount(token));
     }
 }
 

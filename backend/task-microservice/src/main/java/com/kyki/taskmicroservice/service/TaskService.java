@@ -3,6 +3,7 @@ import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Task;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public interface TaskService
 {
     List<TaskDto> findAll(int page, int size);
 
-    public List<TaskDto> findAllByUsername(@NonNull String username);
+    public List<TaskDto> findAllByUsername(@NonNull int page, @NonNull int size, @NonNull String username);
 
     TaskDto findTaskDtoById(@NonNull Long id);
 
@@ -39,4 +40,6 @@ public interface TaskService
     Task update(@NonNull Long id, String name, String description, Long projectId);
 
     List<TaskDto> findByName(String name);
+
+    Integer getTasksCount(String token);
 }

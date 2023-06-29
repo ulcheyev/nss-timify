@@ -42,10 +42,10 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public List<TaskDto> findAllByUsername(String token) {
+    public List<TaskDto> findAllByUsername(int page, int size, String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
         System.out.println(usernameFromToken);
-        List<Task> all = taskRepository.findTaskByOwner(usernameFromToken);
+        List<Task> all = taskRepository.findTaskByOwner(PageRequest.of(page, size), usernameFromToken);
         List<TaskDto> taskDtos = new ArrayList<>();
         for(Task task: all) {
             taskDtos.add(Mapper.toTaskDto(task));
@@ -187,6 +187,15 @@ public class TaskServiceImpl implements TaskService{
         }
         return taskDtos;
     }
+
+    @Override
+    public Integer getTasksCount(String token) {
+        String usernameFromToken = JwtUtils.getUsernameFromToken(token);
+        List<Task> all = taskRepository.findTaskByOwner(usernameFromToken);
+        return all.size();
+    }
+
+
 
 
 }
