@@ -66,7 +66,7 @@ public class AppUserServiceImpl implements AppUserService{
     }
 
     @Override
-    public void save(RegistrationRequest request) {
+    public AppUser save(RegistrationRequest request) {
         log.info("AppUserService-save: " + request);
         Optional<AppUser> appUserByUsername = appUserRepository.findAppUserByUsername(request.getUsername());
         if(appUserByUsername.isPresent()) {
@@ -79,7 +79,7 @@ public class AppUserServiceImpl implements AppUserService{
 
         AppUser entity = Mapper.toAppUser(request);
         entity.setPassword(passwordEncoder.encode(request.getPassword()));
-        appUserRepository.save(entity);
+        return appUserRepository.save(entity);
     }
 
     @Override

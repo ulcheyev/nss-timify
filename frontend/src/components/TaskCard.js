@@ -1,7 +1,7 @@
 import React from 'react';
+import {observer} from "mobx-react-lite";
 
-const TaskCard = ({task} ,  {categories}) => {
-    console.log(categories)
+const TaskCard = observer(({task} ,  {categories}) => {
     const sendPlay = (id) =>{
         console.log(id)
         const note  = document.getElementById(id);
@@ -49,13 +49,13 @@ const TaskCard = ({task} ,  {categories}) => {
     }
 
     return(
-                <div className={"Task"}>
+                <div className={"Task"} id={task.id}>
                     {task.status}
                     <div className={"UpperLine"}>
                         <div className={"TaskHead"}>
                             {task.name}
                         </div>
-                        <div>Deadline: </div>
+                        <div>Deadline: {task.deadline ? task.deadline : "No deadline"}</div>
                     </div>
                     <div className={"LowerLine"}>
                         <p className={"Descritpion"}>
@@ -63,20 +63,25 @@ const TaskCard = ({task} ,  {categories}) => {
                         </p>
                         <div className = {"ButtonContainer"}>
 
-                            <button className={`StopButton${(task.status != "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendStop(task.id)}>Stop</button>
-                            <button className={`StartButton${(task.status == "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendPlay(task.id)}>Play</button>
+                            <button className={`StopButton${(task.status !== "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendStop(task.id)}>Stop</button>
+                            <button className={`StartButton${(task.status === "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendPlay(task.id)}>Play</button>
 
                         </div>
                         <div className={"Categories"}>
                             Categories:
-                            {task.categoryDtoList.map(element =>
+                            {categories ? task.categoryDtoList.map(element =>
                                 <div>
                                     {categories.has(element.id)?this.state.categories.get(element.id):"Unknown category"}
-                                </div>)}
+                                </div>)
+                                :
+                                <span>
+                                   No categories yet
+                                </span>
+                            }
                         </div>
                     </div>
                 </div>
     );
-};
+});
 
 export default TaskCard;

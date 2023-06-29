@@ -16,7 +16,7 @@ public interface AppUserService {
 
     AppUser findByEmail(String email);
 
-    void save(RegistrationRequest request);
+    AppUser save(RegistrationRequest request);
 
     void save(AppUser appUser);
 

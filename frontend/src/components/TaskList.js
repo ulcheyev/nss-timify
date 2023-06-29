@@ -4,7 +4,14 @@ import Cookies from 'js-cookie';
 
 class TaskList extends Component
 {
+    count = 0
 
+    pageCount() {
+        const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
+        fetch('http://localhost:8080/api/v1/core/tasks/count', {headers})
+        .then(response => console.log(response))
+    }
+    currPage = 0
     state = {
         tasks:[],
         categories:new Map()
@@ -12,11 +19,12 @@ class TaskList extends Component
 
 
     async componentDidMount() {
-        await fetch("http://localhost:8080/api/v1/core/categories")// TODO change to 34.125.160.101
+        this.pageCount()
+        await fetch("http://localhost:8080/api/v1/core/categories") // TODO change to 34.125.160.101
             .then(response => response.json())
             .then(respJson => respJson.map(category => this.state.categories.set(category.categoryId, category.name)))
         const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
-        await fetch('http://localhost:8080/api/v1/core/tasks', {headers})// TODO change to 34.125.160.101
+        await fetch('http://localhost:8080/api/v1/core/tasks', {headers}) // TODO change to 34.125.160.101
             .then(response => response.json())
             .then(respJson => this.setState({tasks: respJson}))
         console.log(this.state.categories)
@@ -24,10 +32,10 @@ class TaskList extends Component
 
     render()
     {
-        return <div className={"TaskContainer"}>
+        return <div className={"TaskContainer"} style={{color:'white'}}>
             {this.state.tasks.map(task =>
-                <TaskCard key={task.id} task={task} categories = {this.state.categories}/>)
-            }
+                <TaskCard key={task.id} task={task} categories = {this.state.categories}/>
+            )}
         </div>
     }
 }
