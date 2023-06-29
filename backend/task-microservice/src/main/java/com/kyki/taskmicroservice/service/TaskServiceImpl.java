@@ -189,10 +189,9 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public Integer getTasksCount(String token) {
+    public Long getTasksCount(String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
-        List<Task> all = taskRepository.findTaskByOwner(usernameFromToken);
-        return all.size();
+        return taskRepository.getTasksCountByUsername(usernameFromToken);
     }
 
 

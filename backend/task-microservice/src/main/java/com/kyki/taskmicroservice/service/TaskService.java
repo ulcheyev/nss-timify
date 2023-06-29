@@ -41,5 +41,5 @@ public interface TaskService
 
     List<TaskDto> findByName(String name);
 
-    Integer getTasksCount(String token);
+    Long getTasksCount(String token);
 }

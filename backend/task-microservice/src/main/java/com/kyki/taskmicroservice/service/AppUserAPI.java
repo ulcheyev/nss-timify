@@ -11,25 +11,21 @@ public class AppUserAPI {
 
     private final RestTemplate restTemplate;
 
-    public  Boolean isUser(Long userId) {
+    public  Boolean isUser(String token) {
+        String cleanToken = token.replace("Bearer ", "");
         return restTemplate.getForObject(
-                "http://user-service/api/system/v1/users/is-user?userId={userId}",
-                Boolean.class
+                "http://user-service/api/system/v1/users/is-user?tok="+cleanToken,
+                Boolean.class,
+                token
         );
     }
 
-    public  Boolean isAdmin(Long userId) {
+    public  Boolean isAdmin(String token) {
+        String cleanToken = token.replace("Bearer ", "");
         return restTemplate.getForObject(
-                "http://user-service/api/v1/system/users/is-admin?userId={userId}",
+                "http://user-service/api/v1/system/users/is-admin?tok="+cleanToken,
                 Boolean.class,
-                userId
-        );
-    }
-    public Boolean isExists(Long userId) {
-        return restTemplate.getForObject(
-                "http://user-service/api/v1/system/users/is-exists?userId={userId}",
-                Boolean.class,
-                userId
+                token
         );
     }
 
