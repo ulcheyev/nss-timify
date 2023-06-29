@@ -13,7 +13,10 @@ const App = observer(() => {
 
     const {user} = useContext(Context)
     return (
-        <Profile/>
+        <BrowserRouter>
+            <NavBar/>
+            <AppRouter/>
+        </BrowserRouter>
     );
 });
 export default App;

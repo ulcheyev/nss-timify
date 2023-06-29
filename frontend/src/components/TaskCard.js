@@ -10,9 +10,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
         fetch(`http://localhost:8080/api/v1/core/tasks/start-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(
-                `${id}`
-            )
+            body: `${id}`
         }).then((response) =>{
             if(response.status/100<3)
                 alert("Task started successfully");
@@ -31,9 +29,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
         fetch(`http://localhost:8080/api/v1/core/tasks/stop-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(
-                `${id}`
-            )
+            body: `${id}`
         }).then(response => {
             if(response.status/100<3) {
                 alert("Task stopped successfully");
@@ -42,7 +38,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
             }
             else
             {
-                console.log(response)
+                console.log(response.body)
             }
         })
             .catch(e => alert(e))

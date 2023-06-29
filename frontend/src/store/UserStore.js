@@ -5,7 +5,16 @@ export default class UserStore {
         this._isAuth = false
         this._token = ""
         this._user = {}
+        this._username = ""
         makeAutoObservable(this)
+    }
+
+    get username() {
+        return this._username;
+    }
+
+    setUsername(value) {
+        this._username = value;
     }
 
     setIsAuth(bool) {

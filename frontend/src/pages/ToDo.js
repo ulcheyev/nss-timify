@@ -27,7 +27,10 @@ const ToDo = observer(()=> {
     }
 
     return (
-        <Container>
+        <Container className={'flex-row'}>
+            <Col>
+
+            </Col>
             <Col>
                 <Button id = "formToggler" className={'btn-primary'}>
                     Add Task
