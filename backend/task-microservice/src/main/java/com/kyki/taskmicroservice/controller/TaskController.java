@@ -1,6 +1,7 @@
 package com.kyki.taskmicroservice.controller;
 
 import com.kyki.taskmicroservice.dto.TaskDto;
+import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Task;
 import com.kyki.taskmicroservice.service.CategoryService;
 import com.kyki.taskmicroservice.service.ProjectService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,6 +33,12 @@ public class TaskController
         return ResponseEntity.ok().body(taskService.findById(id));
     }
 
+    @GetMapping("/name/{name}")
+    public List<TaskDto> getTaskByNameLike(@NonNull @PathVariable("name") String name)
+    {
+        return taskService.findByName(name);
+    }
+
     @GetMapping("/all")
     @CachePut(value = "tasks")
     public List<TaskDto> getTasksAll(@RequestParam(defaultValue = "0") int page,
@@ -40,9 +48,11 @@ public class TaskController
     }
 
     @GetMapping
-    public List<TaskDto> getTasks(@RequestHeader("Authorization") String token)
+    public List<TaskDto> getTasks(@RequestHeader("Authorization") String token,
+    @RequestParam(defaultValue = "0") int page,
+    @RequestParam(defaultValue = "5") int size)
     {
-        return taskService.findAllByUsername(token);
+        return taskService.findAllByUsername(page, size, token);
     }
 
     @PostMapping
@@ -101,6 +111,19 @@ public class TaskController
         taskService.stopTask(taskId);
         return new ResponseEntity<String>("Task stopped successfully", HttpStatus.OK);
 
+    }
+
+    @PutMapping("/archive-task")
+    public ResponseEntity<String> archiveTask(@RequestBody Long taskId)
+    {
+        taskService.archiveTask(taskId);
+        return new ResponseEntity<String>("Task archived successfully", HttpStatus.OK);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Object> getTasksCount(@RequestHeader("Authorization") String token)
+    {
+        return ResponseEntity.ok(taskService.getTasksCount(token));
     }
 }
 

@@ -1,6 +1,6 @@
 import {useRef, useState, useEffect, Component, useContext} from "react";
-import axios from 'axios';
 import UserService from '../services/user.service'
+import NotificationService from '../services/notification.service'
 import {LogUser} from "../models/logUser";
 import {RegUser} from "../models/regUser";
 import {useHistory} from "react-router-dom";
@@ -38,13 +38,11 @@ const Auth = () => {
 
     useEffect(() => {
         const userTest = USER_REGEX.test(username)
-        console.log('user ' + userTest)
         setValidUser(userTest)
     }, [username])
 
     useEffect(() => {
         const pwdTest = PWD_REGEX.test(pwd)
-        console.log('pwd ' + pwdTest)
         setValidPwd(pwdTest)
         const match = pwd === confPwd
         setValidPwdMatch(match)
@@ -52,7 +50,6 @@ const Auth = () => {
 
     useEffect(() => {
         const emailTest = EMAIL_REGEX.test(email)
-        console.log('email ' + emailTest)
         setValidEmail(emailTest)
     }, [email])
 
@@ -64,12 +61,13 @@ const Auth = () => {
         e.preventDefault();
         UserService.register(new RegUser(username, pwd, email)).then(res=>{
             try {
-                console.log(res.data.token)
+                console.log(res.data)
                 setSuccess(true)
                 user.setUser(user)
                 user.setIsAuth(true)
                 user.setToken(res.data.token)
                 history.push(TODO_ROUTE)
+                NotificationService.sendEmail(res.data.id, "greetings", email)
             }catch (err){
                 setErrMsg(res.response.data.message)
                 setSuccess(false)
@@ -91,7 +89,6 @@ const Auth = () => {
                 console.log(Cookies.get('jwtToken'))
                 history.push(TODO_ROUTE)
             }catch (err){
-                console.log(res)
                 setErrMsg(res.response.data.message)
                 setSuccess(false)
             }

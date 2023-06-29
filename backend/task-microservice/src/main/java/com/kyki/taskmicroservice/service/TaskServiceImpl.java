@@ -6,6 +6,7 @@ import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
 import com.kyki.taskmicroservice.model.Category;
 import com.kyki.taskmicroservice.model.Project;
+import com.kyki.taskmicroservice.model.Status;
 import com.kyki.taskmicroservice.model.Task;
 import com.kyki.taskmicroservice.repository.TaskRepository;
 import com.kyki.taskmicroservice.utils.JwtUtils;
@@ -41,10 +42,10 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public List<TaskDto> findAllByUsername(String token) {
+    public List<TaskDto> findAllByUsername(int page, int size, String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
         System.out.println(usernameFromToken);
-        List<Task> all = taskRepository.findTaskByOwner(usernameFromToken);
+        List<Task> all = taskRepository.findTaskByOwner(PageRequest.of(page, size), usernameFromToken);
         List<TaskDto> taskDtos = new ArrayList<>();
         for(Task task: all) {
             taskDtos.add(Mapper.toTaskDto(task));
@@ -138,6 +139,13 @@ public class TaskServiceImpl implements TaskService{
         task.stopTask();
     }
 
+    @Override
+    @Transactional
+    public void archiveTask(@NonNull Long taskId) {
+        Task task = findById(taskId);
+        task.setStatus(Status.ARCHIVED);
+    }
+
 
     @Override
     @Transactional
@@ -169,6 +177,24 @@ public class TaskServiceImpl implements TaskService{
         }
         return task;
     }
+
+    @Override
+    public List<TaskDto> findByName(String name) {
+        List<Task> allByNameLike = taskRepository.findAllByNameLike(name);
+        List<TaskDto> taskDtos = new ArrayList<>();
+        for(Task task: allByNameLike) {
+            taskDtos.add(Mapper.toTaskDto(task));
+        }
+        return taskDtos;
+    }
+
+    @Override
+    public Integer getTasksCount(String token) {
+        String usernameFromToken = JwtUtils.getUsernameFromToken(token);
+        List<Task> all = taskRepository.findTaskByOwner(usernameFromToken);
+        return all.size();
+    }
+
 
 
 
