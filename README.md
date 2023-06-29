@@ -4,7 +4,7 @@ Aplikace je součásti semestrálního projektu z předmětu NSS.
 
 [Dokumentace]()
 
-[Low fidelity prototyp v Figme](https://www.figma.com/proto/VgDQumqtyGxfPraBurKkr0/Untitled?page-id=0%3A1&type=design&node-id=4-49&viewport=296%2C436%2C0.24&t=p0D6ibuid7sMLY5m-1&scaling=min-zoom&starting-point-node-id=4%3A49&mode=design)
+[Low fidelity prototyp ve Figme](https://www.figma.com/proto/VgDQumqtyGxfPraBurKkr0/Untitled?page-id=0%3A1&type=design&node-id=4-49&viewport=296%2C436%2C0.24&t=p0D6ibuid7sMLY5m-1&scaling=min-zoom&starting-point-node-id=4%3A49&mode=design)
 
 [Ednpoint documentation in Swagger]()
 ## Tým:
