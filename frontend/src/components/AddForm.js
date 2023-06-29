@@ -58,7 +58,7 @@ class AddToProjectForm extends Component
             "user":"test"
             }
             `)
-        fetch(`http://localhost:8080/api/v1/core/tasks`, {
+        fetch(`http://localhost:8080/api/v1/core/tasks`, { //TODO change url
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: `

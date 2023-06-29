@@ -20,7 +20,10 @@ const NavBar = observer(() => {
 
         <Navbar data-bs-theme="dark">
             <Container>
-                <Nav.Link className={"appName"} style={{color:'white'}}  sticky="top" to = {TODO_ROUTE}>Timify</Nav.Link>
+                <Nav.Link className={"appName"} style={{color:'white'}}  sticky="top" to = {TODO_ROUTE}>
+                    <img src="../logo_timify.png" alt=""/>
+                    Timify
+                </Nav.Link>
                 { user.isAuth ?
                     <Nav variant={"underline"} className="flex-row">
                             <Nav.Link style={{color:'white'}} onClick = {() => history.push(TODO_ROUTE)}> All Todos</Nav.Link >

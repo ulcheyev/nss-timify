@@ -2,7 +2,6 @@ import React from 'react';
 import {observer} from "mobx-react-lite";
 
 const TaskCard = observer(({task} ,  {categories}) => {
-    console.log(task)
     const sendPlay = (id) =>{
         console.log(id)
         const note  = document.getElementById(id);
@@ -56,7 +55,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
                         <div className={"TaskHead"}>
                             {task.name}
                         </div>
-                        <div>Deadline: </div>
+                        <div>Deadline: {task.deadline ? task.deadline : "No deadline"}</div>
                     </div>
                     <div className={"LowerLine"}>
                         <p className={"Descritpion"}>
@@ -76,7 +75,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
                                 </div>)
                                 :
                                 <span>
-                                    No categories yet
+                                   No categories yet
                                 </span>
                             }
                         </div>
