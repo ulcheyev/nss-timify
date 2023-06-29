@@ -44,7 +44,7 @@ public class EmailSend
             Message message = new MimeMessage(session);
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             message.setText(text);
-            message.setSubject("Notification!!!!!!!!!!!!!!!!!!!!!");
+            message.setSubject("Timify");
             Transport.send(message);
             System.out.println("sent");
         }

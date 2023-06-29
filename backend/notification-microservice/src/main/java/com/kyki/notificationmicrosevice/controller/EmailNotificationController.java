@@ -34,10 +34,6 @@ public class EmailNotificationController
     @PostMapping
     ResponseEntity<String> sendNotification(@RequestBody NotificationRequest notificationRequest)
     {
-        if(Objects.equals(notificationRequest.getText(), "greetings")) {
-            notificationRequest.setText("Welcome to TIMIFY!");
-        }
-
         emailNotificationService.sendNotification(notificationRequest);
         return new ResponseEntity<>("Notification sent!!!", HttpStatus.OK);
     }

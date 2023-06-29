@@ -38,13 +38,11 @@ const Auth = () => {
 
     useEffect(() => {
         const userTest = USER_REGEX.test(username)
-        console.log('user ' + userTest)
         setValidUser(userTest)
     }, [username])
 
     useEffect(() => {
         const pwdTest = PWD_REGEX.test(pwd)
-        console.log('pwd ' + pwdTest)
         setValidPwd(pwdTest)
         const match = pwd === confPwd
         setValidPwdMatch(match)
@@ -52,7 +50,6 @@ const Auth = () => {
 
     useEffect(() => {
         const emailTest = EMAIL_REGEX.test(email)
-        console.log('email ' + emailTest)
         setValidEmail(emailTest)
     }, [email])
 

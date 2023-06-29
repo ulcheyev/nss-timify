@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Objects;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -21,6 +23,7 @@ public class RegistrationServiceImpl implements RegistrationService{
     private final JwtUtils jwtUtils;
 
     public RegResponse register(@RequestBody @NonNull RegistrationRequest request) {
+
         log.info("RegistrationService-register: " + request);
         var saved = service.save(request);
         final UserDetails userDetails = service.loadUserByUsername(request.getUsername());
