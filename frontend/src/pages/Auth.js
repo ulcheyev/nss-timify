@@ -91,7 +91,6 @@ const Auth = () => {
                 console.log(Cookies.get('jwtToken'))
                 history.push(TODO_ROUTE)
             }catch (err){
-                console.log(res)
                 setErrMsg(res.response.data.message)
                 setSuccess(false)
             }

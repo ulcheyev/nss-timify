@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -108,6 +109,13 @@ public class TaskController
         taskService.stopTask(taskId);
         return new ResponseEntity<String>("Task stopped successfully", HttpStatus.OK);
 
+    }
+
+    @PutMapping("/archive-task")
+    public ResponseEntity<String> archiveTask(@RequestBody Long taskId)
+    {
+        taskService.archiveTask(taskId);
+        return new ResponseEntity<String>("Task archived successfully", HttpStatus.OK);
     }
 }
 

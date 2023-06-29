@@ -6,6 +6,7 @@ import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
 import com.kyki.taskmicroservice.model.Category;
 import com.kyki.taskmicroservice.model.Project;
+import com.kyki.taskmicroservice.model.Status;
 import com.kyki.taskmicroservice.model.Task;
 import com.kyki.taskmicroservice.repository.TaskRepository;
 import com.kyki.taskmicroservice.utils.JwtUtils;
@@ -136,6 +137,13 @@ public class TaskServiceImpl implements TaskService{
     public void stopTask(@NonNull Long taskId) {
         Task task = findById(taskId);
         task.stopTask();
+    }
+
+    @Override
+    @Transactional
+    public void archiveTask(@NonNull Long taskId) {
+        Task task = findById(taskId);
+        task.setStatus(Status.ARCHIVED);
     }
 
 

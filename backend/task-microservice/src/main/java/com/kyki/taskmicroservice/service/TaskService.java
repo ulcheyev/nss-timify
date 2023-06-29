@@ -32,6 +32,9 @@ public interface TaskService
     void startTask(@NonNull Long taskId);
     void stopTask(@NonNull Long taskId);
 
+    void archiveTask(@NonNull Long taskId);
+
+
     @Transactional
     Task update(@NonNull Long id, String name, String description, Long projectId);
 
