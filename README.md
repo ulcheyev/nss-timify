@@ -6,6 +6,7 @@ Aplikace je součásti semestrálního projektu z předmětu NSS.
 
 [Low fidelity prototyp]()
 
+[Ednpoint documentation in Swagger]()
 ## Tým:
 - Iurii Lebedev
 - Kyrylo Herasymenko
