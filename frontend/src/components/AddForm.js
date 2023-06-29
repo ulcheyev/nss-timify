@@ -20,7 +20,6 @@ class AddToProjectForm extends Component
             .then(response => response.json())
             .then(respJson => respJson.map(category =>
             {
-                //this.state.categories.set(project.id, project.name)
                 categories.innerHTML += (`<option value=${category.categoryId}>${category.name}</option>`)
             }))
     }
