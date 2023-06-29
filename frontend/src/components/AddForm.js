@@ -1,4 +1,5 @@
 import {Component} from "react";
+import {Button} from "reactstrap";
 
 class AddToProjectForm extends Component
 {
@@ -35,19 +36,6 @@ class AddToProjectForm extends Component
         const datetime = document.getElementById('target_time').value;
         const option = document.getElementById("projectSelect").value;
         const category = document.getElementById("categoriesSelect").value;
-        /*
-        * {
-  "taskId": 0,
-  "description": "string",
-  "name": "string",
-  "startTime": "2023-06-28T15:07:07.229Z",
-  "subtasks": [
-    "string"
-  ],
-  "project": "string",
-  "owner": "string",
-  "status": "ACTIVE"
-}*/
         console.log(`
             {
             "description":"${description}",
@@ -74,7 +62,6 @@ class AddToProjectForm extends Component
         }).then(response => {
             if(response.status/100<3) {
                 alert("Task added successfully");
-
             }
             else
             {
@@ -83,26 +70,32 @@ class AddToProjectForm extends Component
         })
             .catch(e => alert(e))
     }
-
     render()
     {
-
         return(
         <form className={"AddTaskForm"}>
-            <input name={"name"} id = {'name'}/>
-            <input name={"description"} id = {'description'}/>
-            <input type={"datetime-local"} id = {'target_time'}/>
-            <b>Project</b>
-            <select id = "projectSelect">
-            </select>
-            <b>Main category</b>
-            <select id = "categoriesSelect">
-            </select>
-            <input type = {"submit"} onClick={this.sendData}/>
+            <div className={'new-todo-form'}>
+                <div>
+                    <input name={"name"} placeholder={'Name'} id = {'name'}/>
+                    <input name={"description"} placeholder={'Description'} id = {'description'}/>
+                </div>
+                <div>
+                    <label htmlFor={'target_time'}>Deadline</label>
+                    <input type={"datetime-local"} id = {'target_time'}/>
+                </div>
+                <div className={'new-todo-selectors'}>
+                    <span>Choose project:</span>
+                    <select id = "projectSelect"></select>
+
+                    <span>Choose main category:</span>
+                    <select id = "categoriesSelect"></select>
+                </div>
+                <div>
+                    <Button className={'btn-primary'} type = {"submit"} onClick={this.sendData}> Submit</Button>
+                </div>
+            </div>
         </form>)
     }
-
-
 }
 
 export default AddToProjectForm

@@ -29,7 +29,7 @@ const ToDo = observer(()=> {
     return (
         <Container>
             <Col>
-                <Button id = "formToggler">
+                <Button id = "formToggler" className={'btn-primary'}>
                     Add Task
                 </Button>
                 <div id = "addFormContainer" className={"Hidden"}>
