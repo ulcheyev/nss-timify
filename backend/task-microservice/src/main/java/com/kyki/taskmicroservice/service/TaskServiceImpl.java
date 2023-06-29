@@ -42,6 +42,7 @@ public class TaskServiceImpl implements TaskService{
         return taskDtos;
     }
 
+
     @Override
     public List<TaskDto> findAllByUsername(int page, int size, String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
@@ -55,8 +56,8 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public List<TaskDto> findAllByUsernameArchived(@NonNull String username) {
-        return findAllByUsername(username).stream().filter(task -> task.getStatus().equals("ARCHIVED")).collect(Collectors.toList());
+    public List<TaskDto> findAllByUsernameArchived(int page, int size, @NonNull String username) {
+        return findAllByUsername(page, size, username).stream().filter(task -> task.getStatus().equals("ARCHIVED")).collect(Collectors.toList());
     }
 
 

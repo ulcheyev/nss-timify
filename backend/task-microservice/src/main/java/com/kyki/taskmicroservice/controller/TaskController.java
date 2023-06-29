@@ -67,9 +67,11 @@ public class TaskController
     }
 
     @GetMapping(value = "/archived")
-    public List<TaskDto> getTasksArchived(@RequestHeader("Authorization") String token)
+    public List<TaskDto> getTasksArchived(@RequestHeader("Authorization") String token,
+                                          @RequestParam(defaultValue = "0") int page,
+                                          @RequestParam(defaultValue = "5") int size)
     {
-        return taskService.findAllByUsernameArchived(token);
+        return taskService.findAllByUsernameArchived(page, size,token);
     }
 
     @PostMapping
