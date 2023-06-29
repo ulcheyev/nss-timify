@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+
 @Service
 @RequiredArgsConstructor
 public class EmailNotificationService implements NotificationService
@@ -37,12 +39,17 @@ public class EmailNotificationService implements NotificationService
     @Override
     public void sendNotification(NotificationRequest notificationRequest)
     {
-        Notification notification = EmailNotification.builder()
-                .text(notificationRequest.getText())
-                .id(notificationRequest.getId())
-                .userId(notificationRequest.getUserId())
-                .build();
-        ((EmailNotification) notification).setEmail(notificationRequest.getEmail());
+
+
+        if(Objects.equals(notificationRequest.getText(), "greetings")) {
+            notificationRequest.setText("Welcome to TIMIFY!");
+        }
+
+        EmailNotification notification = new EmailNotification
+                (notificationRequest.getEmail());
+        notification.setText(notificationRequest.getText());
+        notification.setUserId(notificationRequest.getUserId());
+
         EmailSend.config();
         EmailSend.send(notificationRequest.getText(), notificationRequest.getEmail());
 

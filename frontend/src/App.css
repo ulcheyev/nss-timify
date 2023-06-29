@@ -59,6 +59,11 @@ header {
   font-size: xx-large;
 }
 
+.appName img{
+  max-width: 5vh;
+  margin: 1vh;
+}
+
 nav {
   min-width: 100vw;
   padding: 2rem;

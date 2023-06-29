@@ -30,7 +30,7 @@ public class EmailSend
 
             authenticator = new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("timyfy.kykiko@gmail.com", "pvamlnfzykzgqkbq");
+                    return new PasswordAuthentication("timyfy.kykiko@gmail.com", "frjauimscnkflnid");
                 }
             };
         }
@@ -39,11 +39,12 @@ public class EmailSend
     public static void send(String text, String to)
     {
         Session session = Session.getInstance(properties, authenticator);
+        System.out.println("Got to send");
         try {
             Message message = new MimeMessage(session);
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
             message.setText(text);
-            message.setSubject("Notification!!!!!!!!!!!!!!!!!!!!!");
+            message.setSubject("Timify");
             Transport.send(message);
             System.out.println("sent");
         }
