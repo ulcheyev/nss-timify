@@ -72,7 +72,8 @@ public class Task {
         System.out.println("Stopped task" + taskId.toString());
         if (timeSpent == null) timeSpent=Duration.ZERO;
         System.out.println(timeSpent);
-        timeSpent.plus(Duration.between(startTime.toLocalDate(),OffsetDateTime.now().toLocalDate()));
+        Duration dur = Duration.between(startTime,OffsetDateTime.now());
+        timeSpent = timeSpent.plus(dur);
     }
 
 
