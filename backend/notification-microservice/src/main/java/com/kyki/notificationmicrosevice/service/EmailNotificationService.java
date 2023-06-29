@@ -37,12 +37,11 @@ public class EmailNotificationService implements NotificationService
     @Override
     public void sendNotification(NotificationRequest notificationRequest)
     {
-        Notification notification = EmailNotification.builder()
-                .text(notificationRequest.getText())
-                .id(notificationRequest.getId())
-                .userId(notificationRequest.getUserId())
-                .build();
-        ((EmailNotification) notification).setEmail(notificationRequest.getEmail());
+        EmailNotification notification = new EmailNotification
+                (notificationRequest.getEmail());
+        notification.setText(notificationRequest.getText());
+        notification.setUserId(notificationRequest.getUserId());
+
         EmailSend.config();
         EmailSend.send(notificationRequest.getText(), notificationRequest.getEmail());
 

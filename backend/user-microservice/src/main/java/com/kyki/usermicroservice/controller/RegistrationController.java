@@ -1,6 +1,7 @@
 package com.kyki.usermicroservice.controller;
 
 import com.kyki.usermicroservice.dto.AuthResponse;
+import com.kyki.usermicroservice.dto.RegResponse;
 import com.kyki.usermicroservice.dto.RegistrationRequest;
 import com.kyki.usermicroservice.service.RegistrationService;
 import com.kyki.usermicroservice.utils.TimifyUtils;
@@ -21,7 +22,7 @@ public class RegistrationController
     private final RegistrationService registrationService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AuthResponse> register(@RequestBody @NonNull RegistrationRequest request) {
+    public ResponseEntity<RegResponse> register(@RequestBody @NonNull RegistrationRequest request) {
         final HttpHeaders headers = TimifyUtils.createLocationHeaderFromCurrentUri("/api/login");
         log.info("RegistrationController-register: " + request);
         return ResponseEntity.ok().headers(headers).body(registrationService.register(request));

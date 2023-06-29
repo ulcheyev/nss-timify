@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,8 +32,12 @@ public class EmailNotificationController
     }
 
     @PostMapping
-    ResponseEntity<String> sendNotification(NotificationRequest notificationRequest)
+    ResponseEntity<String> sendNotification(@RequestBody NotificationRequest notificationRequest)
     {
+        if(Objects.equals(notificationRequest.getText(), "greetings")) {
+            notificationRequest.setText("Welcome to TIMIFY!");
+        }
+
         emailNotificationService.sendNotification(notificationRequest);
         return new ResponseEntity<>("Notification sent!!!", HttpStatus.OK);
     }

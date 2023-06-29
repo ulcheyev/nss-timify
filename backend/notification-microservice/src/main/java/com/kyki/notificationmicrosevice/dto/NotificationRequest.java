@@ -13,9 +13,6 @@ import lombok.Setter;
 public class NotificationRequest
 {
     Long userId;
-    Long id;
     String text;
     String email;
-
- /* Neco dalsiho */
 }

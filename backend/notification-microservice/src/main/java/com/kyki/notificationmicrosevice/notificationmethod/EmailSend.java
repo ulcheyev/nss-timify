@@ -30,7 +30,7 @@ public class EmailSend
 
             authenticator = new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("timyfy.kykiko@gmail.com", "pvamlnfzykzgqkbq");
+                    return new PasswordAuthentication("timyfy.kykiko@gmail.com", "passPassPassword3541");
                 }
             };
         }
