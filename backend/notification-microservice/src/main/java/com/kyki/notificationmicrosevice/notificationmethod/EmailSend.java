@@ -30,7 +30,7 @@ public class EmailSend
 
             authenticator = new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("timyfy.kykiko@gmail.com", "passPassPassword3541");
+                    return new PasswordAuthentication("timyfy.kykiko@gmail.com", "frjauimscnkflnid");
                 }
             };
         }
@@ -39,6 +39,7 @@ public class EmailSend
     public static void send(String text, String to)
     {
         Session session = Session.getInstance(properties, authenticator);
+        System.out.println("Got to send");
         try {
             Message message = new MimeMessage(session);
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
