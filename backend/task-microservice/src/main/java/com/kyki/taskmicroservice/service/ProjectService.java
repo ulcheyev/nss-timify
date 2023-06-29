@@ -1,6 +1,7 @@
 package com.kyki.taskmicroservice.service;
 
 import com.kyki.taskmicroservice.dto.ProjectDto;
+import com.kyki.taskmicroservice.dto.ProjectTimeDto;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.model.Task;
@@ -32,4 +33,6 @@ public interface ProjectService {
 
     @Transactional
     Project update(@NonNull Long id, String name, String description, List<Long> tasks);
+
+    public List<ProjectTimeDto> getProjectStats();
 }

@@ -12,6 +12,8 @@ public interface TaskService
 {
     List<TaskDto> findAll(int page, int size);
 
+    public List<TaskDto> findAllByUsername(@NonNull String username);
+    public List<TaskDto> findAllByUsernameArchived(@NonNull String username);
     public List<TaskDto> findAllByUsername(@NonNull int page, @NonNull int size, @NonNull String username);
 
     TaskDto findTaskDtoById(@NonNull Long id);
