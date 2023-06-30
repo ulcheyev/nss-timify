@@ -17,9 +17,8 @@ const TaskList = (() => {
     const pageCount = async () => {
         const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
         let allPages = []
-        await fetch('http://localhost:8080/api/v1/core/tasks/count', {headers})
+        await fetch('http://34.125.160.101:8080/api/v1/core/tasks/count', {headers}) //TODO
             .then(response => response.json()).then(respJson => setCount(respJson))
-        console.log(count/pageSize)
         for (let i = 0; i < Math.ceil((count/pageSize)); i++) {
             allPages.push(i)
         }

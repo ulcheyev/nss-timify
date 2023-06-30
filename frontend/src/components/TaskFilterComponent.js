@@ -9,37 +9,6 @@ class TaskFilterComponent extends TaskList
         projects: new Map()
     }
 
-
-    /*
-    <div className={"Task"} key = {task.id} id={task.id}>
-
-                    {task.status}
-                    <div className={"UpperLine"}>
-                        <div className={"TaskHead"}>
-                            {task.name}
-                        </div>
-                        <div>Deadline: </div>
-                    </div>
-                    <div className={"LowerLine"}>
-                    <p className={"Descritpion"}>
-                        {task.description}
-                    </p>
-                        <div className = {"ButtonContainer"}>
-
-                            <button className={`StopButton${(task.status != "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendStop(task.id)}>Stop</button>
-                            <button className={`StartButton${(task.status == "ACTIVE" ? " Hidden" : "")}`} onClick={() => this.sendPlay(task.id)}>Play</button>
-
-                        </div>
-                    <div className={"Categories"}>
-                    Categories:
-                    {task.categoryDtoList.map(element =>
-                        <div>
-                            {this.state.categories.has(element.id)?this.state.categories.get(element.id):"Unknown category"}
-                        </div>)}
-                </div>
-                    </div>
-                </div>
-    */
     taskToHTML(task)
     {
         return(`
@@ -74,7 +43,7 @@ class TaskFilterComponent extends TaskList
         const projectId = document.getElementById('projectSelect').value
         const container = document.getElementsByClassName("TaskContainer")[0]
         container.innerHTML = ""
-        fetch(`http://localhost:8080/api/v1/core/projects/${projectId}/tasks`)
+        fetch(`http://34.125.160.101:8080/api/v1/core/projects/${projectId}/tasks`) // TODO
             .then(response => response.json())
             .then(respJson => respJson.map(task =>
             container.innerHTML+= this.taskToHTML(task)))
@@ -82,10 +51,10 @@ class TaskFilterComponent extends TaskList
 
     componentDidMount() {
         const select = document.getElementById('projectSelect')
-        fetch("http://localhost:8080/api/v1/core/categories")
+        fetch("http://34.125.160.101:8080/api/v1/core/categories") //TODO
             .then(response => response.json())
             .then(respJson => respJson.map(category => this.state.categories.set(category.id, category.name)))
-        fetch(`http://localhost:8080/api/v1/core/projects`)
+        fetch(`http://34.125.160.101:8080/api/v1/core/projects`) // TODO
             .then(response => response.json())
             .then(respJson => respJson.map(project => select.innerHTML += (`<option value=${project.id}>${project.name}</option>`)))
     }

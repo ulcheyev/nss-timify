@@ -3,11 +3,10 @@ import {observer} from "mobx-react-lite";
 
 const TaskCard = observer(({task} ,  {categories}) => {
     const sendPlay = (id) =>{
-        console.log(id)
         const note  = document.getElementById(id);
         const stopButton = document.getElementById(id).children[1].children[1].children[0];
         const startButton = document.getElementById(id).children[1].children[1].children[1];
-        fetch(`http://localhost:8080/api/v1/core/tasks/start-task`, {
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/start-task`, { // TODO
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
@@ -22,11 +21,10 @@ const TaskCard = observer(({task} ,  {categories}) => {
 
     const sendStop = (id) =>
     {
-        console.log(id)
         const note  = document.getElementById(id);
         const stopButton = document.getElementById(id).children[1].children[1].children[0];
         const startButton = document.getElementById(id).children[1].children[1].children[1];
-        fetch(`http://localhost:8080/api/v1/core/tasks/stop-task`, {
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/stop-task`, { //TODO
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
@@ -46,9 +44,8 @@ const TaskCard = observer(({task} ,  {categories}) => {
 
     const sendArchive = (id) =>
     {
-        console.log(id)
         const note  = document.getElementById(id);
-        fetch(`http://localhost:8080/api/v1/core/tasks/archive-task`, {
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/archive-task`, { //TODO
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
