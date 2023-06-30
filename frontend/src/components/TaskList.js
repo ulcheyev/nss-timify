@@ -31,6 +31,8 @@ const TaskList = observer(() => {
     }
 
     useEffect(async () => {
+        await pageCount()
+        await fetch("http://34.125.160.101:8080/api/v1/core/categories") // TODO change to 34.125.160.101
         await fetch("http://localhost:8080/api/v1/core/categories") // TODO change to 34.125.160.101
             .then(response => response.json())
             .then(respJson => respJson.map(category => categories.set(category.categoryId, category.name)))

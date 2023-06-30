@@ -1,11 +1,14 @@
 package com.kyki.usermicroservice.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.kyki.usermicroservice.dto.AppUserUpdateRequest;
+import com.kyki.usermicroservice.dto.IsExistsResponse;
 import com.kyki.usermicroservice.model.AppUser;
 import com.kyki.usermicroservice.security.JwtUtils;
 import com.kyki.usermicroservice.service.AppUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.minidev.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
@@ -16,7 +19,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -63,21 +68,27 @@ public class AppUserController {
     }
 
     @GetMapping(value = "/is-user")
-    public Boolean isUser(@NonNull @RequestParam(value="tok") String token) {
+    public  ResponseEntity<IsExistsResponse> isUser(@NonNull @RequestParam(value="tok") String token) {
 
-        return appUserService.isUser(appUserService.findByUsername(jwtUtils.extractUsername(token)).getId());
+        return ResponseEntity.ok().body(IsExistsResponse.builder().ex(appUserService
+                .isUser(appUserService.findByUsername(jwtUtils.extractUsername(token)).getId()))
+                .build());
     }
 
     @GetMapping(value = "/is-admin")
-    public Boolean isAdmin(@NonNull @RequestParam(value="tok") String token) {
+    public  ResponseEntity<IsExistsResponse> isAdmin(@NonNull @RequestParam(value="tok") String token) {
 
-        return appUserService.isAdmin(appUserService.findByUsername(jwtUtils.extractUsername(token)).getId());
+        return ResponseEntity.ok().body(IsExistsResponse.builder().ex(appUserService
+                .isAdmin(appUserService.findByUsername(jwtUtils.extractUsername(token)).getId()))
+                .build()
+        );
 
     }
 
     @GetMapping(value = "/is-exists")
-    public Boolean isExists(@NonNull @RequestParam(value="userName") String name) {
-        return appUserService.isExists(appUserService.findByUsername(name).getId());
+    public ResponseEntity<IsExistsResponse> isExists(@NonNull @RequestParam(value="userName") String name) {
+        return ResponseEntity.ok().body(IsExistsResponse.builder().ex(appUserService
+                .isExists(appUserService.findByUsername(name).getId())).build());
     }
 
 }
