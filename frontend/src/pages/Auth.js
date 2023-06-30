@@ -13,6 +13,8 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 const Auth = () => {
 
+    Cookies.set('jwtToken', null, { path: '/' });
+
     const {user} = useContext(Context)
 
     const history  = useHistory()

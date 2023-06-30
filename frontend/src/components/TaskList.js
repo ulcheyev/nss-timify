@@ -47,12 +47,12 @@ const TaskList = observer(() => {
     return (
         <Container className={"TaskContainer"} style={{color: 'white'}}>
             <div className={"TaskList"}>
-                {tasks.map(task => task.status !== "ARCHIVED" &&
+                {tasks.length > 0 && tasks.map(task => task.status !== "ARCHIVED" &&
                     (<TaskCard key={task.id} task={task} categories={categories}/>)
                 )}
             </div>
             <Row className="Pagination mt-3">
-                {pages.map(page =>
+                {pages.length >0 ? (pages.map(page =>
                     <Button  active={currPage === page}
                             className={'btn-primary'}
                             key={page}
@@ -60,6 +60,10 @@ const TaskList = observer(() => {
                     >
                         {page+1}
                     </Button>
+                ))
+                :
+                (
+                    <div>No Tasks yet</div>
                 )}
             </Row>
         </Container>
