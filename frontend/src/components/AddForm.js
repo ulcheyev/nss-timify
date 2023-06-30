@@ -53,7 +53,7 @@ const AddToProjectForm = observer(() =>{
         console.log(projectSelect)
         console.log(categoriesSelect)
 
-        fetch(`http://localhost:8080/api/v1/core/tasks`, { //TODO change url
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks`, { //TODO change url
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: `

@@ -4,8 +4,8 @@ import { Context } from "../index";
 import { observer } from "mobx-react-lite";
 import { Row } from "reactstrap";
 
-const API_URL_USERS = 'http://localhost:8080/api/v1/system/users'; //TODO change to 34.125.160.101
-const API_URL_TASKS = 'http://localhost:8080/api/v1/core/tasks/all'; //TODO change to 34.125.160.101
+const API_URL_USERS = 'http://34.125.160.101:8080/api/v1/system/users'; //TODO change to 34.125.160.101
+const API_URL_TASKS = 'http://34.125.160.101:8080/api/v1/core/tasks/all'; //TODO change to 34.125.160.101
 
 const Profile = observer(() => {
     const { user } = useContext(Context);

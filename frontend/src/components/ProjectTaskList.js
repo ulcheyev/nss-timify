@@ -12,10 +12,10 @@ class ProjectTaskList extends TaskList
         const queryParams = new URLSearchParams(window.location.search)
         const id = queryParams.get("project")
         console.log(id)
-        fetch("http://localhost:8080/api/v1/core/categories")
+        fetch("http://34.125.160.101:8080/api/v1/core/categories")
             .then(response => response.json())
             .then(respJson => respJson.map(category => this.state.categories.set(category.id, category.name)))
-        fetch(`http://localhost:8080/api/v1/core/projects/${id}/tasks`)
+        fetch(`http://34.125.160.101:8080/api/v1/core/projects/${id}/tasks`)
             .then(response => response.json())
             .then(respJson => this.setState({tasks:respJson})) // TODO change localhost to IP
     }
