@@ -1,4 +1,3 @@
-import Project from "./pages/Project";
 import {AUTH_ROUTE, PROJECT_ROUTE, TODO_ROUTE, USER_ROUTE} from "./utils/consts";
 import Auth from "./pages/Auth";
 import ToDo from "./pages/ToDo";

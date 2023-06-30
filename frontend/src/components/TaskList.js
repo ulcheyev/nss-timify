@@ -63,7 +63,7 @@ const TaskList = observer(() => {
                 ))
                 :
                 (
-                    <div>No Tasks yet</div>
+                    <div style={{color : "#030303"}}>No Tasks yet</div>
                 )}
             </Row>
         </Container>
