@@ -55,13 +55,9 @@ Pustit lokálně:
     npm run build
     npm start
     
-Docker image:
+Pustit the docker image (v hlavním souboru):
 
-    docker build -t react-docker-gcp:latest .
-    
-Pustit the docker image:
-
-    docker run -p 8080:443 react-docker-gcp:latest
+    docker compose up
     
 Otevřit:
 
