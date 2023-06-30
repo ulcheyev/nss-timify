@@ -3,15 +3,11 @@ import {observer} from "mobx-react-lite";
 import {ListContext} from "./TaskList.js";
 
 
-const TaskCard = ({task}) => {
+const TaskCard = ({task}, {categories}) => {
 
     const setRender = useContext(ListContext)
 
-    const categories = new Map()
 
-    fetch("http://localhost:8080/api/v1/core/categories") // TODO change to 34.125.160.101
-        .then(response => response.json())
-        .then(respJson => respJson.map(category => categories.set(category.categoryId, category.name)))
 
     const sendPlay = (id) =>{
         console.log(id)
@@ -92,8 +88,8 @@ const TaskCard = ({task}) => {
                         <div className = {"ButtonContainer"}>
 
                             <button className={`StopButton${(task.status !== "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendStop(task.id)}>Stop</button>
-                            <button className={`StartButton${(task.status === "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendPlay(task.id)}>Play</button>
-                            <button className={`ArchiveButton`} onClick={() => sendArchive(task.id)}>Archive</button>
+                            <button className={`StartButton${(task.status ===  "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendPlay(task.id)}>Play</button>
+                            <button className={`ArchiveButton ${(task.status === "ARCHIVED" ? " Hidden" : "")}`} onClick={() => sendArchive(task.id)}>Archive</button>
 
                         </div>
                         <div className={"Categories"}>
