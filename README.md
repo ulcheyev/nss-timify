@@ -1,6 +1,8 @@
 # nss-sem
 ## Popis
-Aplikace je součásti semestrálního projektu z předmětu NSS. 
+Aplikace je součásti semestrálního projektu z předmětu NSS.
+
+[Aplikace Timify]()
 
 [Dokumentace](https://github.com/ulcheyev/nss-timify/blob/main/nss_timify_documentation.pdf)
 
@@ -27,6 +29,9 @@ Aplikace je součásti semestrálního projektu z předmětu NSS.
 - v aplikaci byli použité následující patterny: – **builder** (DTO – TaskDTO apod.), **DTO**, **funkcionální programování** (např. promises – user-microservices), **observer** (frontend – navbar), **controller-service-repository pattern**, **inversion of control** (backend), **dependency injection** (backend), **provider pattern** (frontend – UserStore, AppRouter)
 - seznam UC je v dokumentaci
 - cloud sluzby – google cloud
+
+## Další věci:
+- Load balancer
 
 
 ## Inicializační postup:
