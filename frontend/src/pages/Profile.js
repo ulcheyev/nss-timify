@@ -71,19 +71,6 @@ const Profile = (() => {
         )
     }
 
-    const sendPlay = (id) =>{
-        console.log(id)
-        const note  = document.getElementById(id);
-        fetch(`http://localhost:8080/api/v1/core/tasks/start-task`, {
-            method: "PUT",
-            headers: { 'Content-Type': 'application/json' },
-            body: `${id}`
-        }).then((response) =>{
-            if(response.status/100<3)
-                alert("Task unarchived successfully");
-        })
-            .catch(e => alert(e))
-    }
 
     const queryParams = new URLSearchParams(window.location.search)
     let userComponent = "";
@@ -127,39 +114,51 @@ const Profile = (() => {
         })
             .then(response => response.json())
             .then(respJson => {
-                const container = document.getElementsByClassName("ArchivedTasksContainer")[0]
-                respJson.map(
-                    task =>
-                    {
-                        console.log(task)
-                        let allSecs = task.timeSpent;
-                        const seconds = allSecs%60;
-                        allSecs = Math.floor(allSecs/60);
-                        const minutes = allSecs%60;
-                        allSecs = Math.floor(allSecs/60);
-                        const hours = allSecs%60;
-                        allSecs = Math.floor(allSecs/24);;
-                        const days = allSecs;
-                        container.innerHTML += (`
-                        <div className={"Task"} id={task.id}>
-                            <div className={"UpperLine"}>
-                                <div className={"TaskHead"}>
-                                    {task.name}
-                                </div>
-                                <div>Deadline: {task.deadline ? task.deadline : "No deadline"}</div>
-                                </div>
-                            <div className={"LowerLine"}>
-                                <p className={"Descritpion"}>
-                                {task.description}
-                                </p>
-                            </div>
-                            <button onClick={() => sendPlay(task.id)}>Unarchive</button>
-                        </div>`)
-                        console.log(task)
+                const container = document.getElementsByClassName("ArchivedTasksContainer")[0];
+                respJson.forEach(task => {
+
+                    const sendPlay = (id) =>{
+                        console.log(id)
+                        const note  = document.getElementById(id);
+                        fetch(`http://localhost:8080/api/v1/core/tasks/start-task`, {
+                            method: "PUT",
+                            headers: { 'Content-Type': 'application/json' },
+                            body: `${id}`
+                        }).then((response) =>{
+                            if(response.status/100<3)
+                                alert("Task unarchived successfully");
+                        })
+                            .catch(e => alert(e))
                     }
-                )
-            }
-        )
+
+                    const { id, name, deadline, description } = task;
+                    let allSecs = task.timeSpent;
+                    const seconds = allSecs % 60;
+                    allSecs = Math.floor(allSecs / 60);
+                    const minutes = allSecs % 60;
+                    allSecs = Math.floor(allSecs / 60);
+                    const hours = allSecs % 60;
+                    allSecs = Math.floor(allSecs / 24);
+                    const days = allSecs;
+                    container.innerHTML += `
+                      <div class="Task" id="${id}">
+                        <div class="UpperLine">
+                          <div class="TaskHead">
+                            ${name}
+                          </div>
+                          <div>Deadline: ${deadline ? deadline : "No deadline"}</div>
+                        </div>
+                        <div class="LowerLine">
+                          <p class="Descritpion">
+                            ${description}
+                          </p>
+                        </div>
+                        <button onClick={() => sendPlay(id)}>Unarchive</button>
+                      </div>
+                    `;
+                    console.log(task);
+                });
+            });
     }
 
     return (

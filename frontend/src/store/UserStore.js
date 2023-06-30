@@ -1,7 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
 
-const IS_ADMIN_URL = 'http://localhost:8080/api/v1/system/users/is-admin?tok='
+const IS_ADMIN_URL = 'http://localhost:8080/api/v1/system/users/is-admin?tok=' // TODO
 export default class UserStore {
     constructor() {
         this._isAuth = false
