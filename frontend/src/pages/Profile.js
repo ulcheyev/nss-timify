@@ -84,7 +84,7 @@ const Profile = observer(() => {
                     <div className="Statistic Users">
                         <h1 style={{ color: "#fea82f" }}>All Users</h1>
                         {allUsers.map(user => (
-                            <div className="Task" key={user.id}>
+                            <div className="Task archived" key={user.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{user.name}</div>
                                     <div></div>
@@ -120,7 +120,7 @@ const Profile = observer(() => {
                     <div className="Statistic ArchivedTasksContainer">
                         <h1 style={{ color: "#fea82f" }}>Your archived tasks</h1>
                         {archivedTasks.map(task => (
-                            <div className="Task" key={task.id}>
+                            <div className="Task archived" key={task.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{task.name}</div>
                                     <div>Deadline: {task.deadline ? task.deadline : "No deadline"}</div>
