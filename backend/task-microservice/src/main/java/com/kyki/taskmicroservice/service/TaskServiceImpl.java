@@ -1,6 +1,6 @@
 package com.kyki.taskmicroservice.service;
 
-import com.kyki.taskmicroservice.dto.CategoryDto;
+import com.kyki.taskmicroservice.dto.CategoryDTO;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
@@ -87,7 +87,7 @@ public class TaskServiceImpl implements TaskService{
         log.info("TaskService-save: " + task);
         projectService.findById(task.getProjectId());
         List<Category> categories = new ArrayList<>();
-        for(CategoryDto cat: task.getCategoryDtoList()) {
+        for(CategoryDTO cat: task.getCategoryDtoList()) {
             Category byId = categoryService.findById(cat.getId());
             categories.add(byId);
         }

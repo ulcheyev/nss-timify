@@ -3,7 +3,6 @@ package com.kyki.taskmicroservice.service;
 import com.kyki.taskmicroservice.dto.IsExistsResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Objects;

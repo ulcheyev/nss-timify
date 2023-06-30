@@ -4,7 +4,6 @@ import com.kyki.taskmicroservice.dto.ProjectDto;
 import com.kyki.taskmicroservice.dto.ProjectTimeDto;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Project;
-import com.kyki.taskmicroservice.model.Task;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
 

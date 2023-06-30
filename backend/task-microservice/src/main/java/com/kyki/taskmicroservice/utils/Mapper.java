@@ -1,6 +1,6 @@
 package com.kyki.taskmicroservice.utils;
 
-import com.kyki.taskmicroservice.dto.CategoryDto;
+import com.kyki.taskmicroservice.dto.CategoryDTO;
 import com.kyki.taskmicroservice.dto.ProjectDto;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Category;
@@ -41,11 +41,11 @@ public class Mapper {
 
     public static TaskDto toTaskDto(Task task) {
 
-        List<CategoryDto> categoryDtoList = new ArrayList<>();
+        List<CategoryDTO> categoryDtoList = new ArrayList<>();
 
         for(var cat: task.getCategories())
         {
-            CategoryDto e = new CategoryDto();
+            CategoryDTO e = new CategoryDTO();
             e.setId(cat.getCategoryId());
             categoryDtoList.add(e);
         }
