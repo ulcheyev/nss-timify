@@ -81,7 +81,7 @@ const Profile = observer(() => {
                 <Row>
                     <div className="Statistic Users">
                         <h1 style={{ color: "#fea82f" }}>All Users</h1>
-                        {allUsers.map(user => (
+                        {allUsers.length > 0 && allUsers.map(user => (
                             <div className="Task archived" key={user.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{user.username}</div>
@@ -91,7 +91,7 @@ const Profile = observer(() => {
                     </div>
                     <div className="Statistic AllTasksContainer">
                         <h1 style={{ color: "#fea82f" }}>All Tasks of all users</h1>
-                        {allTasks.map(task => (
+                        {allTasks.length > 0 && allTasks.map(task => (
                             <div className="Task" key={task.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{task.name}</div>
@@ -108,7 +108,7 @@ const Profile = observer(() => {
                 <Row>
                     <div className="Statistic ProjectContainer">
                         <h1 style={{ color: "#fea82f" }}>Your projects</h1>
-                        {projectStats.map(project => (
+                        {projectStats.length >0 && projectStats.map(project => (
                             <div key={project.id}>
                                 {project.name}, Days: {project.days}, Hours: {project.hours}, Minutes: {project.minutes}, Seconds: {project.seconds}
                             </div>
@@ -116,7 +116,7 @@ const Profile = observer(() => {
                     </div>
                     <div className="Statistic ArchivedTasksContainer">
                         <h1 style={{ color: "#fea82f" }}>Your archived tasks</h1>
-                        {archivedTasks.map(task => (
+                        {archivedTasks.length >0 && archivedTasks.map(task => (
                             <div className="Task archived" key={task.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{task.name}</div>
