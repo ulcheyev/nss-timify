@@ -86,8 +86,7 @@ const Profile = observer(() => {
                         {allUsers.map(user => (
                             <div className="Task" key={user.id}>
                                 <div className="UpperLine">
-                                    <div className="TaskHead">${user.name}</div>
-                                    <div></div>
+                                    <div className="TaskHead">{user.username}</div>
                                 </div>
                             </div>
                         ))}
