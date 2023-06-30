@@ -2,13 +2,13 @@
 ## Popis
 Aplikace je součásti semestrálního projektu z předmětu NSS.
 
-[Aplikace Timify]()
+[Aplikace Timify](http://34.125.160.101:3000/)
 
 [Dokumentace](https://github.com/ulcheyev/nss-timify/blob/main/nss_timify_documentation.pdf)
 
 [Low fidelity prototyp ve Figme](https://www.figma.com/proto/VgDQumqtyGxfPraBurKkr0/Untitled?page-id=0%3A1&type=design&node-id=4-49&viewport=296%2C436%2C0.24&t=p0D6ibuid7sMLY5m-1&scaling=min-zoom&starting-point-node-id=4%3A49&mode=design)
 
-[Ednpoint documentation in Swagger]()
+[Ednpoint documentation in Swagger](http://34.125.160.101:8085/swagger-ui/index.html)
 ## Tým:
 - Iurii Lebedev
 - Kyrylo Herasymenko
