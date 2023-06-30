@@ -47,7 +47,10 @@ public class TaskServiceImpl implements TaskService{
     public List<TaskDto> findAllByUsername(int page, int size, String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
         System.out.println(usernameFromToken);
-        List<Task> all = taskRepository.findTaskByOwner(PageRequest.of(page, size), usernameFromToken);
+        List<Task> all = taskRepository
+                .findTaskByOwnerAndStatusIn(PageRequest.of(page, size), usernameFromToken,
+                        List.of(Status.ACTIVE, Status.PLANNED));
+
         List<TaskDto> taskDtos = new ArrayList<>();
         for(Task task: all) {
             taskDtos.add(Mapper.toTaskDto(task));

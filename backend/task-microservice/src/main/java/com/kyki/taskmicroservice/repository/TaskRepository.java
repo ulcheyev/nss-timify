@@ -1,5 +1,6 @@
 package com.kyki.taskmicroservice.repository;
 
+import com.kyki.taskmicroservice.model.Status;
 import com.kyki.taskmicroservice.model.Task;
 import lombok.NonNull;
 import org.springframework.data.domain.Pageable;
@@ -14,11 +15,11 @@ public interface TaskRepository extends JpaRepository<Task, Long>
 {
     @NonNull Optional<Task> findById(@NonNull @Param("id") Long id);
 
-    List<Task> findTaskByOwner(@Param("pageable") Pageable pageable, @NonNull @Param("owner") String owner);
+    List<Task> findTaskByOwnerAndStatusIn(@Param("pageable") Pageable pageable, @NonNull @Param("owner") String owner, List<Status> statusList);
 
     List<Task> findAllByNameLike(@Param("name")  String name);
 
-    @Query("SELECT COUNT(t) FROM Task t WHERE t.owner=?1")
+    @Query("SELECT COUNT(t) FROM Task t WHERE t.owner=?1 AND t.status = 'ACTIVE'")
     Long getTasksCountByUsername(@Param("username") String username);
 
 }
