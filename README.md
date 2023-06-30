@@ -24,7 +24,7 @@ Aplikace je součásti semestrálního projektu z předmětu NSS.
 - aplikace je nasazená na produkční server Google Cloud
 - aplikace využívá mikroservisní architekturu
 - inicializační postup – viz. další podkapitolu
-- v aplikaci byli použité následující patterny: – **builder** (DTO – TaskDTO apod.), **DTO**, **funkcionální programování (např. promises – user-microservices), **observer** (frontend – navbar), **controller-service-repository pattern**, **inversion of control** (backend), **dependency injection** (backend), **provider pattern** (frontend – UserStore, AppRouter)
+- v aplikaci byli použité následující patterny: – **builder** (DTO – TaskDTO apod.), **DTO**, **funkcionální programování** (např. promises – user-microservices), **observer** (frontend – navbar), **controller-service-repository pattern**, **inversion of control** (backend), **dependency injection** (backend), **provider pattern** (frontend – UserStore, AppRouter)
 - seznam UC je v dokumentaci
 - cloud sluzby – google cloud
 
