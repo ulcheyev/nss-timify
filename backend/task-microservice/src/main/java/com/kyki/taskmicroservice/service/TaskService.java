@@ -1,11 +1,10 @@
 package com.kyki.taskmicroservice.service;
+
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Task;
 import jakarta.transaction.Transactional;
 import lombok.NonNull;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

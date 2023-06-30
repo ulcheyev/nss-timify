@@ -1,7 +1,7 @@
 import {makeAutoObservable} from "mobx";
 
 
-const IS_ADMIN_URL = 'http://34.125.160.101:8080/api/v1/system/users/is-admin?tok=' // TODO
+const IS_ADMIN_URL = 'http://34.125.160.101:8080/api/v1/system/users/is-admin?tok='
 export default class UserStore {
     constructor() {
         this._isAuth = false
@@ -33,9 +33,8 @@ export default class UserStore {
 
     async setToken(token) {
         this._token = token
-        console.log(IS_ADMIN_URL + this.token)
         await fetch(IS_ADMIN_URL + this.token)
-            .then(res => console.log(res.json().then(r => this.setIsAdmin(r.ex))))
+            .then(res => res.json().then(r => this.setIsAdmin(r.ex)))
             .catch(e => alert(e))
     }
 

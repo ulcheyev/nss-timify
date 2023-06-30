@@ -1,6 +1,6 @@
 package com.kyki.taskmicroservice.service;
 
-import com.kyki.taskmicroservice.dto.CategoryDto;
+import com.kyki.taskmicroservice.dto.CategoryDTO;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.exception.ArgumentException;
 import com.kyki.taskmicroservice.exception.NotFoundException;
@@ -47,7 +47,10 @@ public class TaskServiceImpl implements TaskService{
     public List<TaskDto> findAllByUsername(int page, int size, String token) {
         String usernameFromToken = JwtUtils.getUsernameFromToken(token);
         System.out.println(usernameFromToken);
-        List<Task> all = taskRepository.findTaskByOwner(PageRequest.of(page, size), usernameFromToken);
+        List<Task> all = taskRepository
+                .findTaskByOwnerAndStatusIn(PageRequest.of(page, size), usernameFromToken,
+                        List.of(Status.ACTIVE, Status.PLANNED));
+
         List<TaskDto> taskDtos = new ArrayList<>();
         for(Task task: all) {
             taskDtos.add(Mapper.toTaskDto(task));
@@ -87,7 +90,7 @@ public class TaskServiceImpl implements TaskService{
         log.info("TaskService-save: " + task);
         projectService.findById(task.getProjectId());
         List<Category> categories = new ArrayList<>();
-        for(CategoryDto cat: task.getCategoryDtoList()) {
+        for(CategoryDTO cat: task.getCategoryDtoList()) {
             Category byId = categoryService.findById(cat.getId());
             categories.add(byId);
         }

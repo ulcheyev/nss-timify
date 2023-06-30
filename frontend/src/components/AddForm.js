@@ -17,7 +17,7 @@ const AddToProjectForm = observer(() =>{
     useEffect (() => {
         const select = document.getElementById('projectSelect')
         const categories = document.getElementById("categoriesSelect")
-        fetch("http://localhost:8080/api/v1/core/projects")
+        fetch("http://34.125.160.101:8080/api/v1/core/projects")
             .then(response => response.json())
             .then(respJson => {respJson.map(project =>
             {
@@ -26,7 +26,7 @@ const AddToProjectForm = observer(() =>{
             }); setProjectSelect(respJson)
             });
 
-        fetch("http://localhost:8080/api/v1/core/categories")
+        fetch("http://34.125.160.101:8080/api/v1/core/categories")
             .then(response => response.json())
             .then(respJson => {respJson.map(category =>
             {
@@ -52,10 +52,8 @@ const AddToProjectForm = observer(() =>{
             "user":${user.username}
             }
             `)
-        console.log(projectSelect)
-        console.log(categoriesSelect)
 
-        fetch(`http://34.125.160.101:8080/api/v1/core/tasks`, { //TODO change url
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: `

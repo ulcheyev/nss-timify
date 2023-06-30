@@ -4,8 +4,8 @@ import { Context } from "../index";
 import { observer } from "mobx-react-lite";
 import { Row } from "reactstrap";
 
-const API_URL_USERS = 'http://34.125.160.101:8080/api/v1/system/users'; //TODO change to 34.125.160.101
-const API_URL_TASKS = 'http://34.125.160.101:8080/api/v1/core/tasks/all'; //TODO change to 34.125.160.101
+const API_URL_USERS = 'http://34.125.160.101:8080/api/v1/system/users';
+const API_URL_TASKS = 'http://34.125.160.101:8080/api/v1/core/tasks/all';
 
 const Profile = observer(() => {
     const { user } = useContext(Context);
@@ -28,7 +28,7 @@ const Profile = observer(() => {
                     setAllTasks(respJson);
                 });
         } else {
-            fetch(`http://localhost:8080/api/v1/core/tasks/archived?page=0&size=5`, {
+            fetch(`http://34.125.160.101:8080/api/v1/core/tasks/archived?page=0&size=5`, {
                 method: 'GET',
                 headers: {
                     "Authorization": `Bearer ${Cookies.get('jwtToken')}`,
@@ -54,7 +54,7 @@ const Profile = observer(() => {
                     setAllUsers(resJson);
                 });
         } else {
-            fetch("http://localhost:8080/api/v1/core/projects/stats")
+            fetch("http://34.125.160.101:8080/api/v1/core/projects/stats")
                 .then(response => response.json())
                 .then(respJson => {
                     setProjectStats(respJson);
@@ -63,16 +63,14 @@ const Profile = observer(() => {
     }, [user.isAdmin]);
 
     const sendPlay = (id) =>{
-        console.log(id)
         const note  = document.getElementById(id);
-        fetch(`http://localhost:8080/api/v1/core/tasks/start-task`, {
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/start-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
         }).then((response) =>{
             if(response.status/100<3)
                 alert("Task unarchived successfully");
-            console.log(response);
         })
             .catch(e => alert(e))
     }

@@ -61,7 +61,6 @@ const Auth = () => {
         e.preventDefault();
         UserService.register(new RegUser(username, pwd, email)).then(res=>{
             try {
-                console.log(res.data)
                 setSuccess(true)
                 user.setUser(user)
                 user.setUsername(username)
