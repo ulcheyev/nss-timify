@@ -67,7 +67,6 @@ const TaskCard = observer(({task} ,  {categories}) => {
 
     return(
                 <div className={"Task"} id={task.id}>
-                    {task.status}
                     <div className={"UpperLine"}>
                         <div className={"TaskHead"}>
                             {task.name}

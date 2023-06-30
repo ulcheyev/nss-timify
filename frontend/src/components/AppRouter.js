@@ -3,7 +3,7 @@ import {Switch, Route, Redirect } from 'react-router-dom'
 import {observer} from "mobx-react-lite";
 import {Context} from "../index.js";
 import {authRoutes, publicRoutes} from "../routes";
-import {AUTH_ROUTE, TODO_ROUTE} from "../utils/consts";
+import {AUTH_ROUTE} from "../utils/consts";
 
 const AppRouter = observer(() => {
     const {user} = useContext(Context)
