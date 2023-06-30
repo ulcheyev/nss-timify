@@ -238,7 +238,6 @@ nav {
   border-radius: 8px;
   padding: 1vh;
   margin: 1vw;
-  width: 65vw;
 }
 
 .Task button{
@@ -264,11 +263,13 @@ nav {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
+  color: white;
 }
 
 .LowerLine{
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 .Description{
