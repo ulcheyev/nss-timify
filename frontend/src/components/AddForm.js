@@ -1,11 +1,13 @@
-import {Component, useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Button} from "reactstrap";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
+import {TodoContext} from "../pages/ToDo";
 
 const AddToProjectForm = observer(() =>{
 
     const {user} = useContext(Context)
+    const setUpdate = useContext(TodoContext)
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [target, setTarget] = useState('');
@@ -69,6 +71,7 @@ const AddToProjectForm = observer(() =>{
         }).then(response => {
             if(response.status/100<3) {
                 alert("Task added successfully");
+                setUpdate(response.status)
             }
             else
             {

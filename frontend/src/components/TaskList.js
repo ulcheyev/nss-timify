@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import TaskCard from "./TaskCard";
 import Cookies from 'js-cookie';
-import {Button, Container, Pagination, Row} from "reactstrap";
+import {Button, Container, Row} from "reactstrap";
+
+export const ListContext = React.createContext(null)
 
 const TaskList = (() => {
     const [count, setCount] = useState(0)
@@ -11,15 +13,13 @@ const TaskList = (() => {
 
     const [tasks, setTasks] = useState([])
 
-    const categories = new Map()
+    const [render, setRender] = useState(0)
 
-
-    const pageCount = async () => {
-        const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
+    const pageCount = () => {
         let allPages = []
-        await fetch('http://localhost:8080/api/v1/core/tasks/count', {headers})
-            .then(response => response.json()).then(respJson => setCount(respJson))
-        console.log(count/pageSize)
+        let allTasks = 0
+        tasks.map(task => task.status !== "ARCHIVED" && allTasks++)
+        setCount(allTasks)
         for (let i = 0; i < Math.ceil((count/pageSize)); i++) {
             allPages.push(i)
         }
@@ -27,39 +27,42 @@ const TaskList = (() => {
     }
 
     useEffect(async () => {
-        await pageCount()
-        await fetch("http://localhost:8080/api/v1/core/categories") // TODO change to 34.125.160.101
-            .then(response => response.json())
-            .then(respJson => respJson.map(category => categories.set(category.categoryId, category.name)))
         const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
         await fetch(`http://localhost:8080/api/v1/core/tasks?page=${currPage}&size=${pageSize}`, {headers}) // TODO change to 34.125.160.101
             .then(response => response.json())
             .then(respJson => {
+                console.log(respJson)
                 setTasks(respJson)
-                {tasks.map(task => task.status === "ARCHIVED" && setCount(count - 1))}
             })
-    }, [currPage, count])
+        pageCount()
+    }, [render, currPage])
 
 
     return (
-        <Container className={"TaskContainer"} style={{color: 'white'}}>
-            <div className={"TaskList"}>
-                {tasks.map(task => task.status !== "ARCHIVED" &&
-                    (<TaskCard key={task.id} task={task} categories={categories}/>)
-                )}
-            </div>
-            <Row className="Pagination mt-3">
-                {pages.map(page =>
-                    <Button  active={currPage === page}
-                            className={'btn-primary'}
-                            key={page}
-                            onClick={() => setCurrPage(page)}
-                    >
-                        {page+1}
-                    </Button>
-                )}
-            </Row>
-        </Container>
+        <ListContext.Provider value={setRender}>
+            <Container className={"TaskContainer"} style={{color: 'white'}}>
+                <div className={"TaskList"}>
+                    {(console.log(tasks),
+                        tasks.map(task => task.status !== "ARCHIVED" &&
+                        ( console.log(task),
+                            <TaskCard key={task.id} task={task}/>)
+                    ))}
+                </div>
+                <Row className="Pagination mt-3">
+                    {pages.map(page =>
+                        <Button  active={currPage === page}
+                                className={'btn-primary'}
+                                key={page}
+                                onClick={() => {
+                                    setCurrPage(page)
+                                }}
+                        >
+                            {page+1}
+                        </Button>
+                    )}
+                </Row>
+            </Container>
+        </ListContext.Provider>
     )
 });
 export default TaskList;

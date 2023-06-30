@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
+import {ListContext} from "./TaskList.js";
 
-const TaskCard = observer(({task} ,  {categories}) => {
+
+const TaskCard = ({task}) => {
+
+    const setRender = useContext(ListContext)
+
+    const categories = new Map()
+
+    fetch("http://localhost:8080/api/v1/core/categories") // TODO change to 34.125.160.101
+        .then(response => response.json())
+        .then(respJson => respJson.map(category => categories.set(category.categoryId, category.name)))
+
     const sendPlay = (id) =>{
         console.log(id)
         const note  = document.getElementById(id);
@@ -56,6 +67,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
             if(response.status/100<3) {
                 alert("Task archived successfully");
                 note.parentNode.removeChild(note);
+                setRender(id)
             }
             else
             {
@@ -99,6 +111,6 @@ const TaskCard = observer(({task} ,  {categories}) => {
                     </div>
                 </div>
     );
-});
+};
 
 export default TaskCard;
