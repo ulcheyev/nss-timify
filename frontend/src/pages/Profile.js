@@ -29,13 +29,13 @@ const Profile = (() => {
                         <div className={"Task"} id={task.id}>
                             <div className={"UpperLine"}>
                                 <div className={"TaskHead"}>
-                                    {task.name}
+                                    ${task.name}
                                 </div>
-                                <div>Deadline: {task.deadline ? task.deadline : "No deadline"}</div>
+                                <div>Deadline: ${task.deadline ? task.deadline : "No deadline"}</div>
                             </div>
                             <div className={"LowerLine"}>
                                 <p className={"Descritpion"}>
-                                    {task.description}
+                                    ${task.description}
                                 </p>
                             </div>
                         </div>`)
@@ -60,9 +60,8 @@ const Profile = (() => {
                         <div className={"Task"} id={user.id}>
                         <div className={"UpperLine"}>
                             <div className={"TaskHead"}>
-                                {user.name}
+                                ${user.username}
                             </div>
-                            <div></div>
                         </div>
                     </div>
                     `)
@@ -153,7 +152,7 @@ const Profile = (() => {
                             ${description}
                           </p>
                         </div>
-                        <button onClick={() => sendPlay(id)}>Unarchive</button>
+                        <button onclick={() => sendPlay(id)}>Unarchive</button>
                       </div>
                     `;
                     console.log(task);
@@ -181,7 +180,10 @@ const Profile = (() => {
                     <div className={"Statistic ArchivedTasksContainer"}>
                         <h1 style={{color: "#fea82f"}}> Your archived tasks</h1>
                     </div>
-                </Row>)}
+                </Row>)
+
+
+            }
         </div>
     );
 });

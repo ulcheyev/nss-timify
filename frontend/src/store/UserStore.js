@@ -31,10 +31,11 @@ export default class UserStore {
         this._isAuth = bool
     }
 
-    setToken(token) {
+    async setToken(token) {
         this._token = token
-        fetch(IS_ADMIN_URL + this.token)
-            .then(res => console.log(res.body.getReader()))
+        console.log(IS_ADMIN_URL + this.token)
+        await fetch(IS_ADMIN_URL + this.token)
+            .then(res => console.log(res.json().then(r => this.setIsAdmin(r.ex))))
             .catch(e => alert(e))
     }
 
