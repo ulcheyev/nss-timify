@@ -4,8 +4,8 @@ import { Context } from "../index";
 import { observer } from "mobx-react-lite";
 import { Row } from "reactstrap";
 
-const API_URL_USERS = 'http://34.125.160.101:8080/api/v1/system/users'; //TODO change to 34.125.160.101
-const API_URL_TASKS = 'http://34.125.160.101:8080/api/v1/core/tasks/all'; //TODO change to 34.125.160.101
+const API_URL_USERS = 'http://34.125.160.101:8080/api/v1/system/users';
+const API_URL_TASKS = 'http://34.125.160.101:8080/api/v1/core/tasks/all';
 
 const Profile = observer(() => {
     const { user } = useContext(Context);
@@ -28,7 +28,7 @@ const Profile = observer(() => {
                     setAllTasks(respJson);
                 });
         } else {
-            fetch(`http://34.125.160.101:8080/api/v1/core/tasks/archived?page=0&size=5`, { // TODO
+            fetch(`http://34.125.160.101:8080/api/v1/core/tasks/archived?page=0&size=5`, {
                 method: 'GET',
                 headers: {
                     "Authorization": `Bearer ${Cookies.get('jwtToken')}`,
@@ -54,7 +54,7 @@ const Profile = observer(() => {
                     setAllUsers(resJson);
                 });
         } else {
-            fetch("http://34.125.160.101:8080/api/v1/core/projects/stats") //TODO
+            fetch("http://34.125.160.101:8080/api/v1/core/projects/stats")
                 .then(response => response.json())
                 .then(respJson => {
                     setProjectStats(respJson);
@@ -64,7 +64,7 @@ const Profile = observer(() => {
 
     const sendPlay = (id) =>{
         const note  = document.getElementById(id);
-        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/start-task`, { //TODO
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/start-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
@@ -82,7 +82,7 @@ const Profile = observer(() => {
                     <div className="Statistic Users">
                         <h1 style={{ color: "#fea82f" }}>All Users</h1>
                         {allUsers.map(user => (
-                            <div className="Task" key={user.id}>
+                            <div className="Task archived" key={user.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{user.username}</div>
                                 </div>
@@ -117,7 +117,7 @@ const Profile = observer(() => {
                     <div className="Statistic ArchivedTasksContainer">
                         <h1 style={{ color: "#fea82f" }}>Your archived tasks</h1>
                         {archivedTasks.map(task => (
-                            <div className="Task" key={task.id}>
+                            <div className="Task archived" key={task.id}>
                                 <div className="UpperLine">
                                     <div className="TaskHead">{task.name}</div>
                                     <div>Deadline: {task.deadline ? task.deadline : "No deadline"}</div>

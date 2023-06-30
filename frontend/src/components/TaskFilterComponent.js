@@ -43,7 +43,7 @@ class TaskFilterComponent extends TaskList
         const projectId = document.getElementById('projectSelect').value
         const container = document.getElementsByClassName("TaskContainer")[0]
         container.innerHTML = ""
-        fetch(`http://34.125.160.101:8080/api/v1/core/projects/${projectId}/tasks`) // TODO
+        fetch(`http://34.125.160.101:8080/api/v1/core/projects/${projectId}/tasks`)
             .then(response => response.json())
             .then(respJson => respJson.map(task =>
             container.innerHTML+= this.taskToHTML(task)))
@@ -51,10 +51,10 @@ class TaskFilterComponent extends TaskList
 
     componentDidMount() {
         const select = document.getElementById('projectSelect')
-        fetch("http://34.125.160.101:8080/api/v1/core/categories") //TODO
+        fetch("http://34.125.160.101:8080/api/v1/core/categories")
             .then(response => response.json())
             .then(respJson => respJson.map(category => this.state.categories.set(category.id, category.name)))
-        fetch(`http://34.125.160.101:8080/api/v1/core/projects`) // TODO
+        fetch(`http://34.125.160.101:8080/api/v1/core/projects`)
             .then(response => response.json())
             .then(respJson => respJson.map(project => select.innerHTML += (`<option value=${project.id}>${project.name}</option>`)))
     }

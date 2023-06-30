@@ -1,24 +1,29 @@
 import React, {useEffect, useState} from "react";
 import TaskCard from "./TaskCard";
 import Cookies from 'js-cookie';
-import {Button, Container, Pagination, Row} from "reactstrap";
+import {Button, Container, Row} from "reactstrap";
+import {observer} from "mobx-react-lite";
 
-const TaskList = (() => {
-    const [count, setCount] = useState(0)
+export const ListContext = React.createContext(null)
+
+const TaskList = observer(() => {
+    let count= 0
     const pageSize = 5;
     const [pages, setPages] = useState([])
     const [currPage, setCurrPage] = useState(0);
 
     const [tasks, setTasks] = useState([])
 
+    const [render, setRender] = useState(0)
+
     const categories = new Map()
 
 
     const pageCount = async () => {
-        const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
         let allPages = []
-        await fetch('http://34.125.160.101:8080/api/v1/core/tasks/count', {headers}) //TODO
-            .then(response => response.json()).then(respJson => setCount(respJson))
+        const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
+        await fetch('http://34.125.160.101:8080/api/v1/core/tasks/count', {headers})
+            .then(response => response.json()).then(respJson => count = respJson)
         for (let i = 0; i < Math.ceil((count/pageSize)); i++) {
             allPages.push(i)
         }
@@ -27,17 +32,16 @@ const TaskList = (() => {
 
     useEffect(async () => {
         await pageCount()
-        await fetch("http://34.125.160.101:8080/api/v1/core/categories") // TODO change to 34.125.160.101
+        await fetch("http://34.125.160.101:8080/api/v1/core/categories")
             .then(response => response.json())
             .then(respJson => respJson.map(category => categories.set(category.categoryId, category.name)))
         const headers = {Authorization: 'Bearer ' + Cookies.get('jwtToken')};
-        await fetch(`http://34.125.160.101:8080/api/v1/core/tasks?page=${currPage}&size=${pageSize}`, {headers}) // TODO change to 34.125.160.101
+        await fetch(`http://34.125.160.101:8080/api/v1/core/tasks?page=${currPage}&size=${pageSize}`, {headers})
             .then(response => response.json())
             .then(respJson => {
                 setTasks(respJson)
-                {tasks.map(task => task.status === "ARCHIVED" && setCount(count - 1))}
             })
-    }, [currPage, count])
+    }, [render, currPage])
 
 
     return (

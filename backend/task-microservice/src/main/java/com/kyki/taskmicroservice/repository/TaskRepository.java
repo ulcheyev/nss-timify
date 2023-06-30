@@ -15,11 +15,11 @@ public interface TaskRepository extends JpaRepository<Task, Long>
 {
     @NonNull Optional<Task> findById(@NonNull @Param("id") Long id);
 
-    List<Task> findTaskByOwnerAndStatusIn(@Param("pageable") Pageable pageable, @NonNull @Param("owner") String owner, List<Status> statusList);
+    List<Task> findTaskByOwnerAndStatusIn(@Param("pageable") Pageable pageable, @NonNull @Param("owner") String owner, @Param("statusList")  List<Status> statusList);
 
     List<Task> findAllByNameLike(@Param("name")  String name);
 
-    @Query("SELECT COUNT(t) FROM Task t WHERE t.owner=?1 AND t.status = 'ACTIVE'")
+    @Query("SELECT COUNT(t) FROM Task t WHERE t.owner=?1 AND (t.status = 'ACTIVE' OR t.status = 'PLANNEND')")
     Long getTasksCountByUsername(@Param("username") String username);
 
 }

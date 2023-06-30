@@ -1,11 +1,13 @@
-import {Component, useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Button} from "reactstrap";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
+import {TodoContext} from "../pages/ToDo";
 
 const AddToProjectForm = observer(() =>{
 
     const {user} = useContext(Context)
+    const setUpdate = useContext(TodoContext)
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [target, setTarget] = useState('');
@@ -15,7 +17,7 @@ const AddToProjectForm = observer(() =>{
     useEffect (() => {
         const select = document.getElementById('projectSelect')
         const categories = document.getElementById("categoriesSelect")
-        fetch("http://34.125.160.101:8080/api/v1/core/projects") // TODO
+        fetch("http://34.125.160.101:8080/api/v1/core/projects")
             .then(response => response.json())
             .then(respJson => {respJson.map(project =>
             {
@@ -24,7 +26,7 @@ const AddToProjectForm = observer(() =>{
             }); setProjectSelect(respJson)
             });
 
-        fetch("http://34.125.160.101:8080/api/v1/core/categories") // TODO
+        fetch("http://34.125.160.101:8080/api/v1/core/categories")
             .then(response => response.json())
             .then(respJson => {respJson.map(category =>
             {
@@ -51,7 +53,7 @@ const AddToProjectForm = observer(() =>{
             }
             `)
 
-        fetch(`http://34.125.160.101:8080/api/v1/core/tasks`, { //TODO change url
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: `
@@ -67,6 +69,7 @@ const AddToProjectForm = observer(() =>{
         }).then(response => {
             if(response.status/100<3) {
                 alert("Task added successfully");
+                setUpdate(response.status)
             }
             else
             {

@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {observer} from "mobx-react-lite";
+import {ListContext} from "./TaskList.js";
 
-const TaskCard = observer(({task} ,  {categories}) => {
+
+const TaskCard = ({task}, {categories}) => {
+
+    const setRender = useContext(ListContext)
+
+
+
     const sendPlay = (id) =>{
         const note  = document.getElementById(id);
         const stopButton = document.getElementById(id).children[1].children[1].children[0];
         const startButton = document.getElementById(id).children[1].children[1].children[1];
-        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/start-task`, { // TODO
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/start-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
@@ -24,7 +31,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
         const note  = document.getElementById(id);
         const stopButton = document.getElementById(id).children[1].children[1].children[0];
         const startButton = document.getElementById(id).children[1].children[1].children[1];
-        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/stop-task`, { //TODO
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/stop-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
@@ -45,7 +52,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
     const sendArchive = (id) =>
     {
         const note  = document.getElementById(id);
-        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/archive-task`, { //TODO
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks/archive-task`, {
             method: "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: `${id}`
@@ -53,6 +60,7 @@ const TaskCard = observer(({task} ,  {categories}) => {
             if(response.status/100<3) {
                 alert("Task archived successfully");
                 note.parentNode.removeChild(note);
+                setRender(id)
             }
             else
             {
@@ -77,8 +85,8 @@ const TaskCard = observer(({task} ,  {categories}) => {
                         <div className = {"ButtonContainer"}>
 
                             <button className={`StopButton${(task.status !== "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendStop(task.id)}>Stop</button>
-                            <button className={`StartButton${(task.status === "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendPlay(task.id)}>Play</button>
-                            <button className={`ArchiveButton`} onClick={() => sendArchive(task.id)}>Archive</button>
+                            <button className={`StartButton${(task.status ===  "ACTIVE" ? " Hidden" : "")}`} onClick={() => sendPlay(task.id)}>Play</button>
+                            <button className={`ArchiveButton ${(task.status === "ARCHIVED" ? " Hidden" : "")}`} onClick={() => sendArchive(task.id)}>Archive</button>
 
                         </div>
                         <div className={"Categories"}>
@@ -96,6 +104,6 @@ const TaskCard = observer(({task} ,  {categories}) => {
                     </div>
                 </div>
     );
-});
+};
 
 export default TaskCard;

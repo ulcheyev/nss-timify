@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {observer} from "mobx-react-lite";
 import {Button, Col, Container} from "reactstrap";
 import TaskList from "../components/TaskList";
 import AddForm from "../components/AddForm";
 
+export const TodoContext = React.createContext(null)
+
 const ToDo = observer(()=> {
 
+    const [update, setUpdate] = useState(0)
 
     useEffect( () => {
         const btn = document.getElementById("formToggler")
@@ -27,19 +30,20 @@ const ToDo = observer(()=> {
     }
 
     return (
-        <Container className={'Main flex-row'}>
-            <h1 style={{color: "#fea82f"}}>Your Tasks</h1>
-            <Col>
-                <Button id = "formToggler" className={'btn-primary'}>
-                    Add Task
-                </Button>
-                <div id = "addFormContainer" className={"Hidden"}>
-                    <AddForm/>
-                </div>
-                <TaskList/>
-            </Col>
-        </Container>
-
+        <TodoContext.Provider value={setUpdate}>
+            <Container className={'Main flex-row'}>
+                <h1 style={{color: "#fea82f"}}>Your Tasks</h1>
+                <Col>
+                    <Button id = "formToggler" className={'btn-primary'}>
+                        Add Task
+                    </Button>
+                    <div id = "addFormContainer" className={"Hidden"}>
+                        <AddForm/>
+                    </div>
+                    <TaskList/>
+                </Col>
+            </Container>
+        </TodoContext.Provider>
     );
 });
 
