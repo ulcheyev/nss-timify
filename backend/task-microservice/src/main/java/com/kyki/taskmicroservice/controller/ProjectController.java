@@ -1,6 +1,7 @@
 package com.kyki.taskmicroservice.controller;
 
 import com.kyki.taskmicroservice.dto.ProjectDto;
+import com.kyki.taskmicroservice.dto.ProjectTimeDto;
 import com.kyki.taskmicroservice.dto.TaskDto;
 import com.kyki.taskmicroservice.model.Project;
 import com.kyki.taskmicroservice.service.ProjectService;
@@ -77,5 +78,11 @@ public class ProjectController {
     {
         projectService.removeTask(id, taskId);
         return new ResponseEntity<>("Task removed successfully", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/stats")
+    public List<ProjectTimeDto> getStats()
+    {
+        return projectService.getProjectStats();
     }
 }

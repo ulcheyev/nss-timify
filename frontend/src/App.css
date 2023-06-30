@@ -20,7 +20,7 @@
   background: linear-gradient(to right,
   rgb(255, 146, 91),
   rgb(255, 195, 110));
-  color: #fff;
+  color: #F0F0F0FF;
   padding: 0.25rem;
   position: relative;
   margin-top: 0;
@@ -32,18 +32,18 @@
 
 body {
   height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(240, 240, 240);
 }
 
 #root{
   height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
 }
 
 header {
@@ -77,6 +77,15 @@ nav {
   color: green;
 }
 
+.Statistic{
+  max-width: 40vw;
+  border: #fea82f 0.5vh solid;
+  min-height: 80vh;
+  border-radius: 5vh;
+  margin: auto;
+  margin-top: 2vh;
+}
+
 .title {
   font-weight: 400;
   letter-spacing: 2px;
@@ -92,7 +101,7 @@ nav {
 .auth-container {
   height: 660px;
   width: 500px;
-  background-color: white;
+  background-color: #f5fcfd;
   box-shadow: 8px 8px 20px rgb(128, 128, 128);
   position: relative;
   overflow: hidden;
@@ -209,40 +218,57 @@ nav {
   cursor: pointer;
 }
 
+.Main{
+  background-color: #f5fcfd;
+  min-height: 90vh;
+  box-shadow: 8px 8px 20px rgb(128, 128, 128);
+}
 
 .TaskContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #FFFFFF;
   color: black;
-  width: 800px;
+  max-width: 70vw;
 }
 
 .Task {
   background-color: #FEA82F;
   border-radius: 8px;
-  width: 80%;
+  padding: 1vh;
+  margin: 1vw;
+  width: 65vw;
+}
+
+.Task button{
+  padding: revert;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #F0F0F0FF;
+  color: #F0F0F0FF;
+  background-color: #fea82f;
 
 }
 
-.TaskHead{
+.TaskList{
+  height: max-content;
+}
 
-
+.Pagination {
+  position: relative;
+  bottom: 0;
 }
 
 .UpperLine{
   display: flex;
   justify-content: space-between;
-  padding: 0 5px;
   font-weight: bold;
 }
 
 .LowerLine{
   display: flex;
   justify-content: space-between;
-  padding: 0 5px;
 }
 
 .Description{

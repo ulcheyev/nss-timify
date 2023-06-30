@@ -5,6 +5,8 @@ import jakarta.transaction.Transactional;
 import lombok.NonNull;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 @Service
@@ -12,6 +14,7 @@ public interface TaskService
 {
     List<TaskDto> findAll(int page, int size);
 
+    public List<TaskDto> findAllByUsernameArchived(int page, int size, @NonNull String username);
     public List<TaskDto> findAllByUsername(@NonNull int page, @NonNull int size, @NonNull String username);
 
     TaskDto findTaskDtoById(@NonNull Long id);
@@ -41,5 +44,5 @@ public interface TaskService
 
     List<TaskDto> findByName(String name);
 
-    Integer getTasksCount(String token);
+    Long getTasksCount(String token);
 }

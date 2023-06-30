@@ -6,6 +6,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDto {
-    private Long id;
+@Builder
+public class IsExistsResponse {
+    Boolean ex;
 }

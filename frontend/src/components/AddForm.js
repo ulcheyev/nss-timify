@@ -1,61 +1,69 @@
-import {Component} from "react";
+import {Component, useContext, useEffect, useState} from "react";
 import {Button} from "reactstrap";
+import {observer} from "mobx-react-lite";
+import {Context} from "../index";
 
-class AddToProjectForm extends Component
-{
+const AddToProjectForm = observer(() =>{
 
+    const {user} = useContext(Context)
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [target, setTarget] = useState('');
+    const [projectSelect, setProjectSelect] = useState('');
+    const [categoriesSelect, setCategoriesSelect] = useState('');
 
-    componentDidMount() {
+    useEffect (() => {
         const select = document.getElementById('projectSelect')
         const categories = document.getElementById("categoriesSelect")
         fetch("http://localhost:8080/api/v1/core/projects")
             .then(response => response.json())
-            .then(respJson => respJson.map(project =>
+            .then(respJson => {respJson.map(project =>
             {
-                this.state.projects.set(project.id, project.name)
-                select.innerHTML += (`<option value=${project.id}>${project.name}</option>`)
-            }))
+                state.projects.set(project.id, project.name)
+                select.innerHTML += (`<option value={project.id}>${project.name}</option>`)
+            }); setProjectSelect(respJson)
+            });
 
         fetch("http://localhost:8080/api/v1/core/categories")
             .then(response => response.json())
-            .then(respJson => respJson.map(category =>
+            .then(respJson => {respJson.map(category =>
             {
-                categories.innerHTML += (`<option value=${category.categoryId}>${category.name}</option>`)
-            }))
-    }
+                //this.state.categories.set(project.id, project.name)
+                categories.innerHTML += (`<option value={category.categoryId}>${category.name}</option>`)
+            });
+            setCategoriesSelect(respJson)});
+    }, [])
 
-    state = {
+    const state = {
         projects:new Map()
     }
-    sendData(e)
+    const sendData= (e) =>
     {
         e.preventDefault();
-        const name = document.getElementById('name').value;
-        const description = document.getElementById('description').value;
-        const datetime = document.getElementById('target_time').value;
-        const option = document.getElementById("projectSelect").value;
-        const category = document.getElementById("categoriesSelect").value;
         console.log(`
             {
             "description":"${description}",
             "name":"${name}",
-            "deadline":"${datetime}",
-            "projectId":"${option}",
-            "categoryDtoList":[{"id":${category}}],
-            "user":"test"
+            "deadline":"${target}",
+            "projectId":"${projectSelect[0].id}",
+            "categoryDtoList":[${categoriesSelect[0].categoryId}],
+            "user":${user.username}
             }
             `)
-        fetch(`http://localhost:8080/api/v1/core/tasks`, { //TODO change url
+        console.log(projectSelect)
+        console.log(categoriesSelect)
+
+        fetch(`http://34.125.160.101:8080/api/v1/core/tasks`, { //TODO change url
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: `
             {
             "description":"${description}",
             "name":"${name}",
-            "deadline":"${datetime}",
-            "projectId":"${option}",
-            "categoryDtoList":[{"id":${category}}],
-            "user":"test"
+            "deadline":"${target}",
+            "projectId":"${projectSelect[0].id}",
+            "categoryDtoList":[{"id" : "${categoriesSelect[0].categoryId}"}],
+            "user":"${user.username}"
             }
             `
         }).then(response => {
@@ -69,32 +77,29 @@ class AddToProjectForm extends Component
         })
             .catch(e => alert(e))
     }
-    render()
-    {
         return(
         <form className={"AddTaskForm"}>
             <div className={'new-todo-form'}>
                 <div>
-                    <input name={"name"} placeholder={'Name'} id = {'name'}/>
-                    <input name={"description"} placeholder={'Description'} id = {'description'}/>
+                    <input name={"name"} placeholder={'Name'} id = {'name'}  onChange={(e) => setName(e.target.value)}/>
+                    <input name={"description"} placeholder={'Description'} id = {'description'}  onChange={(e) => setDescription(e.target.value)}/>
                 </div>
                 <div>
                     <label htmlFor={'target_time'}>Deadline</label>
-                    <input type={"datetime-local"} id = {'target_time'}/>
+                    <input type={"datetime-local"} id = {'target_time'}  onChange={(e) => setTarget(e.target.value)}/>
                 </div>
                 <div className={'new-todo-selectors'}>
                     <span>Choose project:</span>
-                    <select id = "projectSelect"></select>
+                    <select id = "projectSelect"  onChange={(e) => setProjectSelect(e.target.value.id)}></select>
 
                     <span>Choose main category:</span>
-                    <select id = "categoriesSelect"></select>
+                    <select id = "categoriesSelect"  onChange={(e) => setCategoriesSelect(e.target.value)}></select>
                 </div>
                 <div>
-                    <Button className={'btn-primary'} type = {"submit"} onClick={this.sendData}> Submit</Button>
+                    <Button className={'btn-primary'} type = {"submit"} onClick={sendData}> Submit</Button>
                 </div>
             </div>
         </form>)
-    }
-}
+});
 
 export default AddToProjectForm

@@ -64,6 +64,7 @@ const Auth = () => {
                 console.log(res.data)
                 setSuccess(true)
                 user.setUser(user)
+                user.setUsername(username)
                 user.setIsAuth(true)
                 user.setToken(res.data.token)
                 history.push(TODO_ROUTE)
@@ -82,6 +83,7 @@ const Auth = () => {
                 let data = res.data.token;
                 setSuccess(true)
                 user.setUser(user)
+                user.setUsername(username)
                 user.setIsAuth(true)
                 user.setToken(res.data.token)
                 Cookies.set('jwtToken', data, { path: '/' });

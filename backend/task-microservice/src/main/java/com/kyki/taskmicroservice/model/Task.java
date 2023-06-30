@@ -8,7 +8,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.time.Period;
+import java.time.Duration;
 import java.util.List;
 
 @Getter
@@ -36,7 +36,7 @@ public class Task {
     private OffsetDateTime deadline;
     @Column
     @NonNull
-    private Period timeSpent;
+    private Duration timeSpent;
 
     @OneToMany
     private List<Task> subtasks;
@@ -70,9 +70,10 @@ public class Task {
     {
         status = Status.STOPPED;
         System.out.println("Stopped task" + taskId.toString());
-        if (timeSpent == null) timeSpent=Period.ZERO;
+        if (timeSpent == null) timeSpent=Duration.ZERO;
         System.out.println(timeSpent);
-        timeSpent.plus(Period.between(startTime.toLocalDate(),OffsetDateTime.now().toLocalDate()));
+        Duration dur = Duration.between(startTime,OffsetDateTime.now());
+        timeSpent = timeSpent.plus(dur);
     }
 
 
